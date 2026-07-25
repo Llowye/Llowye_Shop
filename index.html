@@ -244,10 +244,11 @@
 }
   .price-row .price{display:block; text-align:left;}
   .price-group{
+  position:relative;
   margin-bottom:0;
   background:#FFF9E0;
   border-radius:12px;
-  padding:8px 6px;
+  padding:16px 6px 8px;
   text-align:center;
 }
   .price-grid{
@@ -255,9 +256,15 @@
 }
   .price-group:last-child{margin-bottom:0;}
   .plabel{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
   display:block; font-size:10px; font-weight:800; color:var(--ink);
-  background:#D6ECFB; padding:3px 10px; border-radius:6px;
-  margin:0 auto 5px; width:fit-content;
+  background:#D6ECFB; padding:4px 12px; border-radius:8px;
+  width:max-content;
+  box-shadow:0 2px 4px rgba(0,0,0,0.15);
+  border:2px solid #fff;
 }
   .pval{display:block; font-size:11.5px; font-weight:700; color:var(--pink); margin-top:2px; text-align:center;}
   .price-row .from{font-size:10px; color:var(--muted); display:block;}
