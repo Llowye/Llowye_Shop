@@ -75,14 +75,6 @@
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.15); }
 }
-  @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.12); }
-}
-.pulse-text {
-  display: inline-block;
-  animation: heartbeat 1s ease-in-out infinite;
-}
   #musicBtn{
   transition: transform .08s ease, box-shadow .08s ease;
 }
@@ -829,7 +821,7 @@ function renderSections(activeCat){
             <div class="price-row">
               <div><span class="price">${p.price}</span></div>
             </div>
-            <a class="order-btn" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}"><span class="pulse-text">Info Selengkapnya</span></a>
+            <a class="order-btn btn-3d" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>
           </div>
         `).join('')}
       </div>
