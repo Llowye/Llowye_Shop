@@ -298,22 +298,22 @@
 .btn-3d {
   border: none;
   border-radius: 999px;
-  box-shadow: 0 6px 0 rgba(0,0,0,0.18), 0 8px 14px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 8px 14px rgba(0,0,0,0.12);
   transform: translateY(0) scale(1);
   transition: transform 0.12s cubic-bezier(.25,.8,.25,1), box-shadow 0.12s cubic-bezier(.25,.8,.25,1);
   cursor: pointer;
 }
 .btn-3d:hover {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 7px 0 rgba(0,0,0,0.18), 0 10px 16px rgba(0,0,0,0.14);
+  box-shadow: 0 7px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 10px 16px rgba(0,0,0,0.14);
 }
 .btn-3d:active {
   transform: translateY(6px) scale(0.98);
-  box-shadow: 0 0px 0 rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.12);
+  box-shadow: 0 0px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 1px 3px rgba(0,0,0,0.12);
 }
-  .btn-3d.tapped {
+.btn-3d.tapped {
   transform: translateY(6px) scale(0.98);
-  box-shadow: 0 0px 0 rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.12);
+  box-shadow: 0 0px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 1px 3px rgba(0,0,0,0.12);
 }
 </style>
 </head>
@@ -354,7 +354,7 @@
   <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; z-index:2;"></div>
   <div class="bubble" style="margin-top:-20px;">Klik <span style="background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;">info selengkapnya</span><br>supaya tau perbedaan<br>paket tiap akun ya...</div>
 </div>
-<a class="btn-3d" href="https://wa.me/628991740111?text=Halo%20Nek%20Llowye%21%20Aku%20mau%20order%20dong%20%5E%E2%80%BF%5E" target="_blank" onclick="this.classList.add('tapped'); setTimeout(()=>this.classList.remove('tapped'), 150);" style="display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:10px 14px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; width:100%; margin-top:2px;">
+<a class="btn-3d" href="https://wa.me/628991740111?text=Halo%20Nek%20Llowye%21%20Aku%20mau%20order%20dong%20%5E%E2%80%BF%5E" target="_blank" onclick="this.classList.add('tapped'); setTimeout(()=>this.classList.remove('tapped'), 150);" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:10px 14px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; width:100%; margin-top:2px;">
   <img src="logowa.png" style="width:25px; height:25px; animation: ringPhone 0.8s ease-in-out infinite;"> Order via WhatsApp
 </a>
 </div>
@@ -821,7 +821,7 @@ function renderSections(activeCat){
             <div class="price-row">
               <div><span class="price">${p.price}</span></div>
             </div>
-            <a class="order-btn btn-3d" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>
+            <a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>
           </div>
         `).join('')}
       </div>
