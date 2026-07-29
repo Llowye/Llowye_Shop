@@ -291,7 +291,54 @@
     font-size:12px; font-weight:700;
   }
   .foot-info div{display:flex; align-items:center; gap:5px;}
+  
+/* ---------- TESTIMONI ---------- */
+.testi-section{
+  padding:28px 20px 10px;
+}
+.testi-title{
+  text-align:center; margin-bottom:6px;
+}
+.testi-title h2{font-size:19px; font-weight:700;}
+.testi-title p{font-size:12.5px; color:var(--muted); margin-top:4px;}
 
+.testi-stats{
+  display:flex; justify-content:center; gap:22px;
+  margin:16px 0 20px;
+}
+.testi-stat{text-align:center;}
+.testi-stat b{display:block; font-size:20px; font-weight:800; color:var(--purple);}
+.testi-stat span{font-size:11px; color:var(--muted); font-weight:700;}
+
+.testi-scroll{
+  display:flex; gap:12px; overflow-x:auto;
+  padding:4px 20px 14px;
+  -webkit-overflow-scrolling:touch;
+}
+.testi-scroll::-webkit-scrollbar{display:none;}
+
+.testi-bubble{
+  flex:0 0 240px;
+  background:#DCF8C6;
+  border-radius:14px 14px 14px 2px;
+  padding:12px 14px;
+  position:relative;
+  box-shadow:0 3px 10px rgba(38,36,59,0.08);
+}
+.testi-bubble .testi-head{
+  display:flex; align-items:center; gap:8px; margin-bottom:6px;
+}
+.testi-avatar{
+  width:30px; height:30px; border-radius:50%;
+  background:var(--purple); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:13px; flex-shrink:0;
+}
+.testi-name{font-size:13px; font-weight:700; color:var(--ink);}
+.testi-stars{font-size:11px; color:#FFB800; margin-left:auto;}
+.testi-text{font-size:12.5px; color:#3A3A3A; line-height:1.5;}
+.testi-time{font-size:10px; color:#6B8F6B; text-align:right; margin-top:6px;}
+  
   @media(min-width:640px){
     .wordmark{font-size:56px;}
   }
@@ -368,6 +415,100 @@
 </div>
 
 <main id="catSections"></main>
+  <section class="testi-section">
+  <div class="testi-title">
+    <h2>💬 Kata Mereka yang Udah Order</h2>
+    <p>Testimoni asli dari pelanggan Llowye Shop</p>
+  </div>
+
+  <div class="testi-stats">
+    <div class="testi-stat"><b>1.200+</b><span>Transaksi Selesai</span></div>
+    <div class="testi-stat"><b>4.9★</b><span>Rating Pelanggan</span></div>
+    <div class="testi-stat"><b>&lt;5 mnt</b><span>Respon Chat</span></div>
+  </div>
+
+  <div class="testi-scroll">
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">R</div>
+        <span class="testi-name">Rafi_</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Order Netflix private, prosesnya cepet banget kelar dalam 5 menit. Recommended!</div>
+      <div class="testi-time">Kemarin, 20:14</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">D</div>
+        <span class="testi-name">Dinda A.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Udah langganan CapCut Pro 3 bulan disini, garansi diganti pas ada masalah. Puas!</div>
+      <div class="testi-time">2 hari lalu</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">M</div>
+        <span class="testi-name">M. Ilham</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Harga Spotify family paling murah yang aku temuin, kualitas oke nggak putus-putus.</div>
+      <div class="testi-time">3 hari lalu</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">S</div>
+        <span class="testi-name">Sarah W.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Admin fast respon banget, ditanya jam 9 malam masih dibales cepet. Recommended seller.</div>
+      <div class="testi-time">5 hari lalu</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">B</div>
+        <span class="testi-name">Bagas P.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Canva Pro lifetime beneran lifetime, udah 6 bulan masih aktif normal. Worth it banget!</div>
+      <div class="testi-time">1 minggu lalu</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">A</div>
+        <span class="testi-name">Anisa F.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">ChatGPT Plus sharing disini aman, limit gak dibatesin, akun juga gak pernah log out sendiri.</div>
+      <div class="testi-time">1 minggu lalu</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">Y</div>
+        <span class="testi-name">Yoga S.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Disney+ buat nonton bola, kualitas gambar jernih. Bakal langganan lagi bulan depan.</div>
+      <div class="testi-time">2 minggu lalu</div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">N</div>
+        <span class="testi-name">Nabila R.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Scribd buat baca ebook kuliah murah meriah, akses lancar di HP maupun laptop.</div>
+      <div class="testi-time">2 minggu lalu</div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="pay-strip" style="align-items:center;">
