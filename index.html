@@ -281,18 +281,39 @@
   font-weight:700; font-size:13px; padding:9px 0; border-radius:999px;
 }
 .steps-section{
-  padding:28px 20px 10px;
+  padding:20px 20px 10px;
 }
 .steps-title{
-  text-align:center; margin-bottom:20px;
+  text-align:center; margin-bottom:14px;
 }
-.steps-title h2{font-size:19px; font-weight:700;}
-.steps-title p{font-size:12.5px; color:var(--muted); margin-top:4px;}
+.steps-title h2{font-size:18px; font-weight:700;}
+.steps-title p{font-size:12px; color:var(--muted); margin-top:4px;}
+.steps-toggle{
+  margin:12px auto 0;
+  display:flex; align-items:center; gap:5px;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:12.5px;
+  padding:8px 18px; border-radius:999px;
+  font-family:'Quicksand', sans-serif;
+  cursor:pointer;
+}
+#stepsArrow{transition:transform .25s ease; display:inline-block;}
+.steps-toggle.open #stepsArrow{transform:rotate(180deg);}
+
+.steps-grid-wrap{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+.steps-grid-wrap.open{
+  max-height:700px;
+}
 
 .steps-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:14px;
+  padding-top:16px;
 }
 .step-card{
   background:var(--card);
@@ -464,31 +485,36 @@
   <div class="steps-title">
     <h2>🛒 Cara Order</h2>
     <p>Gampang banget, tinggal 4 langkah</p>
+    <button class="steps-toggle" id="stepsToggle" onclick="toggleSteps()">
+      Lihat caranya <span id="stepsArrow">▾</span>
+    </button>
   </div>
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-icon">🔍</div>
-      <h3>Pilih Produk</h3>
-      <p>Cari & pilih aplikasi yang kamu mau di atas</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-icon">💬</div>
-      <h3>Chat WhatsApp</h3>
-      <p>Klik "Order via WhatsApp" atau "Info Selengkapnya"</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-icon">💸</div>
-      <h3>Bayar</h3>
-      <p>Transfer via QRIS, DANA, GoPay, Seabank, atau ShopeePay</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <div class="step-icon">✅</div>
-      <h3>Akun Dikirim</h3>
-      <p>Akun langsung dikirim, siap dipakai dalam &lt;5 menit</p>
+  <div class="steps-grid-wrap" id="stepsWrap">
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon">🔍</div>
+        <h3>Pilih Produk</h3>
+        <p>Cari & pilih aplikasi yang kamu mau di atas</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon">💬</div>
+        <h3>Chat WhatsApp</h3>
+        <p>Klik "Order via WhatsApp" atau "Info Selengkapnya"</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon">💸</div>
+        <h3>Bayar</h3>
+        <p>Transfer via QRIS, DANA, GoPay, Seabank, atau ShopeePay</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-icon">✅</div>
+        <h3>Akun Dikirim</h3>
+        <p>Akun langsung dikirim, siap dipakai dalam &lt;5 menit</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1213,6 +1239,12 @@ function playClickSound(){
     osc.start();
     osc.stop(ctx.currentTime + 0.08);
   }catch(e){}
+}
+  function toggleSteps(){
+  const wrap = document.getElementById('stepsWrap');
+  const btn = document.getElementById('stepsToggle');
+  wrap.classList.toggle('open');
+  btn.classList.toggle('open');
 }
 
 function toggleMusic(){
