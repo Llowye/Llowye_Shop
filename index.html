@@ -468,9 +468,14 @@
   <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; z-index:2;"></div>
   <div class="bubble" style="margin-top:-20px;">Klik <span style="background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;">info selengkapnya</span><br>supaya tau perbedaan<br>paket tiap akun ya...</div>
 </div>
-<a class="btn-3d" href="https://wa.me/628991740111?text=..." target="_blank" onclick="..." style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:10px 14px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; width:100%; margin-top:2px;">
-  <img src="logowa.png" style="width:25px; height:25px; animation: ringPhone 0.8s ease-in-out infinite;"> Order via WhatsApp
-</a>
+<div style="display:flex; gap:10px; width:100%; margin-top:2px;">
+  <a class="btn-3d" href="https://wa.me/628991740111?text=..." target="_blank" onclick="..." style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
+    <img src="logowa.png" style="width:22px; height:22px; animation: ringPhone 0.8s ease-in-out infinite;"> WhatsApp
+  </a>
+  <a class="btn-3d" href="#caraOrderSection" onclick="scrollToSteps(event)" style="--shadow-color:#D6C24A; display:flex; align-items:center; justify-content:center; gap:6px; background:#FFF0A1; color:#6B4E00; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
+    🛒 Cara Order
+  </a>
+</div>
 </div>
 </section>
 
@@ -481,7 +486,7 @@
   <span>❌ Akun <span style="color:#000000;">Non official</span> (sharing/modified) ❌ </span>
 </div>
   
-<section class="steps-section">
+<section class="steps-section" id="caraOrderSection">
   <div class="steps-title">
     <h2>🛒 Cara Order</h2>
     <p>Gampang banget, cuma 4 langkah</p>
@@ -1246,7 +1251,16 @@ function playClickSound(){
   wrap.classList.toggle('open');
   btn.classList.toggle('open');
 }
-
+function scrollToSteps(e){
+  e.preventDefault();
+  const wrap = document.getElementById('stepsWrap');
+  const btn = document.getElementById('stepsToggle');
+  if(!wrap.classList.contains('open')){
+    wrap.classList.add('open');
+    btn.classList.add('open');
+  }
+  document.getElementById('caraOrderSection').scrollIntoView({behavior:'smooth'});
+}
 function toggleMusic(){
   playClickSound();
   const btn = document.getElementById('musicBtn');
