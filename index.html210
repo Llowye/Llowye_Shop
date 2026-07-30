@@ -242,13 +242,14 @@
   }
   .product-card p.desc{font-size:12.5px; color:var(--muted); margin-bottom:10px; line-height:1.4;}
   .price-row{
-    display:flex;
-    flex-direction:column;
-    flex:1;
-    margin-bottom:10px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  margin-bottom:10px;
 }
   .price-row > div{display:flex; flex:1;}
   .price-row .price{display:flex; flex:1; text-align:left;}
+  .price-group{
   position:relative;
   margin-bottom:0;
   background:#FFF9E0;
