@@ -258,6 +258,10 @@
   display:grid; grid-template-columns:1fr 1fr; gap:22px 12px;
   margin-top:16px;
 }  
+  .price-grid:has(> .price-group:only-child){
+  display:flex;
+  justify-content:center;
+}
   .price-group:last-child{margin-bottom:0;}
   .plabel{
   position:absolute;
