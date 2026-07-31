@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <style>
   .snk-panel{
   position:fixed;
   top:0; right:0;
@@ -42,7 +43,7 @@
 }
 .snk-item h3{font-size:14px; margin-bottom:6px;}
 .snk-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
-<style>
+  
   /* ============ EDIT AREA (warna & nomor WA) ============ */
  :root{
     --pink:#FF6FA5;
@@ -1209,7 +1210,7 @@ function showSuggestions(){
 
   const suggested = products.slice(0, 6); // produk yang ditampilin sebagai rekomendasi
   resultsBox.innerHTML =
-    `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi buat kamu 😈</div>` +
+    `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi buat kamu</div>` +
     suggested.map(renderResultItem).join('');
 }
 
