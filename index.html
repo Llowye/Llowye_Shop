@@ -41,6 +41,21 @@
   padding:10px 12px; border-radius:999px;
   cursor:pointer; font-family:'Quicksand', sans-serif;
 }
+    <div class="cara-panel" id="caraPanel">
+  <button class="snk-back" onclick="toggleCaraOrder()">← Kembali</button>
+  <h2>🛒 Cara Order</h2>
+  <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Gampang banget, cuma 4 langkah</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-icon">🔍</div>
+      <h3>Pilih & baca ketentuan produk</h3>
+      <p>Cari aplikasi yang kamu mau</p>
+    </div>
+    <!-- step 2, 3, 4 nyusul di sini -->
+  </div>
+</div>
+    
   .snk-panel{
   position:fixed;
   top:0; right:0;
@@ -182,33 +197,6 @@
     background:#E3F7FC; padding:10px 16px;
     font-size:11px; font-weight:800; color:var(--pink);
   }
-    <div class="menu-btn-row">
-  <div class="menu-btn" onclick="toggleCaraOrder()">🛒 Cara Order</div>
-  <div class="menu-btn" onclick="toggleSnk()">📜 Syarat & Ketentuan</div>
-</div>
-
-<section class="steps-section" id="faqSection">
-  <div class="steps-title">
-    <h2>❓ FAQ</h2>
-    <p>Pertanyaan yang sering ditanya</p>
-    <button class="steps-toggle" id="faqToggle" onclick="toggleFaq()">
-      Lihat FAQ <span id="faqArrow">▾</span>
-    </button>
-  </div>
-  <div class="steps-grid-wrap" id="faqWrap">
-    <div class="steps-grid">
-      <div class="step-card">
-        <h3>Akun sharing aman ga?</h3>
-        <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.</p>
-      </div>
-      <div class="step-card">
-        <h3>Kalau akun error gimana?</h3>
-        <p>Selama masih masa garansi, langsung diganti gratis.</p>
-      </div>
-      <!-- tambahin FAQ lain sesuai kebutuhan -->
-    </div>
-  </div>
-</section>
     
   .wordmark{
     font-family:'Fredoka', sans-serif;
@@ -546,7 +534,13 @@
 </style>
 </head>
 <body>
+    <div class="menu-btn-row">
+  <div class="menu-btn" onclick="toggleCaraOrder()">🛒 Cara Order</div>
+  <div class="menu-btn" onclick="toggleSnk()">📜 Syarat & Ketentuan</div>
+</div>
 
+
+  
   <div class="snk-panel" id="snkPanel">
   <div class="snk-panel-inner">
     <button class="snk-back" onclick="toggleSnk()">← Kembali</button>
@@ -623,6 +617,33 @@
   <span>🛡️ Garansi Aktif</span>
   <span>💯 Trusted Seller</span>
   <span>❌ Akun <span style="color:#000000;">Non official</span> (sharing/modified) ❌ </span>
+
+      <div class="menu-btn-row">
+  <div class="menu-btn" onclick="toggleCaraOrder()">🛒 Cara Order</div>
+  <div class="menu-btn" onclick="toggleSnk()">📜 Syarat & Ketentuan</div>
+</div>
+      <section class="steps-section" id="faqSection">
+  <div class="steps-title">
+    <h2>❓ FAQ</h2>
+    <p>Pertanyaan yang sering ditanya</p>
+    <button class="steps-toggle" id="faqToggle" onclick="toggleFaq()">
+      Lihat FAQ <span id="faqArrow">▾</span>
+    </button>
+  </div>
+  <div class="steps-grid-wrap" id="faqWrap">
+    <div class="steps-grid">
+      <div class="step-card">
+        <h3>Akun sharing aman ga?</h3>
+        <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.</p>
+      </div>
+      <div class="step-card">
+        <h3>Kalau akun error gimana?</h3>
+        <p>Selama masih masa garansi, langsung diganti gratis.</p>
+      </div>
+      <!-- tambahin FAQ lain sesuai kebutuhan -->
+    </div>
+  </div>
+</section>
 
   </div>
   <main id="catSections"></main>
