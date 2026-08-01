@@ -104,11 +104,22 @@
   display:flex; justify-content:space-between; align-items:center; gap:8px;
 }
 .faq-arrow{
-  transition:transform .25s ease; flex-shrink:0; color:var(--muted);
-  font-weight:400;
+  display:inline-block;
+  width:10px; height:10px;
+  border-right:3px solid #FF3B30;
+  border-bottom:3px solid #FF3B30;
+  border-radius:2px;
+  transform:rotate(45deg);
+  transition:transform .25s ease;
+  flex-shrink:0;
+  animation:chevronBounce 1.4s ease-in-out infinite;
 }
 .faq-item.open .faq-arrow{
-  transform:rotate(180deg);
+  transform:rotate(225deg);
+}
+@keyframes chevronBounce{
+  0%, 100%{ margin-top:0; }
+  50%{ margin-top:4px; }
 }
 .faq-a{
   font-size:12.5px; color:var(--muted); line-height:1.5;
@@ -739,7 +750,7 @@
       <h2>📜 Syarat & Ketentuan</h2>
       <p>Wajib baca sebelum order ya</p>
       <button class="steps-toggle" onclick="toggleSnk()">
-        Lihat S&K <span>→</span>
+        Lihat S&K <span class="faq-arrow-side"></span>
       </button>
     </div>
   </section>
@@ -751,23 +762,23 @@
     </div>
     <div class="faq-preview">
       <div class="faq-item" onclick="toggleFaqItem(this)">
-        <div class="faq-q">Akun sharing aman ga? <span class="faq-arrow">↓</span></div>
+        <div class="faq-q">Akun sharing aman ga? <span class="faq-arrow"></span></div>
         <div class="faq-a">Aman, tapi dipakai bareng user lain jadi harga lebih murah.</div>
       </div>
       <div class="faq-item" onclick="toggleFaqItem(this)">
-        <div class="faq-q">Kalau akun error gimana? <span class="faq-arrow">↓</span></div>
+        <div class="faq-q">Kalau akun error gimana? <span class="faq-arrow"></span></div>
         <div class="faq-a">Selama masih masa garansi, langsung diganti gratis.</div>
       </div>
       <div class="faq-item" onclick="toggleFaqItem(this)">
-        <div class="faq-q">Boleh refund kalau salah order? <span class="faq-arrow">↓</span></div>
+        <div class="faq-q">Boleh refund kalau salah order? <span class="faq-arrow"></span></div>
         <div class="faq-a">Refund hanya berlaku kalau akun belum pernah dipakai sama sekali dan dilaporkan maksimal 1x24 jam setelah pengiriman.</div>
       </div>
       <div class="faq-item" onclick="toggleFaqItem(this)">
-        <div class="faq-q">Akun ini resmi bukan? <span class="faq-arrow">↓</span></div>
+        <div class="faq-q">Akun ini resmi bukan? <span class="faq-arrow"></span></div>
         <div class="faq-a">Akun yang dijual adalah non-official (sharing/modified), bukan langganan resmi pribadi. Harga murah karena sistem ini.</div>
       </div>
       <button class="faq-showmore-btn" onclick="toggleFaqPanel()">
-        Lihat FAQ selengkapnya <span class="faq-arrow-line">→</span>
+        Lihat FAQ selengkapnya <span class="faq-arrow-side"></span>
       </button>
     </div>
   </section>
