@@ -1,3 +1,17 @@
+<!--
+  ============================================
+  Llowye_Shop Landing Page Template
+  © 2026 Llowye_Shop — All Rights Reserved
+  
+  Template ini dilindungi hak cipta. Dilarang:
+  - Menyalin/mendistribusikan ulang tanpa izin
+  - Menjual kembali sebagai produk sendiri
+  - Menghapus watermark & kredit ini
+  
+  Lisensi & penggunaan komersial, hubungi Llowye_Shop.
+  Full license: lihat file LICENSE.txt
+  ============================================
+-->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -626,10 +640,39 @@
 .toast.show{
   opacity:1; transform:translateX(-50%) translateY(0);
 }
+    .preview-watermark{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:9999;
+  overflow:hidden;
+  display:flex;
+  flex-wrap:wrap;
+  align-content:space-around;
+  justify-content:space-around;
+  opacity:.12;
+}
+.preview-watermark span{
+  display:block;
+  font-family:'Fredoka', sans-serif;
+  font-size:20px;
+  font-weight:700;
+  color:#000;
+  transform:rotate(-30deg);
+  white-space:nowrap;
+  margin:24px 32px;
+}
 </style>
 </head>
 <body>
-
+<div class="preview-watermark" id="previewWatermark">
+  <span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span>
+  <span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span>
+  <span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span>
+  <span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span>
+  <span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span><span>PREVIEW — Llowye_Shop</span>
+</div>
   <div class="faq-panel" id="faqPanel">
   <div class="faq-panel-inner">
     <button class="snk-back" onclick="toggleFaqPanel()">← Kembali</button>
@@ -955,6 +998,8 @@
     <div>⚡ Respon &lt; 5 menit</div>
     <div>✅ Trusted Seller</div>
     <div>😎 Owner kece: Anis</div>
+    <div style="margin-top:14px; font-size:10.5px; opacity:.75;">
+    © <span id="copyYear"></span> Llowye_Shop. All rights reserved.
   </div>
 </footer>
 
@@ -1742,8 +1787,17 @@ function toggleFaqPanel(){
   function toggleFaqItem(el){
   el.classList.toggle('open');
 }
-
+document.getElementById('copyYear').textContent = new Date().getFullYear();
+  console.log(
+  '%c⚠️ STOP!',
+  'color:red; font-size:40px; font-weight:bold;'
+);
+console.log(
+  '%cWebsite ini milik Llowye_Shop. Source code dilindungi hak cipta. Dilarang menyalin tanpa izin.',
+  'color:#6C5CE7; font-size:14px;'
+);
 </script>
   <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
+  <!-- Original source by Llowye_Shop | Do not redistribute -->
 </body>
 </html>
