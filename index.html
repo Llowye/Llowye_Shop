@@ -17,6 +17,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
+    .steps-section{
+  padding:20px 20px 10px;
+}
+.steps-title{
+  text-align:center; margin-bottom:14px;
+}
+    .faq-snk-row{
+  display:flex;
+  gap:12px;
+  padding:0 20px;
+  align-items:stretch;
+}
+.faq-snk-row .steps-section{
+  flex:1;
+  min-width:0;
+  padding:20px 10px 10px;
+}
+.faq-snk-row .steps-title h2{
+  font-size:15px;
+}
+.faq-snk-row .steps-title p{
+  font-size:10.5px;
+}
+.faq-snk-row .steps-toggle{
+  font-size:11px;
+  padding:8px 12px;
+}
     .cara-panel{
   position:fixed;
   top:0; left:0;
@@ -54,6 +82,20 @@
   padding:20px;
 }
 .snk-panel.open{
+  transform:translateX(0);
+}
+    .faq-panel{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:var(--bg);
+  transform:translateX(-100%);
+  transition:transform .35s ease;
+  z-index:1000;
+  overflow-y:auto;
+  padding:20px;
+}
+.faq-panel.open{
   transform:translateX(0);
 }
 .snk-back{
@@ -525,7 +567,22 @@
   <div class="menu-btn" onclick="toggleSnk()">📜 Syarat & Ketentuan</div>
 </div>
 
+  <div class="faq-panel" id="faqPanel">
+  <div class="faq-panel-inner">
+    <button class="snk-back" onclick="toggleFaqPanel()">Kembali →</button>
+    <h2>❓ FAQ</h2>
 
+    <div class="snk-item">
+      <h3>Akun sharing aman ga?</h3>
+      <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.</p>
+    </div>
+    <div class="snk-item">
+      <h3>Kalau akun error gimana?</h3>
+      <p>Selama masih masa garansi, langsung diganti gratis.</p>
+    </div>
+    <!-- tambahin FAQ lain sesuai kebutuhan, formatnya sama kayak dua di atas -->
+  </div>
+</div>
   
   <div class="snk-panel" id="snkPanel">
   <div class="snk-panel-inner">
@@ -608,29 +665,7 @@
   <div class="menu-btn" onclick="toggleCaraOrder()">🛒 Cara Order</div>
   <div class="menu-btn" onclick="toggleSnk()">📜 Syarat & Ketentuan</div>
 </div>
-      <section class="steps-section" id="faqSection">
-  <div class="steps-title">
-    <h2>❓ FAQ</h2>
-    <p>Pertanyaan yang sering ditanya</p>
-    <button class="steps-toggle" id="faqToggle" onclick="toggleFaq()">
-      Lihat FAQ <span id="faqArrow">▾</span>
-    </button>
-  </div>
-  <div class="steps-grid-wrap" id="faqWrap">
-    <div class="steps-grid">
-      <div class="step-card">
-        <h3>Akun sharing aman ga?</h3>
-        <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.</p>
-      </div>
-      <div class="step-card">
-        <h3>Kalau akun error gimana?</h3>
-        <p>Selama masih masa garansi, langsung diganti gratis.</p>
-      </div>
-      <!-- tambahin FAQ lain sesuai kebutuhan -->
-    </div>
-  </div>
-</section>
-
+    
   </div>
   <main id="catSections"></main>
   
@@ -666,15 +701,26 @@
   </div>
 </div>
 
-  <section class="steps-section">
-  <div class="steps-title">
-    <h2>📜 Syarat & Ketentuan</h2>
-    <p>Wajib baca sebelum order ya</p>
-    <button class="steps-toggle" onclick="toggleSnk()">
-      Lihat S&K <span>▸</span>
-    </button>
+  <div class="faq-snk-row">
+    <section class="steps-section faq-side">
+      <div class="steps-title">
+        <h2>❓ FAQ</h2>
+        <p>Pertanyaan yang sering ditanya</p>
+        <button class="steps-toggle" onclick="toggleFaqPanel()">
+          <span>◂</span> Lihat FAQ
+        </button>
+      </div>
+    </section>
+    <section class="steps-section snk-side">
+      <div class="steps-title">
+        <h2>📜 Syarat & Ketentuan</h2>
+        <p>Wajib baca sebelum order ya</p>
+        <button class="steps-toggle" onclick="toggleSnk()">
+          Lihat S&K <span>▸</span>
+        </button>
+      </div>
+    </section>
   </div>
-</section>
   
   <section class="testi-section">
   <div class="testi-title">
@@ -1469,11 +1515,10 @@ document.addEventListener('click', (e) => {
   panel.classList.toggle('open');
   document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
 }
-function toggleFaq(){
-  const wrap = document.getElementById('faqWrap');
-  const btn = document.getElementById('faqToggle');
-  wrap.classList.toggle('open');
-  btn.classList.toggle('open');
+function toggleFaqPanel(){
+  const panel = document.getElementById('faqPanel');
+  panel.classList.toggle('open');
+  document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
 }
 </script>
 
