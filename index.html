@@ -612,6 +612,20 @@
   transform: translateY(6px) scale(0.98);
   box-shadow: 0 0px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 1px 3px rgba(0,0,0,0.12);
 }
+    .toast{
+  position:fixed; bottom:24px; left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ink); color:#fff;
+  padding:10px 18px; border-radius:999px;
+  font-size:13px; font-weight:700;
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease;
+  z-index:2000;
+  display:flex; align-items:center; gap:6px;
+}
+.toast.show{
+  opacity:1; transform:translateX(-50%) translateY(0);
+}
 </style>
 </head>
 <body>
@@ -844,7 +858,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Order Netflix Sharing, jarang kena limit. Recommended!</div>
-      <img src="testiN.jpeg" alt="Bukti chat testimoni Perisa Z." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiN.jpeg" alt="Bukti chat testimoni Perisa Z." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">1 minggu yang lalu</div>
     </div>
 
@@ -855,7 +869,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Udah langganan CapCut Pro 1 bulan disini, garansi diganti pas ada masalah. Puas!</div>
-      <img src="testiCP.jpeg" alt="Bukti chat testimoni Laylathiviana." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiCP.jpeg" alt="Bukti chat testimoni Laylathiviana." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">2 bulan lalu</div>
     </div>
 
@@ -866,7 +880,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Harga Spotify Family paling murah yang aku temuin, premium oke nggak putus-putus.</div>
-      <img src="testiS.jpeg" alt="Bukti chat testimoni Haikal S." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiS.jpeg" alt="Bukti chat testimoni Haikal S." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">3 minggu lalu</div>
     </div>
 
@@ -877,7 +891,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Admin fast respon banget, ditanya jam 10 malam masih dibales cepet. Recommended seller.</div>
-      <img src="testiK.jpeg" alt="Bukti chat testimoni Kayla K." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiK.jpeg" alt="Bukti chat testimoni Kayla K." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">5 hari lalu</div>
     </div>
 
@@ -888,7 +902,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Canva Pro lifetime beneran lifetime, udah 6 bulan masih aktif normal. Worth it banget!</div>
-      <img src="testiC.jpeg" alt="Bukti chat testimoni Afiqa N." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiC.jpeg" alt="Bukti chat testimoni Afiqa N." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">1 bulan lalu</div>
     </div>
 
@@ -899,7 +913,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Viu premium murah yang beneran lifetime! udah 3 tahun masih premium.</div>
-      <img src="testiV.jpeg" alt="Bukti chat testimoni Nayla N." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiV.jpeg" alt="Bukti chat testimoni Nayla N." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">1 tahun lalu</div>
     </div>
 
@@ -910,7 +924,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Disney+ buat nonton bola, kualitas gambar jernih. Bakal langganan lagi bulan depan.</div>
-       <img src="testiD.jpeg" alt="Bukti chat testimoni Jennie K." class="testi-ss" onclick="window.open(this.src)">
+       <img src="testiD.jpeg" alt="Bukti chat testimoni Jennie K." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">2 minggu lalu</div>
     </div>
 
@@ -921,7 +935,7 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Scribd buat baca ebook kuliah murah meriah, akses lancar di HP maupun laptop.</div>
-      <img src="testiSC.jpeg" alt="Bukti chat testimoni Fadhila Z." class="testi-ss" onclick="window.open(this.src)">
+      <img src="testiSC.jpeg" alt="Bukti chat testimoni Fadhila Z." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
       <div class="testi-time">2 tahun lalu</div>
     </div>
   </div>
@@ -1444,6 +1458,15 @@ const categoryLabels = {
   ai:        {emoji:"🤖", title:"AI Apps"},
 };
 
+// fallback kalau gambar produk gagal load — sembunyiin & kasih emoji generik
+function handleImgError(img){
+  img.style.display = 'none';
+  const fallback = document.createElement('span');
+  fallback.textContent = '📦';
+  fallback.style.fontSize = '18px';
+  img.parentElement.appendChild(fallback);
+}
+
 function waLink(productName){
   const msg = encodeURIComponent(`Halo Llowye Shop, aku mau order ${productName}`);
   return `https://wa.me/${WA_NUMBER}?text=${msg}`;
@@ -1467,7 +1490,7 @@ function renderSections(activeCat){
         ${[...items, ...items, ...items].map(p => `
           <div class="product-card">
             <div class="top">
-              <div class="p-icon" style="background:${p.color}">${p.icon}</div>
+              <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
               <h3>${p.name}</h3>
             </div>
             <div class="badges">${p.badges.map(b=>`<span class="badge" style="background:${badgeColors[p.cat]?.bg || '#B2EBF7'}; color:${badgeColors[p.cat]?.text || '#0891A8'}">${b}</span>`).join('')}</div>
@@ -1682,8 +1705,24 @@ function toggleMusic(){
   osc.start();
   osc.stop(ctx.currentTime + 0.09);
 }
+  function showToast(msg, ms = 1200){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
+}
+
+// pasang di semua link WhatsApp/order
 document.addEventListener('click', (e) => {
-  if (e.target.closest('.btn-3d')) playClickSound();
+  const waBtn = e.target.closest('a[href*="wa.me"]');
+  if (waBtn) showToast('💬 Membuka WhatsApp...');
+});
+document.addEventListener('click', (e) => {
+  const clickable = e.target.closest(
+    '.btn-3d, .pill, .faq-item, .snk-back, .menu-btn, ' +
+    '.result-item, .faq-showmore-btn, .steps-toggle, .order-btn, [onclick]'
+  );
+  if (clickable) playClickSound();
 });
   function toggleSnk(){
   const panel = document.getElementById('snkPanel');
@@ -1703,6 +1742,7 @@ function toggleFaqPanel(){
   function toggleFaqItem(el){
   el.classList.toggle('open');
 }
+  <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
 
 </script>
 
