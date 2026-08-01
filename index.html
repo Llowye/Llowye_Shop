@@ -895,8 +895,8 @@
         <span class="testi-stars">★★★★★</span>
       </div>
       <div class="testi-text">Order Netflix Sharing, jarang kena limit. Recommended!</div>
+      <div class="testi-time" data-date="2026-08-1"></div>
       <img src="testiN.jpeg" alt="Bukti chat testimoni Perisa Z." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">1 minggu yang lalu</div>
     </div>
 
     <div class="testi-bubble">
@@ -907,7 +907,7 @@
       </div>
       <div class="testi-text">Udah langganan CapCut Pro 1 bulan disini, garansi diganti pas ada masalah. Puas!</div>
       <img src="testiCP.jpeg" alt="Bukti chat testimoni Laylathiviana." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">2 bulan lalu</div>
+      <div class="testi-time" data-date="2026-05-31"></div>
     </div>
 
     <div class="testi-bubble">
@@ -918,7 +918,7 @@
       </div>
       <div class="testi-text">Harga Spotify Family paling murah yang aku temuin, premium oke nggak putus-putus.</div>
       <img src="testiS.jpeg" alt="Bukti chat testimoni Haikal S." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">3 minggu lalu</div>
+      <div class="testi-time" data-date="2026-03-31"></div>
     </div>
 
     <div class="testi-bubble">
@@ -929,7 +929,7 @@
       </div>
       <div class="testi-text">Admin fast respon banget, ditanya jam 10 malam masih dibales cepet. Recommended seller.</div>
       <img src="testiK.jpeg" alt="Bukti chat testimoni Kayla K." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">5 hari lalu</div>
+    <div class="testi-time" data-date="2026-07-31"></div>
     </div>
 
     <div class="testi-bubble">
@@ -940,7 +940,7 @@
       </div>
       <div class="testi-text">Canva Pro lifetime beneran lifetime, udah 6 bulan masih aktif normal. Worth it banget!</div>
       <img src="testiC.jpeg" alt="Bukti chat testimoni Afiqa N." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">1 bulan lalu</div>
+      <div class="testi-time" data-date="2024-01-31"></div>
     </div>
 
     <div class="testi-bubble">
@@ -951,7 +951,7 @@
       </div>
       <div class="testi-text">Viu premium murah yang beneran lifetime! udah 3 tahun masih premium.</div>
       <img src="testiV.jpeg" alt="Bukti chat testimoni Nio N." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">1 tahun lalu</div>
+      <div class="testi-time" data-date="2025-07-31"></div>
     </div>
 
     <div class="testi-bubble">
@@ -962,7 +962,7 @@
       </div>
       <div class="testi-text">Disney+ buat nonton bola, kualitas gambar jernih. Bakal langganan lagi bulan depan.</div>
        <img src="testiD.jpeg" alt="Bukti chat testimoni Jennie K." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">2 minggu lalu</div>
+      <div class="testi-time" data-date="2026-02-31"></div>
     </div>
 
     <div class="testi-bubble">
@@ -973,7 +973,7 @@
       </div>
       <div class="testi-text">Scribd buat baca ebook kuliah murah meriah, akses lancar di HP maupun laptop.</div>
       <img src="testiSC.jpeg" alt="Bukti chat testimoni Fadhila Z." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
-      <div class="testi-time">2 tahun lalu</div>
+  <div class="testi-time" data-date="2026-07-31"></div>
     </div>
   </div>
 </section>
@@ -1790,8 +1790,28 @@ console.log(
   '%cWebsite ini milik Llowye_Shop. Source code dilindungi hak cipta. Dilarang menyalin tanpa izin.',
   'color:#6C5CE7; font-size:14px;'
 );
-</script>
+
   <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
+  <script>
+function timeAgo(dateStr){
+  const now = new Date();
+  const past = new Date(dateStr);
+  const diffDay = Math.floor((now - past) / 86400000);
+  const diffWeek = Math.floor(diffDay / 7);
+  const diffMonth = Math.floor(diffDay / 30);
+  const diffYear = Math.floor(diffDay / 365);
+
+  if(diffDay < 1) return "Hari ini";
+  if(diffDay === 1) return "1 hari lalu";
+  if(diffDay < 7) return `${diffDay} hari lalu`;
+  if(diffWeek < 5) return `${diffWeek} minggu lalu`;
+  if(diffMonth < 12) return `${diffMonth} bulan lalu`;
+  return `${diffYear} tahun lalu`;
+}
+document.querySelectorAll('.testi-time[data-date]').forEach(el => {
+  el.textContent = timeAgo(el.dataset.date);
+});
+  </script>
   <!-- Original source by Llowye_Shop | Do not redistribute -->
 </body>
 </html>
