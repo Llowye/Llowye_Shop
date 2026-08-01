@@ -1808,7 +1808,7 @@ console.log(
 );
 
   <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
-
+  <script>
 function timeAgo(dateStr){
   const now = new Date();
   const past = new Date(dateStr);
@@ -1827,9 +1827,10 @@ function timeAgo(dateStr){
 document.querySelectorAll('.testi-time[data-date]').forEach(el => {
   el.textContent = timeAgo(el.dataset.date);
 });
+
   
   <!-- Original source by Llowye_Shop | Do not redistribute -->
-  
+
 document.querySelectorAll('img.testi-ss').forEach(img => {
   const wrap = document.createElement('div');
   wrap.className = 'testi-ss-wrap';
