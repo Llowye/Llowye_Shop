@@ -24,27 +24,7 @@
 .steps-title{
   text-align:center; margin-bottom:14px;
 }
-    .faq-snk-row{
-  display:flex;
-  gap:12px;
-  padding:0 20px;
-  align-items:stretch;
-}
-.faq-snk-row .steps-section{
-  flex:1;
-  min-width:0;
-  padding:20px 10px 10px;
-}
-.faq-snk-row .steps-title h2{
-  font-size:15px;
-}
-.faq-snk-row .steps-title p{
-  font-size:10.5px;
-}
-.faq-snk-row .steps-toggle{
-  font-size:11px;
-  padding:8px 12px;
-}
+    
     .cara-panel{
   position:fixed;
   top:0; left:0;
@@ -86,10 +66,10 @@
 }
     .faq-panel{
   position:fixed;
-  top:0; left:0;
+  top:0; right:0;
   width:100%; height:100%;
   background:var(--bg);
-  transform:translateX(-100%);
+  transform:translateX(100%);
   transition:transform .35s ease;
   z-index:1000;
   overflow-y:auto;
@@ -110,6 +90,45 @@
 }
 .snk-item h3{font-size:14px; margin-bottom:6px;}
 .snk-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
+
+    .faq-item{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:14px; margin-bottom:12px;
+  cursor:pointer;
+}
+.faq-q{
+  font-size:14px; font-weight:700; color:var(--ink);
+  display:flex; justify-content:space-between; align-items:center; gap:8px;
+}
+.faq-arrow{
+  transition:transform .25s ease; flex-shrink:0; color:var(--muted);
+}
+.faq-item.open .faq-arrow{
+  transform:rotate(180deg);
+}
+.faq-a{
+  font-size:12.5px; color:var(--muted); line-height:1.5;
+  max-height:0; overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-item.open .faq-a{
+  max-height:300px; margin-top:10px;
+}
+.faq-more{
+  max-height:0; overflow:hidden;
+  transition:max-height .35s ease;
+}
+.faq-more.open{
+  max-height:3000px;
+}
+.faq-showmore-btn{
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  margin:6px auto 20px; width:100%;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:13px;
+  padding:12px; border-radius:999px;
+  font-family:'Quicksand', sans-serif; cursor:pointer;
+}
   
   /* ============ EDIT AREA (warna & nomor WA) ============ */
  :root{
@@ -292,12 +311,19 @@
     display:flex; align-items:center; justify-content:center;
     font-size:18px; flex-shrink:0;
   }
-  .result-item .r-info{flex:1; min-width:0;}
-  .result-item .r-info b{font-size:14px; display:block;}
-  .result-item .r-info small{color:var(--muted); font-size:12px;}
-  .result-item .r-go{
-    font-size:12px; font-weight:700; color:var(--purple); flex-shrink:0;
-  }
+  .result-item .r-info{flex:1; min-width:0; overflow:hidden;}
+.result-item .r-info b{
+  font-size:14px; display:block;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.result-item .r-info small{
+  color:var(--muted); font-size:12px;
+  display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.result-item .r-go{
+  font-size:12px; font-weight:700; color:var(--purple); flex-shrink:0;
+  white-space:nowrap;
+}
   .no-result{
     text-align:center; color:var(--muted); font-size:13px; padding:14px 0;
   }
@@ -565,18 +591,38 @@
 
   <div class="faq-panel" id="faqPanel">
   <div class="faq-panel-inner">
-    <button class="snk-back" onclick="toggleFaqPanel()">Kembali →</button>
+    <button class="snk-back" onclick="toggleFaqPanel()">← Kembali</button>
     <h2>❓ FAQ</h2>
+    <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Pertanyaan yang sering ditanya</p>
 
-    <div class="snk-item">
-      <h3>Akun sharing aman ga?</h3>
-      <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.</p>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+      <div class="faq-q">Akun sharing aman ga? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Aman, tapi dipakai bareng user lain jadi harga lebih murah.</div>
     </div>
-    <div class="snk-item">
-      <h3>Kalau akun error gimana?</h3>
-      <p>Selama masih masa garansi, langsung diganti gratis.</p>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+      <div class="faq-q">Kalau akun error gimana? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Selama masih masa garansi, langsung diganti gratis.</div>
     </div>
-    <!-- tambahin FAQ lain sesuai kebutuhan, formatnya sama kayak dua di atas -->
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+      <div class="faq-q">Boleh refund kalau salah order? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Refund hanya berlaku kalau akun belum pernah dipakai sama sekali dan dilaporkan maksimal 1x24 jam setelah pengiriman.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+      <div class="faq-q">Akun ini resmi bukan? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Akun yang dijual adalah non-official (sharing/modified), bukan langganan resmi pribadi. Harga murah karena sistem ini.</div>
+    </div>
+
+    <div class="faq-more" id="faqMore">
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Bisa ganti paket setelah order? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Bisa, chat admin dulu buat konfirmasi biaya tambahan kalau ada perbedaan harga paket.</div>
+      </div>
+      <!-- tambahin FAQ lain di sini, formatnya sama kayak faq-item di atas -->
+    </div>
+
+    <button class="faq-showmore-btn" id="faqShowMoreBtn" onclick="toggleFaqMore()">
+      <span id="faqShowMoreText">Lihat FAQ selengkapnya</span> <span id="faqShowMoreArrow">▾</span>
+    </button>
   </div>
 </div>
   
@@ -692,26 +738,24 @@
   </div>
 </div>
 
-  <div class="faq-snk-row">
-    <section class="steps-section faq-side">
-      <div class="steps-title">
-        <h2>❓ FAQ</h2>
-        <p>Pertanyaan yang sering ditanya</p>
-        <button class="steps-toggle" onclick="toggleFaqPanel()">
-          <span>◂</span> Lihat FAQ
-        </button>
-      </div>
-    </section>
-    <section class="steps-section snk-side">
-      <div class="steps-title">
-        <h2>📜 Syarat & Ketentuan</h2>
-        <p>Wajib baca sebelum order ya</p>
-        <button class="steps-toggle" onclick="toggleSnk()">
-          Lihat S&K <span>▸</span>
-        </button>
-      </div>
-    </section>
-  </div>
+ <section class="steps-section">
+    <div class="steps-title">
+      <h2>📜 Syarat & Ketentuan</h2>
+      <p>Wajib baca sebelum order ya</p>
+      <button class="steps-toggle" onclick="toggleSnk()">
+        Lihat S&K <span>▸</span>
+      </button>
+    </div>
+  </section>
+  <section class="steps-section">
+    <div class="steps-title">
+      <h2>❓ FAQ</h2>
+      <p>Pertanyaan yang sering ditanya</p>
+      <button class="steps-toggle" onclick="toggleFaqPanel()">
+        Lihat FAQ <span>▸</span>
+      </button>
+    </div>
+  </section>
   
   <section class="testi-section">
   <div class="testi-title">
@@ -1510,6 +1554,23 @@ function toggleFaqPanel(){
   const panel = document.getElementById('faqPanel');
   panel.classList.toggle('open');
   document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
+}
+  function toggleFaqItem(el){
+  el.classList.toggle('open');
+}
+
+function toggleFaqMore(){
+  const more = document.getElementById('faqMore');
+  const text = document.getElementById('faqShowMoreText');
+  const arrow = document.getElementById('faqShowMoreArrow');
+  more.classList.toggle('open');
+  if(more.classList.contains('open')){
+    text.textContent = 'Sembunyikan FAQ';
+    arrow.textContent = '▴';
+  } else {
+    text.textContent = 'Lihat FAQ selengkapnya';
+    arrow.textContent = '▾';
+  }
 }
 </script>
 
