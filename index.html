@@ -91,7 +91,10 @@
 .snk-item h3{font-size:14px; margin-bottom:6px;}
 .snk-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
 
-    .faq-item{
+   .faq-preview{
+  padding:0 20px;
+}
+.faq-item{
   background:var(--card); border:1px solid var(--line);
   border-radius:14px; padding:14px; margin-bottom:12px;
   cursor:pointer;
@@ -102,6 +105,7 @@
 }
 .faq-arrow{
   transition:transform .25s ease; flex-shrink:0; color:var(--muted);
+  font-weight:400;
 }
 .faq-item.open .faq-arrow{
   transform:rotate(180deg);
@@ -114,21 +118,20 @@
 .faq-item.open .faq-a{
   max-height:300px; margin-top:10px;
 }
-.faq-more{
-  max-height:0; overflow:hidden;
-  transition:max-height .35s ease;
-}
-.faq-more.open{
-  max-height:3000px;
-}
 .faq-showmore-btn{
   display:flex; align-items:center; justify-content:center; gap:6px;
-  margin:6px auto 20px; width:100%;
+  margin:6px auto 0; width:100%;
   background:var(--card); border:1px solid var(--line);
   color:var(--purple); font-weight:700; font-size:13px;
   padding:12px; border-radius:999px;
   font-family:'Quicksand', sans-serif; cursor:pointer;
 }
+.faq-static-item{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:14px; margin-bottom:12px;
+}
+.faq-static-item h3{font-size:14px; margin-bottom:6px;}
+.faq-static-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
   
   /* ============ EDIT AREA (warna & nomor WA) ============ */
  :root{
@@ -595,34 +598,27 @@
     <h2>❓ FAQ</h2>
     <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Pertanyaan yang sering ditanya</p>
 
-    <div class="faq-item" onclick="toggleFaqItem(this)">
-      <div class="faq-q">Akun sharing aman ga? <span class="faq-arrow">▾</span></div>
-      <div class="faq-a">Aman, tapi dipakai bareng user lain jadi harga lebih murah.</div>
+    <div class="faq-static-item">
+      <h3>Akun sharing aman ga?</h3>
+      <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.</p>
     </div>
-    <div class="faq-item" onclick="toggleFaqItem(this)">
-      <div class="faq-q">Kalau akun error gimana? <span class="faq-arrow">▾</span></div>
-      <div class="faq-a">Selama masih masa garansi, langsung diganti gratis.</div>
+    <div class="faq-static-item">
+      <h3>Kalau akun error gimana?</h3>
+      <p>Selama masih masa garansi, langsung diganti gratis.</p>
     </div>
-    <div class="faq-item" onclick="toggleFaqItem(this)">
-      <div class="faq-q">Boleh refund kalau salah order? <span class="faq-arrow">▾</span></div>
-      <div class="faq-a">Refund hanya berlaku kalau akun belum pernah dipakai sama sekali dan dilaporkan maksimal 1x24 jam setelah pengiriman.</div>
+    <div class="faq-static-item">
+      <h3>Boleh refund kalau salah order?</h3>
+      <p>Refund hanya berlaku kalau akun belum pernah dipakai sama sekali dan dilaporkan maksimal 1x24 jam setelah pengiriman.</p>
     </div>
-    <div class="faq-item" onclick="toggleFaqItem(this)">
-      <div class="faq-q">Akun ini resmi bukan? <span class="faq-arrow">▾</span></div>
-      <div class="faq-a">Akun yang dijual adalah non-official (sharing/modified), bukan langganan resmi pribadi. Harga murah karena sistem ini.</div>
+    <div class="faq-static-item">
+      <h3>Akun ini resmi bukan?</h3>
+      <p>Akun yang dijual adalah non-official (sharing/modified), bukan langganan resmi pribadi. Harga murah karena sistem ini.</p>
     </div>
-
-    <div class="faq-more" id="faqMore">
-      <div class="faq-item" onclick="toggleFaqItem(this)">
-        <div class="faq-q">Bisa ganti paket setelah order? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Bisa, chat admin dulu buat konfirmasi biaya tambahan kalau ada perbedaan harga paket.</div>
-      </div>
-      <!-- tambahin FAQ lain di sini, formatnya sama kayak faq-item di atas -->
+    <div class="faq-static-item">
+      <h3>Bisa ganti paket setelah order?</h3>
+      <p>Bisa, chat admin dulu buat konfirmasi biaya tambahan kalau ada perbedaan harga paket.</p>
     </div>
-
-    <button class="faq-showmore-btn" id="faqShowMoreBtn" onclick="toggleFaqMore()">
-      <span id="faqShowMoreText">Lihat FAQ selengkapnya</span> <span id="faqShowMoreArrow">▾</span>
-    </button>
+    <!-- tambahin FAQ lain di sini, formatnya sama kayak faq-static-item di atas -->
   </div>
 </div>
   
@@ -743,16 +739,35 @@
       <h2>📜 Syarat & Ketentuan</h2>
       <p>Wajib baca sebelum order ya</p>
       <button class="steps-toggle" onclick="toggleSnk()">
-        Lihat S&K <span>▸</span>
+        Lihat S&K <span>→</span>
       </button>
     </div>
   </section>
+
   <section class="steps-section">
     <div class="steps-title">
       <h2>❓ FAQ</h2>
       <p>Pertanyaan yang sering ditanya</p>
-      <button class="steps-toggle" onclick="toggleFaqPanel()">
-        Lihat FAQ <span>▸</span>
+    </div>
+    <div class="faq-preview">
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Akun sharing aman ga? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Aman, tapi dipakai bareng user lain jadi harga lebih murah.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Kalau akun error gimana? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Selama masih masa garansi, langsung diganti gratis.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Boleh refund kalau salah order? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Refund hanya berlaku kalau akun belum pernah dipakai sama sekali dan dilaporkan maksimal 1x24 jam setelah pengiriman.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Akun ini resmi bukan? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Akun yang dijual adalah non-official (sharing/modified), bukan langganan resmi pribadi. Harga murah karena sistem ini.</div>
+      </div>
+      <button class="faq-showmore-btn" onclick="toggleFaqPanel()">
+        Lihat FAQ selengkapnya <span class="faq-arrow-line">→</span>
       </button>
     </div>
   </section>
@@ -1559,19 +1574,6 @@ function toggleFaqPanel(){
   el.classList.toggle('open');
 }
 
-function toggleFaqMore(){
-  const more = document.getElementById('faqMore');
-  const text = document.getElementById('faqShowMoreText');
-  const arrow = document.getElementById('faqShowMoreArrow');
-  more.classList.toggle('open');
-  if(more.classList.contains('open')){
-    text.textContent = 'Sembunyikan FAQ';
-    arrow.textContent = '▴';
-  } else {
-    text.textContent = 'Lihat FAQ selengkapnya';
-    arrow.textContent = '▾';
-  }
-}
 </script>
 
 </body>
