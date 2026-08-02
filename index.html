@@ -767,7 +767,7 @@
   <!-- KODE BARU (Ada tombol silang 'clearInput') -->
 <div class="searchbar">
   <span class="icon">🔍</span>
-  <input id="searchInput" type="text" placeholder="Cari aplikasi, kata kunci, misal: edit foto, private..." oninput="handleSearch()" onfocus="showSuggestions()">
+  <input id="searchInput" type="text" placeholder="Cari aplikasi atau kata kunci disini..." oninput="handleSearch()" onfocus="showSuggestions()">
   <span id="clearSearch" onclick="clearSearchInput()" style="display:none; cursor:pointer; color:var(--muted); font-weight:bold; font-size:16px; padding:0 4px;">✕</span>
 </div>
 
@@ -1574,6 +1574,10 @@ function clearSearchInput() {
   document.getElementById('catSections').style.display = "block";
 }
 
+/* ======================================================
+   PENCARIAN PRESISI & TERURUT (AWALAN NAMA DIPRIORITASKAN)
+====================================================== */
+
 function renderResultItem(p) {
   const badgeInfo = p.badges ? p.badges.slice(0, 2).join(' • ') : '';
   return `
@@ -1610,18 +1614,18 @@ function handleSearch() {
   const sections = document.getElementById('catSections');
   const clearBtn = document.getElementById('clearSearch');
 
-  if (q.length > 0) {
-    clearBtn.style.display = "block";
-  } else {
-    clearBtn.style.display = "none";
+  // Jika input kosong, tampilkan rekomendasi & sembunyikan tombol '✕'
+  if (q.length === 0) {
+    if (clearBtn) clearBtn.style.display = "none";
     showSuggestions();
     return;
   }
 
+  if (clearBtn) clearBtn.style.display = "block";
   sections.style.display = "none";
   resultsBox.classList.add('show');
 
-  // Mencari di Nama, Deskripsi, Kategori, dan Badges
+  // Filter produk yang cocok (Nama, Deskripsi, Kategori, Badge)
   const matches = products.filter(p => {
     const nameMatch = p.name.toLowerCase().includes(q);
     const descMatch = p.desc.toLowerCase().includes(q);
@@ -1631,9 +1635,19 @@ function handleSearch() {
   });
 
   if (matches.length === 0) {
-    resultsBox.innerHTML = `<div class="no-result">Aplikasi atau kata kunci "${q}" belum ada nih, coba cari kata kunci lain ya 🐾</div>`;
+    resultsBox.innerHTML = `<div class="no-result">Aplikasi atau kata kunci "${q}" belum ada nih, coba kata kunci lain ya 🐾</div>`;
     return;
   }
+
+  // SORTING PINTAR: Aplikasi yang diawali ketikan kamu bakal naik ke PALING ATAS!
+  matches.sort((a, b) => {
+    const aStartsWith = a.name.toLowerCase().startsWith(q);
+    const bStartsWith = b.name.toLowerCase().startsWith(q);
+
+    if (aStartsWith && !bStartsWith) return -1;
+    if (!aStartsWith && bStartsWith) return 1;
+    return a.name.localeCompare(b.name);
+  });
 
   resultsBox.innerHTML = matches.map(renderResultItem).join('');
 }
