@@ -764,10 +764,12 @@
     <span>L</span><span>l</span><span>o</span><span>w</span><span>y</span><span>e</span><span class="search-word">Search</span>
   </div>
 
-  <div class="searchbar">
-    <span class="icon">🔍</span>
-    <input id="searchInput" type="text" placeholder="Cari Netflix, Canva, Disney+, Capcut..." oninput="handleSearch()" onfocus="showSuggestions()" onblur="hideSuggestionsIfEmpty()">
-  </div>
+  <!-- KODE BARU (Ada tombol silang 'clearInput') -->
+<div class="searchbar">
+  <span class="icon">🔍</span>
+  <input id="searchInput" type="text" placeholder="Cari aplikasi, kata kunci, misal: edit foto, private..." oninput="handleSearch()" onfocus="showSuggestions()">
+  <span id="clearSearch" onclick="clearSearchInput()" style="display:none; cursor:pointer; color:var(--muted); font-weight:bold; font-size:16px; padding:0 4px;">✕</span>
+</div>
 
   <div class="pills" id="pillsRow">
     <div class="pill active" data-cat="all" onclick="filterCat('all', this)">Semua</div>
@@ -1013,9 +1015,8 @@
 
 <script>
 /* ======================================================
-   EDIT PRODUK DI SINI SAJA — nggak perlu sentuh HTML/CSS
-   category: "streaming" | "editing" | "music" | "education"  | "reading" | "ai"
-   color: warna icon card (hex)
+   EDIT PRODUK DI SINI SAJA
+   category: "streaming" | "editing" | "music" | "education" | "reading" | "ai"
 ====================================================== */
 const WA_NUMBER = "628991740111"; // nomor WA asli Llowye Shop
 const badgeColors = {
@@ -1026,6 +1027,7 @@ const badgeColors = {
   reading:   {bg:"#FFE5E5", text:"#FF5C5C"},
   ai:        {bg:"#EDEDED", text:"#595859"},
 };
+
 const products = [
   // ---- STREAMING ----
   {name:"NETFLIX", cat:"streaming", icon:"<img src='netflix.jpg' alt='Netflix'>", color:"#B2EBF7",
@@ -1036,17 +1038,17 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">25k/minggu</span><span class="pval">50k/bulan</span></div>
   </div>`,
-  link:"https://netflix.llowyeshop.my.id"},
+   link:"https://netflix.llowyeshop.my.id"},
   
   {name:"DISNEY+", cat:"streaming", icon:"<img src='disney.jpg' alt='Disney+'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 5 hari","Sharing","Private"], desc:"Marvel, Star Wars, sampai bola lokal & internasional.",
-  price:`<div class="price-grid">
+   price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">25k/minggu</span><span class="pval">50k/bulan</span></div>
   </div>`,
-  link:"https://disney.llowyeshop.my.id"},
+   link:"https://disney.llowyeshop.my.id"},
   
    {name:"HBO MAX", cat:"streaming", icon:"<img src='hbo.jpg' alt='Hbo Max'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 5 hari","Private","Sharing"], desc:"Film blockbuster, serial HBO dan dokumenter berkualitas.",
@@ -1056,7 +1058,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-  link:"https://hbomax.llowyeshop.my.id"},
+   link:"https://hbomax.llowyeshop.my.id"},
   
     {name:"PRIME VIDIO", cat:"streaming", icon:"<img src='prime.jpg' alt='Prime Vidio'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 5 hari","Private","Sharing"], desc:"Streaming Amazon dari film dan konten berbagai genre.",
@@ -1066,14 +1068,14 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-  link:"https://primevid.llowyeshop.my.id"},
+   link:"https://primevid.llowyeshop.my.id"},
   
   {name:"VIU", cat:"streaming", icon:"<img src='viu.jpeg' alt='Viu'>", color:"#B2EBF7",
    badges:["Garansi aktif 6 bulan","Lifetime","Plan Premium","Private"], desc:"Drama Korea & variety show subtitle Indo, update tercepat.",
    price:`<div class="price-grid single-plan">
   <div class="price-group"><span class="plabel">Lifetime</span><span class="pval">5k/seumur hidup</span></div>
 </div>`,
-  link:"https://viu.llowyeshop.my.id"},
+   link:"https://viu.llowyeshop.my.id"},
   
   {name:"VIDIO", cat:"streaming", icon:"<img src='vidio.jpg' alt='Vidio'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Liga Inggris & series lokal favorit kamu.",
@@ -1083,7 +1085,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-  link:"https://vidio.llowyeshop.my.id"},
+   link:"https://vidio.llowyeshop.my.id"},
   
   {name:"WETV", cat:"streaming", icon:"<img src='wetv.jpeg' alt='Wetv'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama China & Asia Tenggara, update tiap hari.",
@@ -1093,7 +1095,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-  link:"https://wetv.llowyeshop.my.id"},
+   link:"https://wetv.llowyeshop.my.id"},
   
     {name:"IQIYI", cat:"streaming", icon:"<img src='iqiyi.jpeg' alt='Iqiyi'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 6 bulan","Private","Sharing"], desc:"Drama China & Korea eksklusif, kualitas 4K.",
@@ -1103,7 +1105,7 @@ const products = [
   <div class="price-group"><span class="plabel">standar</span><span class="pval">private 25k/bulan</span></div>
   <div class="price-group"><span class="plabel">Premium</span><span class="pval">private 30k/bulan</span></div>
 </div>`,
-  link:"https://iqiyi.llowyeshop.my.id"},
+   link:"https://iqiyi.llowyeshop.my.id"},
   
   {name:"YOUKU", cat:"streaming", icon:"<img src='youku.jpeg' alt='Youku'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama & variety show China, subtitle lengkap.",
@@ -1123,7 +1125,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://melolo.llowyeshop.my.id"},
+   link:"https://melolo.llowyeshop.my.id"},
   
     {name:"LOKLOK", cat:"streaming", icon:"<img src='loklok.jpg' alt='Loklok'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Film & drama Asia gratis nonton, koleksi lengkap.",
@@ -1133,17 +1135,17 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,    
-  link:"https://loklok.llowyeshop.my.id"},
+   link:"https://loklok.llowyeshop.my.id"},
   
     {name:"DRAMABOX", cat:"streaming", icon:"<img src='dramabox.jpg' alt='Dramabox'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama pendek viral episode-episode seru.",
-  price:`<div class="price-grid">
+   price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://dramabox.llowyeshop.my.id"},
+   link:"https://dramabox.llowyeshop.my.id"},
   
     {name:"BSTATION", cat:"streaming", icon:"<img src='bstation.jpeg' alt='Bstation'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 6 bulan","Private","Sharing"], desc:"Anime subtitle Indonesia, update simulcast musim ini.",
@@ -1153,7 +1155,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://bstation.llowyeshop.my.id"},
+   link:"https://bstation.llowyeshop.my.id"},
   
     {name:"WIBUKU", cat:"streaming", icon:"<img src='wibuku.jpeg' alt='Wibuku'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Streaming anime & manga, koleksi lengkap subtitle Indo.",
@@ -1163,7 +1165,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-  link:"https://wibuku.llowyeshop.my.id"},
+   link:"https://wibuku.llowyeshop.my.id"},
   
     {name:"CRUNCHYROLL", cat:"streaming", icon:"<img src='crunchy.jpg' alt='Crunchyroll'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Anime simulcast Jepang, subtitle Indo tercepat.",
@@ -1173,7 +1175,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://crunchyroll.llowyeshop.my.id"},
+   link:"https://crunchyroll.llowyeshop.my.id"},
   
     {name:"VIKI RAKUTEN", cat:"streaming", icon:"<img src='viki.jpg' alt='Viki Rakuten'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama Asia & K-pop content, subtitle multi bahasa.",
@@ -1183,7 +1185,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://viki.llowyeshop.my.id"},
+   link:"https://viki.llowyeshop.my.id"},
   
     {name:"MANGO TV", cat:"streaming", icon:"<img src='mango.jpg' alt='Mango TV'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Variety show & drama China populer.",
@@ -1193,7 +1195,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://iqiyi.llowyeshop.my.id"},
+   link:"https://iqiyi.llowyeshop.my.id"},
   
     {name:"APPLE TV", cat:"streaming", icon:"<img src='apple.jpg' alt='Apple TV'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Original series Apple, kualitas gambar premium.",
@@ -1203,7 +1205,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`,
-     link:"https://appletv.llowyeshop.my.id"},
+   link:"https://appletv.llowyeshop.my.id"},
   
   {name:"CATCHPLAY+", cat:"streaming", icon:"<img src='catch.jpeg' alt='Catchplay+'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Film box office & series Asia, tanpa iklan.",
@@ -1213,7 +1215,7 @@ const products = [
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
 </div>`, 
-link:"https://catchplay.llowyeshop.my.id"},
+   link:"https://catchplay.llowyeshop.my.id"},
   
   {name:"VISION+", cat:"streaming", icon:"<img src='vision.jpeg' alt='Vision'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Sinetron & FTV lokal, siaran TV nasional.",
@@ -1248,7 +1250,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
- link:"https://ibispaint.llowyeshop.my.id"},
+   link:"https://ibispaint.llowyeshop.my.id"},
    
     {name:"ALIGHT MOTION", cat:"editing", icon:"<img src='am.jpg' alt='Alight Motion'>", color:"#B2EBF7",
    badges:["Garansi  25 hari","Plan Premium"], desc:"Edit video & motion graphic level profesional.",
@@ -1256,7 +1258,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
-     link:"https://alightmotion.llowyeshop.my.id"},
+   link:"https://alightmotion.llowyeshop.my.id"},
   
   {name:"PICSART", cat:"editing", icon:"<img src='picsart.jpeg' alt='Picsart'>", color:"#B2EBF7",
    badges:["Garansi  25 hari"], desc:"Edit foto dengan tools & stiker premium.",
@@ -1272,7 +1274,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
-     link:"https://dazzcam.llowyeshop.my.id"},
+   link:"https://dazzcam.llowyeshop.my.id"},
   
     {name:"WINK", cat:"editing", icon:"<img src='wink.jpeg' alt='Wink'>", color:"#7B2FF7",
    badges:["Garansi 5 hari","Garansi  25 hari","plan vip","plan vip+"], desc:"Retouch wajah otomatis, filter kulit halus natural.",
@@ -1280,7 +1282,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">VIP</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">VIP+</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
-     link:"https://wink.llowyeshop.my.id"},
+   link:"https://wink.llowyeshop.my.id"},
   
   {name:"MEITU", cat:"editing", icon:"<img src='meitu.jpeg' alt='Meitu'>", color:"#B2EBF7",
    badges:["Garansi 5 hari","Garansi 25 hari","plan vip","plan vip+"], desc:"Edit & retouch foto selfie dengan filter kecantikan.",
@@ -1296,7 +1298,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
-     link:"https://beautyplus.llowyeshop.my.id"},
+   link:"https://beautyplus.llowyeshop.my.id"},
   
   {name:"REMINI", cat:"editing", icon:"<img src='remini.jpeg' alt='Remini'>", color:"#7B2FF7",
    badges:["Garansi  25 hari"], desc:"Perbaiki kualitas foto blur jadi HD, AI enhance.",
@@ -1312,7 +1314,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
-     link:"https://lightroom.llowyeshop.my.id"},
+   link:"https://lightroom.llowyeshop.my.id"},
   
     {name:"VSCO+", cat:"editing", icon:"<img src='vsco.jpeg' alt='VSCO+'>", color:"#7B2FF7",
    badges:["Garansi  25 hari","Private","Sharing"], desc:"Preset filter aesthetic & tools edit foto premium.",
@@ -1320,7 +1322,7 @@ link:"https://catchplay.llowyeshop.my.id"},
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
 </div>`,
-     link:"https://vsco.llowyeshop.my.id"},
+   link:"https://vsco.llowyeshop.my.id"},
   
   {name:"INSHOT", cat:"editing", icon:"<img src='inshot.jpeg' alt='Inshot'>", color:"#7B2FF7",
    badges:["Garansi  25 hari","Private","Sharing"], desc:"Edit video, potong, & tambah musik tanpa watermark.",
@@ -1511,7 +1513,7 @@ const categoryLabels = {
   ai:        {emoji:"🤖", title:"AI Apps"},
 };
 
-// fallback kalau gambar produk gagal load — sembunyiin & kasih emoji generik
+// fallback kalau gambar produk gagal load
 function handleImgError(img){
   img.style.display = 'none';
   const fallback = document.createElement('span');
@@ -1559,21 +1561,35 @@ function renderSections(activeCat){
     container.appendChild(section);
   });
 }
-function getStartingPrice(p){
-  const match = p.price.match(/<span class="pval">([^<]+)<\/span>/);
-  return match ? `Mulai ${match[1]}` : '';
+
+/* ======================================================
+   SISTEM PENCARIAN PINTAR
+====================================================== */
+
+function clearSearchInput() {
+  const input = document.getElementById('searchInput');
+  input.value = "";
+  document.getElementById('clearSearch').style.display = "none";
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('catSections').style.display = "block";
 }
-function renderResultItem(p){
+
+function renderResultItem(p) {
+  const badgeInfo = p.badges ? p.badges.slice(0, 2).join(' • ') : '';
   return `
-    <a class="result-item" href="${waLink(p.name)}" target="_blank">
+    <div class="result-item" style="cursor:pointer;" onclick="scrollToProduct('${p.name}')">
       <div class="r-icon" style="background:${p.color}20">${p.icon}</div>
-      <div class="r-info"><b>${p.name}</b><small>${getStartingPrice(p)} · ${p.badges[0]}</small></div>
-      <div class="r-go">Order →</div>
-    </a>`;
+      <div class="r-info">
+        <b>${p.name}</b>
+        <small>${badgeInfo} — ${p.desc}</small>
+      </div>
+      <div class="r-go">Lihat Detail →</div>
+    </div>`;
 }
-function showSuggestions(){
+
+function showSuggestions() {
   const q = document.getElementById('searchInput').value.trim();
-  if(q !== "") return; // kalau udah ada ketikan, biarin handleSearch yang urus
+  if(q !== "") return;
 
   const resultsBox = document.getElementById('searchResults');
   const sections = document.getElementById('catSections');
@@ -1581,36 +1597,23 @@ function showSuggestions(){
   resultsBox.classList.add('show');
 
   const suggestedNames = ["NETFLIX", "DISNEY+", "CAPCUT", "CANVA", "VIU", "YOUTUBE"];
-const suggested = suggestedNames.map(name => products.find(p => p.name === name)).filter(Boolean);
+  const suggested = suggestedNames.map(name => products.find(p => p.name === name)).filter(Boolean);
+  
   resultsBox.innerHTML =
-    `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi buat kamu</div>` +
+    `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi Aplikasi Populer</div>` +
     suggested.map(renderResultItem).join('');
 }
 
-function hideSuggestionsIfEmpty(){
-  setTimeout(() => {
-    if(document.getElementById('searchInput').value.trim() === ""){
-      document.getElementById('searchResults').classList.remove('show');
-      document.getElementById('catSections').style.display = "block";
-    }
-  }, 150);
-}
-
-function filterCat(cat, el){
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('searchInput').value = "";
-  document.getElementById('searchResults').classList.remove('show');
-  document.getElementById('catSections').style.display = "block";
-  renderSections(cat);
-}
-
-function handleSearch(){
+function handleSearch() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   const resultsBox = document.getElementById('searchResults');
   const sections = document.getElementById('catSections');
+  const clearBtn = document.getElementById('clearSearch');
 
-  if(q === ""){
+  if (q.length > 0) {
+    clearBtn.style.display = "block";
+  } else {
+    clearBtn.style.display = "none";
     showSuggestions();
     return;
   }
@@ -1618,17 +1621,58 @@ function handleSearch(){
   sections.style.display = "none";
   resultsBox.classList.add('show');
 
-  const matches = products.filter(p => p.name.toLowerCase().includes(q));
-  if(matches.length === 0){
-    resultsBox.innerHTML = `<div class="no-result">Produk "${q}" nggak ketemu, coba kata kunci lain ya 🐾</div>`;
+  // Mencari di Nama, Deskripsi, Kategori, dan Badges
+  const matches = products.filter(p => {
+    const nameMatch = p.name.toLowerCase().includes(q);
+    const descMatch = p.desc.toLowerCase().includes(q);
+    const catMatch = p.cat.toLowerCase().includes(q);
+    const badgeMatch = p.badges && p.badges.some(b => b.toLowerCase().includes(q));
+    return nameMatch || descMatch || catMatch || badgeMatch;
+  });
+
+  if (matches.length === 0) {
+    resultsBox.innerHTML = `<div class="no-result">Aplikasi atau kata kunci "${q}" belum ada nih, coba cari kata kunci lain ya 🐾</div>`;
     return;
   }
+
   resultsBox.innerHTML = matches.map(renderResultItem).join('');
+}
+
+function scrollToProduct(productName) {
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('catSections').style.display = "block";
+  
+  renderSections('all');
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  const allPill = document.querySelector('.pill[data-cat="all"]');
+  if(allPill) allPill.classList.add('active');
+
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.product-card');
+    for (let card of cards) {
+      if (card.querySelector('h3').textContent.trim() === productName) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.style.outline = "3px solid var(--purple)";
+        setTimeout(() => card.style.outline = "none", 2000);
+        break;
+      }
+    }
+  }, 100);
+}
+
+function filterCat(cat, el){
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('searchInput').value = "";
+  document.getElementById('clearSearch').style.display = "none";
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('catSections').style.display = "block";
+  renderSections(cat);
 }
 
 renderSections('all');
 
-/* ===== AUTO-SCROLL PELAN KE KANAN, SEREMPAK ===== */
+/* ===== AUTO-SCROLL PELAN KE KANAN ===== */
 let autoScrollPaused = {};
 let pillsPaused = false;
 
@@ -1636,8 +1680,7 @@ function startAutoScroll(){
   function tick(){
     document.querySelectorAll('.scroll-row').forEach(row => {
       if(autoScrollPaused[row.dataset.rowId]) return;
-      row.scrollLeft += 1; // kecepatan geser (semua row sama, jadi keliatan serempak)
-      // kalau udah mentok kanan, balik pelan-pelan ke awal
+      row.scrollLeft += 1;
       if(row.scrollLeft + row.clientWidth >= row.scrollWidth - 1){
         row.scrollLeft = 0;
       }
@@ -1655,7 +1698,6 @@ function startAutoScroll(){
   requestAnimationFrame(tick);
 }
 
-// kasih id unik ke tiap row + pause otomatis saat user lagi geser manual
 function attachRowInteraction(){
   document.querySelectorAll('.scroll-row').forEach((row, i) => {
     if(!row.dataset.rowId) row.dataset.rowId = 'row-' + i;
@@ -1675,7 +1717,6 @@ function attachRowInteraction(){
   });
 }
 
-// dipanggil ulang tiap renderSections bikin row baru
 const _originalRenderSections = renderSections;
 renderSections = function(activeCat){
   _originalRenderSections(activeCat);
