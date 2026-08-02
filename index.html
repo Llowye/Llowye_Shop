@@ -382,11 +382,11 @@
 .cat-title h2{font-size:18px; font-weight:700; line-height:1;}
 .cat-title .emoji{font-size:20px; line-height:1; display:inline-flex; align-items:center;}
 
-  .scroll-row{
-  display:flex; gap:14px; overflow-x:auto;
+    .scroll-row{
+  display:flex; align-items:flex-start; gap:14px; overflow-x:auto;
   padding:2px 20px 14px;
   -webkit-overflow-scrolling:touch;
-}
+    }
 .scroll-row::-webkit-scrollbar{display:none;}
 
 .product-card{
@@ -429,6 +429,9 @@
   padding:16px 6px 8px;
   text-align:center;
 }
+    .price-group:has(.plabel br){
+  padding-top:28px;
+    }
   .price-grid{
   display:grid; grid-template-columns:1fr 1fr; gap:22px 12px;
   margin-top:16px;
