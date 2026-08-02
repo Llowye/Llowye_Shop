@@ -1102,6 +1102,7 @@ const products = [
   <div class="price-group"><span class="plabel">Shar 6u</span><span class="pval">10k/bulan</span> class="pval">100k/tahun</span></div>
    <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">15k/bulan</span> class="pval">150k/tahun</span></div>
    <div class="price-group"><span class="plabel">Private</span><span class="pval">30k/bulan</span> class="pval">200k/tahun</span></div>
+   </div>`,
    link:"https://wetv.llowyeshop.my.id"},
   
     {name:"IQIYI", cat:"streaming", icon:"<img src='iqiyi.jpeg' alt='Iqiyi'>", color:"#B2EBF7",
@@ -1838,23 +1839,7 @@ document.addEventListener('click', (e) => {
   panel.classList.toggle('open');
   document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
 }
-  function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
 
-window.addEventListener('scroll', () => {
-  const btn = document.getElementById('scrollTopBtn');
-  if (btn) {
-    if (window.scrollY > 300) {
-      btn.style.display = 'flex';
-    } else {
-      btn.style.display = 'none';
-    }
-  }
-});
 function toggleFaqPanel(){
   const panel = document.getElementById('faqPanel');
   panel.classList.toggle('open');
