@@ -1581,7 +1581,8 @@ function showSuggestions(){
   sections.style.display = "none";
   resultsBox.classList.add('show');
 
-  const suggested = products.slice(0, 6); // produk yang ditampilin sebagai rekomendasi
+  const suggestedNames = ["NETFLIX", "DISNEY+", "CAPCUT", "CANVA", "VIU", "YOUTUBE"];
+const suggested = suggestedNames.map(name => products.find(p => p.name === name)).filter(Boolean);
   resultsBox.innerHTML =
     `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi buat kamu</div>` +
     suggested.map(renderResultItem).join('');
