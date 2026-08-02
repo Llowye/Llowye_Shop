@@ -686,12 +686,12 @@
 </head>
 <body>
 
-  <div class="faq-panel" id="faqPanel">
-<div class="faq-panel-inner">
-  <button class="snk-back" onclick="toggleFaqPanel()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
-  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
-</button>
-  <h2>❓ FAQ</h2>
+ <div class="faq-panel" id="faqPanel">
+  <div class="faq-panel-inner">
+    <button class="snk-back" onclick="toggleFaqPanel()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+      <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
+    </button>
+    <h2>❓ FAQ</h2>
     <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Pertanyaan para pelanggan Llowye_Shop</p>
 
     <div class="faq-static-item">
@@ -1064,20 +1064,18 @@ const products = [
    {name:"HBO MAX", cat:"streaming", icon:"<img src='hbo.jpg' alt='Hbo Max'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 5 hari","Private","Sharing"], desc:"Film blockbuster, serial HBO dan dokumenter berkualitas.",
    price:`<div class="price-grid">
-  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
-  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+  <div class="price-group"><span class="plabel">standar sharing</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">standar private</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">premium sharing</span><span class="pval">15k/bulan</span></div>
+  <div class="price-group"><span class="plabel">premium private</span><span class="pval">70k/bulan</span></div>
 </div>`,
    link:"https://hbomax.llowyeshop.my.id"},
   
     {name:"PRIME VIDIO", cat:"streaming", icon:"<img src='prime.jpg' alt='Prime Vidio'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Garansi 5 hari","Private","Sharing"], desc:"Streaming Amazon dari film dan konten berbagai genre.",
    price:`<div class="price-grid">
-  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
-  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">15k/bulan</span></div>
 </div>`,
    link:"https://primevid.llowyeshop.my.id"},
   
@@ -1091,21 +1089,19 @@ const products = [
   {name:"VIDIO", cat:"streaming", icon:"<img src='vidio.jpg' alt='Vidio'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Liga Inggris & series lokal favorit kamu.",
    price:`<div class="price-grid">
-  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
-  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+  <div class="price-group"><span class="plabel">shar mobile</span><span class="pval">15k/bulan</span></div>
+  <div class="price-group"><span class="plabel">priv mobile</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">shar laptop</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">priv laptop</span><span class="pval">30k/bulan</span></div>
 </div>`,
    link:"https://vidio.llowyeshop.my.id"},
   
   {name:"WETV", cat:"streaming", icon:"<img src='wetv.jpeg' alt='Wetv'>", color:"#B2EBF7",
    badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama China & Asia Tenggara, update tiap hari.",
    price:`<div class="price-grid">
-  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
-  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
-  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
-</div>`,
+  <div class="price-group"><span class="plabel">Shar 6u</span><span class="pval">10k/bulan</span> class="pval">100k/tahun</span></div>
+   <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">15k/bulan</span> class="pval">150k/tahun</span></div>
+   <div class="price-group"><span class="plabel">Private</span><span class="pval">30k/bulan</span> class="pval">200k/tahun</span></div>
    link:"https://wetv.llowyeshop.my.id"},
   
     {name:"IQIYI", cat:"streaming", icon:"<img src='iqiyi.jpeg' alt='Iqiyi'>", color:"#B2EBF7",
