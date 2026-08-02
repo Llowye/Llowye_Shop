@@ -686,9 +686,11 @@
 <body>
 
   <div class="faq-panel" id="faqPanel">
-  <div class="faq-panel-inner">
-    <button class="snk-back" onclick="toggleFaqPanel()" <span class="faq-arrow"></span><div
-    <h2>❓ FAQ</h2>
+<div class="faq-panel-inner">
+  <button class="snk-back" onclick="toggleFaqPanel()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
+</button>
+  <h2>❓ FAQ</h2>
     <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Pertanyaan para pelanggan Llowye_Shop</p>
 
     <div class="faq-static-item">
@@ -728,9 +730,8 @@
   
   <div class="snk-panel" id="snkPanel">
   <div class="snk-panel-inner">
-    <!-- KODE BARU (Panah Merah Chevron) -->
-<button class="snk-back" onclick="toggleSnk()" style="display:inline-flex; align-items:center; justify-content:center;">
-  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg); margin-left:3px;"></span>
+    <button class="snk-back" onclick="toggleSnk()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
 </button>
     <h2>📜 Syarat & Ketentuan</h2>
      <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Wajib baca sebelum order ya!</p>
@@ -814,8 +815,8 @@
   
   <div class="cara-panel" id="caraPanel">
   <!-- KODE BARU (Panah Merah Chevron) -->
-<button class="snk-back" onclick="toggleCaraOrder()" style="display:inline-flex; align-items:center; justify-content:center;">
-  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg); margin-left:3px;"></span>
+<button class="snk-back" onclick="toggleCaraOrder()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
 </button>
   <h2>🛒 Cara Order</h2>
   <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Gampang banget, cuma 4 langkah !</p>
@@ -1929,8 +1930,7 @@ document.querySelectorAll('img.testi-ss').forEach(img => {
 });
   </script>
 
-      <!-- Tombol Kembali ke Atas (Panah Merah Gaya FAQ) -->
-<button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke atas" style="
+     <button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke atas" style="
   position: fixed;
   bottom: 24px;
   right: 20px;
@@ -1946,7 +1946,6 @@ document.querySelectorAll('img.testi-ss').forEach(img => {
   justify-content: center;
   cursor: pointer;
 ">
-  <!-- Panah Merah FAQ yang Menunjuk ke Atas -->
   <span style="
     display: inline-block;
     width: 9px;
