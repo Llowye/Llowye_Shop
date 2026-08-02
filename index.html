@@ -737,7 +737,7 @@
       <h3>Dilarang gonta-ganti akun</h3>
       <p>Sekali beli, login 1 device. Gabisa pindah-pindah device bikin akun cepat rusak.</p>
     </div>
-      <p><div class="snk-item">
+  <div class="snk-item">
   <h3>Login only di 1 device</h3>
   <p>Refund tidak berlaku dalam kondisi apa pun setelah pesanan dikonfirmasi dan pembayaran diterima. Segala bentuk kekeliruan pemilihan produk, paket, atau durasi menjadi tanggung jawab pembeli, sehingga wajib memastikan kesesuaiannya sebelum melakukan pembayaran. Kendala teknis pada akun (logout, banned,backfree, akun ke-lock) di luar ketentuan ini tetap ditangani melalui mekanisme garansi.</p>
 </div>
@@ -792,7 +792,6 @@
   <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder()" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:transparent; border:2px solid #D6F5DD; color:#1B7A3D; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
     🛒 Cara Order
   </a>
-</div>
 </div>
 </section>
 
@@ -887,7 +886,6 @@
       <button class="faq-showmore-btn" onclick="toggleFaqPanel()">
         Lihat FAQ selengkapnya <span class="faq-arrow-side"></span>
       </button>
-    </div>
   </section>
   
   <section class="testi-section">
@@ -1007,6 +1005,7 @@
     <div>⚡ Respon &lt; 5 menit</div>
     <div>✅ Trusted Seller</div>
     <div>😎 Owner kece: Anis</div>
+     </div>
     <div style="margin-top:14px; font-size:10.5px; opacity:.75;">
     © <span id="copyYear"></span> Llowye_Shop. All rights reserved.
   </div>
@@ -1717,22 +1716,6 @@ startAutoScroll();
 let player;
 let isPlaying = false;
 
-  function toggleSteps(){
-  const wrap = document.getElementById('stepsWrap');
-  const btn = document.getElementById('stepsToggle');
-  wrap.classList.toggle('open');
-  btn.classList.toggle('open');
-}
-function scrollToSteps(e){
-  e.preventDefault();
-  const wrap = document.getElementById('stepsWrap');
-  const btn = document.getElementById('stepsToggle');
-  if(!wrap.classList.contains('open')){
-    wrap.classList.add('open');
-    btn.classList.add('open');
-  }
-  document.getElementById('caraOrderSection').scrollIntoView({behavior:'smooth'});
-}
 function toggleMusic(){
   playClickSound();
   const btn = document.getElementById('musicBtn');
