@@ -1560,16 +1560,18 @@ function renderSections(activeCat){
     container.appendChild(section);
   });
 }
-
+function getStartingPrice(p){
+  const match = p.price.match(/<span class="pval">([^<]+)<\/span>/);
+  return match ? `Mulai ${match[1]}` : '';
+}
 function renderResultItem(p){
   return `
     <a class="result-item" href="${waLink(p.name)}" target="_blank">
       <div class="r-icon" style="background:${p.color}20">${p.icon}</div>
-      <div class="r-info"><b>${p.name}</b><small>${p.price} · ${p.badges[0]}</small></div>
+      <div class="r-info"><b>${p.name}</b><small>${getStartingPrice(p)} · ${p.badges[0]}</small></div>
       <div class="r-go">Order →</div>
     </a>`;
 }
-
 function showSuggestions(){
   const q = document.getElementById('searchInput').value.trim();
   if(q !== "") return; // kalau udah ada ketikan, biarin handleSearch yang urus
