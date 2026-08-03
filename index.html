@@ -174,6 +174,36 @@
 .faq-static-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
   
   /* ============ EDIT AREA (warna & nomor WA) ============ */
+    /* ---------- TOMBOL PANAH KE ATAS (khusus panel FAQ & SNK) ---------- */
+.panel-top-btn{
+  display:none;
+  position:fixed;
+  bottom:24px; right:20px;
+  width:42px; height:42px;
+  border-radius:50%;
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 4px 14px rgba(38,36,59,0.12);
+  z-index:1001;
+  align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.panel-top-btn.show{display:flex;}
+.panel-top-btn span{
+  display:inline-block; width:9px; height:9px;
+  border-right:3px solid #FF3B30; border-bottom:3px solid #FF3B30;
+  border-radius:2px; transform:rotate(-135deg); margin-top:3px;
+}
+
+/* ---------- TOMBOL KEMBALI (search) ---------- */
+.search-back-btn{
+  display:flex; align-items:center; gap:6px;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:13px;
+  padding:8px 16px; border-radius:999px;
+  margin-bottom:10px; cursor:pointer;
+  font-family:'Quicksand', sans-serif;
+}
  :root{
     --pink:#FF6FA5;
     --purple:#6C5CE7;
@@ -732,6 +762,9 @@
     </div>
     <!-- tambahin FAQ lain di sini, formatnya sama kayak faq-static-item di atas -->
   </div>
+  <button class="panel-top-btn" id="faqPanelTopBtn" onclick="scrollPanelToTop('faqPanel')" title="Kembali ke atas">
+    <span></span>
+  </button>
 </div>
   
   <div class="snk-panel" id="snkPanel">
@@ -773,6 +806,9 @@
       <p>Namun jika akun tidak dapat diperbaiki maka silahkan ajukan refund dengan link berikut. https://refund.llowyeshop.my.id</p>
     </div>
   </div>
+  <button class="panel-top-btn" id="snkPanelTopBtn" onclick="scrollPanelToTop('snkPanel')" title="Kembali ke atas">
+    <span></span>
+  </button>
 </div>
   
 <header>
@@ -1630,9 +1666,10 @@ function showSuggestions() {
   const suggestedNames = ["NETFLIX", "DISNEY+", "CAPCUT", "CANVA", "VIU", "YOUTUBE"];
   const suggested = suggestedNames.map(name => products.find(p => p.name === name)).filter(Boolean);
   
-  resultsBox.innerHTML =
-    `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi Aplikasi Populer</div>` +
-    suggested.map(renderResultItem).join('');
+ resultsBox.innerHTML =
+  `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
+  `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi Aplikasi Populer</div>` +
+  suggested.map(renderResultItem).join('');
 }
 
 function handleSearch() {
@@ -1662,9 +1699,11 @@ function handleSearch() {
   });
 
   if (matches.length === 0) {
-    resultsBox.innerHTML = `<div class="no-result">Aplikasi atau kata kunci "${q}" belum ada nih, coba kata kunci lain ya 🐾</div>`;
-    return;
-  }
+  resultsBox.innerHTML =
+    `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
+    `<div class="no-result">Aplikasi atau kata kunci "${q}" belum ada nih, coba kata kunci lain ya 🌱</div>`;
+  return;
+}
 
   // SORTING PINTAR: Aplikasi yang diawali ketikan kamu bakal naik ke PALING ATAS!
   matches.sort((a, b) => {
@@ -1676,7 +1715,9 @@ function handleSearch() {
     return a.name.localeCompare(b.name);
   });
 
-  resultsBox.innerHTML = matches.map(renderResultItem).join('');
+ resultsBox.innerHTML =
+  `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
+  matches.map(renderResultItem).join('');
 }
 
 function scrollToProduct(productName) {
@@ -1888,6 +1929,20 @@ window.addEventListener('scroll', () => {
     }
   }
 });
+function scrollPanelToTop(panelId){
+  const panel = document.getElementById(panelId);
+  if(panel) panel.scrollTo({ top: 0, behavior: 'smooth' });
+}
+['faqPanel','snkPanel'].forEach(id => {
+  const panel = document.getElementById(id);
+  const btn = document.getElementById(id + 'TopBtn');
+  if(panel && btn){
+    panel.addEventListener('scroll', () => {
+      btn.classList.toggle('show', panel.scrollTop > 300);
+    });
+  }
+});
+
 document.getElementById('copyYear').textContent = new Date().getFullYear();
   console.log(
   '%c⚠️ STOP!',
