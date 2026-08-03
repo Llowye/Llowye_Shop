@@ -1830,14 +1830,16 @@ startAutoScroll();
 
   <audio id="bgMusic" src="seven.mpeg.mp3"></audio>
 
-<button  id="musicBtn" onclick="toggleMusic()" style="position:fixed; top:14px; right:14px; background:#FFF0A1; border: 3px solid #B2EBF7; border-radius:999px; padding:6px 10px; font-size:9px; font-weight:400; font-family:'Quicksand', sans-serif; color:#0B0B0B; box-shadow:0 4px 10px rgba(0,0,0,0.15); z-index:999; animation: pulseMusic 1.5s ease-in-out infinite; display:flex; flex-direction:column; align-items:center; gap:1px;">
-  <span id="musicIcon" style="font-size:14px; display:inline-block; animation: ringPhone 0.8s ease-in-out infinite;">🎵</span>
+<button  id="musicBtn" onclick="toggleMusic()" style="...">
+  <span id="musicIcon" style="...">🎵</span>
   Klik lagu
 </button>
 
 <script>
 let player;
 let isPlaying = false;
+const musicTracks = ['seven.mpeg.mp3', 'lagu2.mpeg.mp3']; // ganti 'lagu2.mpeg.mp3' sesuai nama file lagu keduamu
+let currentTrack = 0;
 
 function toggleMusic(){
   playClickSound();
@@ -1856,6 +1858,15 @@ function toggleMusic(){
     icon.style.animation = 'ringPhone 0.8s ease-in-out infinite';
   }
 }
+
+// Pas lagu yang diputar selesai, otomatis gantian ke lagu berikutnya
+document.getElementById('bgMusic').addEventListener('ended', () => {
+  currentTrack = (currentTrack + 1) % musicTracks.length;
+  document.getElementById('bgMusic').src = musicTracks[currentTrack];
+  isPlaying = false;
+  document.getElementById('musicBtn').style.animation = 'pulseMusic 1.5s ease-in-out infinite';
+  document.getElementById('musicIcon').style.animation = 'ringPhone 0.8s ease-in-out infinite';
+});
   function playClickSound(){
   const ctx = new (window.AudioContext || window.webkitAudioContext)();
   const osc = ctx.createOscillator();
