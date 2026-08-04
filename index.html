@@ -1996,11 +1996,11 @@ function toggleMusic(){
 // Pas lagu yang diputar selesai, otomatis gantian ke lagu berikutnya
 document.getElementById('bgMusic').addEventListener('ended', () => {
   currentTrack = (currentTrack + 1) % musicTracks.length;
-  document.getElementById('bgMusic').src = musicTracks[currentTrack];
-  isPlaying = false;
-  document.getElementById('musicBtn').style.animation = 'pulseMusic 1.5s ease-in-out infinite';
-  document.getElementById('musicIcon').style.animation = 'ringPhone 0.8s ease-in-out infinite';
+  const audio = document.getElementById('bgMusic');
+  audio.src = musicTracks[currentTrack];
+  audio.play();
 });
+  
   function playClickSound(){
   const ctx = new (window.AudioContext || window.webkitAudioContext)();
   const osc = ctx.createOscillator();
