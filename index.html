@@ -1965,6 +1965,7 @@ function toggleMusic(){
   const icon = document.getElementById('musicIcon');
   const audio = document.getElementById('bgMusic');
   if(!isPlaying){
+    audio.volume = trackVolumes[currentTrack];
     audio.play();
     isPlaying = true;
     btn.style.animation = 'none';
@@ -1979,10 +1980,13 @@ function toggleMusic(){
   
 
 // Pas lagu yang diputar selesai, otomatis gantian ke lagu berikutnya
+const trackVolumes = [1, 1, 0.5]; // lagu ke-3 (index 2) diset volumenya jadi 50%
+
 document.getElementById('bgMusic').addEventListener('ended', () => {
   currentTrack = (currentTrack + 1) % musicTracks.length;
   const audio = document.getElementById('bgMusic');
   audio.src = musicTracks[currentTrack];
+  audio.volume = trackVolumes[currentTrack];
   audio.play();
 });
   
