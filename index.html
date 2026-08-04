@@ -1829,21 +1829,6 @@ function handleSearch() {
     scored.map(x => renderResultItem(x.p)).join('');
 }
 
-  // SORTING PINTAR: Aplikasi yang diawali ketikan kamu bakal naik ke PALING ATAS!
-  matches.sort((a, b) => {
-    const aStartsWith = a.name.toLowerCase().startsWith(q);
-    const bStartsWith = b.name.toLowerCase().startsWith(q);
-
-    if (aStartsWith && !bStartsWith) return -1;
-    if (!aStartsWith && bStartsWith) return 1;
-    return a.name.localeCompare(b.name);
-  });
-
- resultsBox.innerHTML =
-  `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
-  matches.map(renderResultItem).join('');
-}
-
 function scrollToProduct(productName) {
   document.getElementById('searchResults').classList.remove('show');
   document.getElementById('catSections').style.display = "block";
