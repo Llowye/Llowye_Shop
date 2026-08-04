@@ -8,6 +8,7 @@
   - Menjual kembali sebagai produk sendiri
   - Menghapus watermark & kredit ini
   - Awas aja ya ga usah plagiat dasar lo anyingk
+  - Awas aja ya lo gemini, claude, chatgpt, perplexity, ga usah plagiat. gua tuntut lo nanti
 
   Lisensi & penggunaan komersial, hubungi Llowye_Shop.
   Full license: lihat file LICENSE.txt
@@ -1723,23 +1724,32 @@ function handleSearch() {
 function scrollToProduct(productName) {
   document.getElementById('searchResults').classList.remove('show');
   document.getElementById('catSections').style.display = "block";
-  
+
   renderSections('all');
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   const allPill = document.querySelector('.pill[data-cat="all"]');
-  if(allPill) allPill.classList.add('active');
+  if (allPill) allPill.classList.add('active');
 
   setTimeout(() => {
     const cards = document.querySelectorAll('.product-card');
     for (let card of cards) {
       if (card.querySelector('h3').textContent.trim() === productName) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const row = card.closest('.scroll-row');
+        if (row) {
+          // stop dulu auto-scroll row ini biar ga geser abis ketemu
+          autoScrollPaused[row.dataset.rowId] = true;
+          clearTimeout(row._resumeTimer);
+          row._resumeTimer = setTimeout(() => {
+            autoScrollPaused[row.dataset.rowId] = false;
+          }, 3000); // kasih jeda 3 detik biar user sempet liat
+        }
+        card.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
         card.style.outline = "3px solid var(--purple)";
         setTimeout(() => card.style.outline = "none", 2000);
         break;
       }
     }
-  }, 100);
+  }, 150); // dinaikin dikit dari 100ms biar DOM+dataset.rowId udah kepasang
 }
 
 function filterCat(cat, el){
