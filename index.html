@@ -440,6 +440,7 @@
   .mascot{
     font-size:34px;
     filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
+    flex-shrink:0;
   }
 .bubble{
   background:#fff; border:1px solid var(--line);
@@ -2172,11 +2173,6 @@ function toggleMusic(){
   }
 }
 
-const introWords = [
-  "Klik", "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">info</span>",
-  "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">selengkapnya</span>",
-  "supaya", "tau", "perbedaan", "paket", "tiap", "akun", "ya..."
-];
 const introBubble = document.getElementById('introBubble');
 let wordIndex = 0;
 function typeWord(){
@@ -2184,6 +2180,12 @@ function typeWord(){
     introBubble.innerHTML += (wordIndex > 0 ? " " : "") + introWords[wordIndex];
     wordIndex++;
     setTimeout(typeWord, 180);
+  } else {
+    setTimeout(()=>{
+      introBubble.innerHTML = "";
+      wordIndex = 0;
+      typeWord();
+    }, 2000); // jeda 2 detik sebelum ngulang dari awal
   }
 }
 typeWord();
