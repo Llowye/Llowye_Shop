@@ -449,6 +449,8 @@
   color:var(--muted); line-height:1.5; text-align:left;
   box-shadow:0 6px 18px rgba(38,36,59,0.15);
   position:relative;
+  min-width:230px;
+  min-height:70px;
 }
 .bubble::before{
   content:"";
@@ -2172,8 +2174,8 @@ function toggleMusic(){
   }
 }
 const introWords = [
-  "Klik", "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">info</span>",
-  "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">selengkapnya</span>",
+  "Klik",
+  "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">info selengkapnya</span>",
   "supaya", "tau", "perbedaan", "paket", "tiap", "akun", "ya..."
 ];
 const introBubble = document.getElementById('introBubble');
