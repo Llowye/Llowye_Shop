@@ -996,12 +996,12 @@
   <div id="searchResults"></div>
 
 <div class="mascot-wrap" style="align-items:center; margin-top:3px;">
-  <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; z-index:2;"></div>
-  <div class="bubble" style="margin-top:-20px;">Klik <span style="background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;">info selengkapnya</span><br>supaya tau perbedaan<br>paket tiap akun ya...</div>
+  <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; top:8px; z-index:2;"></div>
+ <div class="bubble" style="margin-top:-20px;"><span id="typewriterText"></span></div>
 </div>
   
 <div style="display:flex; gap:10px; width:100%; margin-top:10px;">
-  <a class="btn-3d" href="javascript:void(0)" onclick="toggleSnk()" style="--shadow-color:#8B0000; display:flex; align-items:center; justify-content:center; gap:6px; background:#fff; border:2px solid #FFB3B3; color:#8B0000; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
+  <a class="btn-3d" href="javascript:void(0)" onclick="toggleSnk()" style="--shadow-color:#FFB3B3; display:flex; align-items:center; justify-content:center; gap:6px; background:#fff; border:2px solid #FFB3B3; color:#8B0000; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
     Baca S&K Toko
   </a>
   <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder()" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#fff; border:2px solid #A8E6C1; color:#1B7A3D; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
@@ -2259,6 +2259,44 @@ console.log(
 </script>
   
   <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
+
+  <script>
+const typewriterTokens = [
+  "Klik ",
+  '<span style="background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;">info selengkapnya</span>',
+  "<br>",
+  "supaya ",
+  "tau ",
+  "perbedaan",
+  "<br>",
+  "paket ",
+  "tiap ",
+  "akun ",
+  "ya..."
+];
+
+function startTypewriter(){
+  const el = document.getElementById('typewriterText');
+  if(!el) return;
+  let i = 0;
+  function step(){
+    if(i < typewriterTokens.length){
+      el.innerHTML += typewriterTokens[i];
+      i++;
+      setTimeout(step, 350);
+    } else {
+      setTimeout(() => {
+        el.innerHTML = "";
+        i = 0;
+        step();
+      }, 1800);
+    }
+  }
+  step();
+}
+startTypewriter();
+</script>
+  
   <script>
 function timeAgo(dateStr){
   const now = new Date();
