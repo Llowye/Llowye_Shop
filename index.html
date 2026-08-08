@@ -2,12 +2,14 @@
   ================================================================================================================================================================================
   Llowye_Shop Landing Page Template
   © 2026 Llowye_Shop — All Rights Reserved
+
   Template ini dilindungi hak cipta. Dilarang:
   - Menyalin/mendistribusikan ulang tanpa izin
   - Menjual kembali sebagai produk sendiri
   - Menghapus watermark & kredit ini
   - Awas aja ya ga usah plagiat dasar lo anyingk
   - Awas aja ya lo gemini, claude, chatgpt, perplexity, ga usah plagiat. gua tuntut lo nanti
+
   Lisensi & penggunaan komersial, hubungi Llowye_Shop.
   Full license: lihat file LICENSE.txt
   ================================================================================================================================================================================
@@ -20,6 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Llowye Search - Cari Aplikasi Pro Favoritmu</title>
   
+
 <!-- SEO & preview link -->
 <meta name="description" content="Llowye Shop - Akun premium Netflix, Disney+, CapCut, Spotify, Viu, dan puluhan aplikasi lain. Harga murah mulai 5k, garansi aktif, respon cepat.">
 <meta property="og:title" content="Llowye Shop - Akun Premium Murah & Bergaransi">
@@ -28,109 +31,2291 @@
 <meta property="og:image" content="https://llowyeshop.my.id/Llowye.png">
 <link rel="icon" type="image/png" href="https://llowyeshop.my.id/Llowye.png">
 
-<!-- Font Baloo 2 untuk Modal -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --pink:#FF6FA5; --purple:#6C5CE7; --yellow:#FFC145; --green:#2ECC71; --blue:#4A90E2; --red:#FF5C5C; --ink:#26243B; --muted:#726F8C; --bg:#FAF8FF; --card:#FFFFFF; --line:#ECE9F7;
-    }
-    *{box-sizing:border-box; margin:0; padding:0;}
-    body{font-family:'Quicksand', sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased;}
-    h1,h2,h3,.logo{font-family:'Fredoka', sans-serif;}
-    a{text-decoration:none; color:inherit;}
-    img{max-width:100%; display:block;}
 
-    /* MODAL WARNING STYLE */
-    .modalOverlay {
-      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); display: flex; justify-content: center; align-items: flex-start; z-index: 999999; padding-top: 22vh; opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
-    }
-    .modalOverlay.show { opacity: 1; pointer-events: auto; }
-    .modalBox { position: relative; background: #ffffff; border: 5px solid #C8F7F2; border-radius: 25px 0px 25px 25px; padding: 20px 15px; width: 320px; max-width: 90%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transform: translateX(100vw); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-    .modalOverlay.show .modalBox { transform: translateX(0); }
-    .modalOverlay.hideRight .modalBox { transform: translateX(100vw) !important; transition: transform 0.5s ease-in; }
-    .catSleeping { position: absolute; top: -85px; right: -25px; width: 95px; height: auto; pointer-events: none; z-index: 10; }
-    .modalBox h3 { font-family: 'Baloo 2', 'Fredoka', sans-serif; font-style: normal !important; color: #ff0000; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
-    .modalBox p { font-family: 'Quicksand', sans-serif; font-size: 13px; line-height: 1.5; color: #26243B; }
-    .modalButtons { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; }
-    .btnAccept { font-family: 'Baloo 2', 'Fredoka', sans-serif; font-style: normal !important; border: none; padding: 9px 14px; border-radius: 18px; font-size: 12px; cursor: pointer; background: #bbf7d0; color: #166534; font-weight: 700; box-shadow: 0 4px 0 #86efac; }
-    .btnRefuse { font-family: 'Baloo 2', 'Fredoka', sans-serif; font-style: normal !important; border: none; padding: 9px 16px; border-radius: 18px; font-size: 12px; cursor: pointer; background: #ff4d4d; color: #5c0000; font-weight: 800; box-shadow: 0 4px 0 #cc0000; }
+    .steps-section{
+  padding:20px 20px 10px;
+}
+.steps-title{
+  text-align:center; margin-bottom:14px;
+}
     
-    /* STYLE LAINNYA */
-    .hero{padding:28px 20px 20px; text-align:center; position:relative; overflow:hidden;}
-    .wordmark{font-family:'Fredoka', sans-serif; font-size:44px; font-weight:700; letter-spacing:-1px;}
-    .wordmark span:nth-child(1){color:var(--blue);} .wordmark span:nth-child(2){color:var(--red);} .wordmark span:nth-child(3){color:var(--yellow);} .wordmark span:nth-child(4){color:var(--blue);} .wordmark span:nth-child(5){color:var(--green);} .wordmark span:nth-child(6){color:var(--red);}
-    .searchbar{margin:20px auto 0; max-width:480px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:14px 18px; display:flex; align-items:center; gap:10px; box-shadow:0 6px 20px rgba(108,92,231,0.08);}
-    .searchbar input{border:none; outline:none; flex:1; font-size:14px; background:transparent;}
-    .btn-3d { border: none; border-radius: 999px; box-shadow: 0 6px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 8px 14px rgba(0,0,0,0.12); cursor: pointer; }
-    .cara-panel, .snk-panel, .faq-panel{position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg); transform:translateX(-100%); transition:transform .35s ease; z-index:1000; overflow-y:auto; padding:20px;}
-    .cara-panel.open, .snk-panel.open, .faq-panel.open{transform:translateX(0);}
-    .snk-back{background:var(--card); border:1px solid var(--line); color:var(--purple); font-weight:700; padding:10px 14px; border-radius:999px; margin-bottom:16px; cursor:pointer;}
-  </style>
+    .cara-panel{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:var(--bg);
+  transform:translateX(-100%);
+  transition:transform .35s ease;
+  z-index:1000;
+  overflow-y:auto;
+  padding:20px;
+}
+.cara-panel.open{
+  transform:translateX(0);
+}
+.menu-btn-row{
+  display:flex; gap:10px; padding:14px 20px 0;
+}
+.menu-btn{
+  flex:1; text-align:center;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:13px;
+  padding:10px 12px; border-radius:999px;
+  cursor:pointer; font-family:'Quicksand', sans-serif;
+}
+    
+  .snk-panel{
+  position:fixed;
+  top:0; right:0;
+  width:100%; height:100%;
+  background:var(--bg);
+  transform:translateX(100%);
+  transition:transform .35s ease;
+  z-index:1002;
+  overflow-y:auto;
+  padding:20px;
+}
+.snk-panel.open{
+  transform:translateX(0);
+}
+    .faq-panel{
+  position:fixed;
+  top:0; right:0;
+  width:100%; height:100%;
+  background:var(--bg);
+  transform:translateX(100%);
+  transition:transform .35s ease;
+  z-index:1002;
+  overflow-y:auto;
+  padding:20px;
+}
+.faq-panel.open{
+  transform:translateX(0);
+}
+
+/* OVERLAY BACKGROUND PEREDUP MODAL */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 999999;
+  padding-top: 22vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  overflow: hidden !important;
+}
+
+.modalOverlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalBox {
+  position: relative;
+  background: #ffffff;
+  border: 5px solid #C8F7F2;
+  border-radius: 25px 0px 25px 25px;
+  padding: 20px 15px;
+  width: 320px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateX(100vw);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalOverlay.show .modalBox {
+  transform: translateX(0);
+}
+
+.modalOverlay.hideRight .modalBox {
+  transform: translateX(100vw) !important;
+  transition: transform 0.5s ease-in;
+}
+
+.catSleeping {
+  position: absolute;
+  top: -85px;
+  right: -10px;
+  width: 95px;
+  height: auto;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.modalBox h3 {
+  font-family: 'Baloo 2', 'Fredoka', sans-serif;
+  font-style: normal !important;
+  color: #ff0000;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.modalBox p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #26243B;
+}
+
+.modalButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* TOMBOL MERAH MAROON */
+.btnAccept {
+  font-family: 'Baloo 2', 'Fredoka', sans-serif;
+  font-style: normal !important;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 18px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #fff;
+  border: 2px solid #FFB3B3;
+  color: #8B0000;
+  font-weight: 700;
+  box-shadow: 0 4px 0 #e0a0a0;
+}
+
+.btnAccept:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #e0a0a0;
+}
+
+/* TOMBOL HIJAU SOFT (NANTI AJA) */
+.btnRefuse {
+  font-family: 'Baloo 2', 'Fredoka', sans-serif;
+  font-style: normal !important;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 18px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #D6F5DD;
+  color: #1B7A3D;
+  font-weight: 800;
+  box-shadow: 0 4px 0 #8FD6A6;
+}
+
+.btnRefuse:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #8FD6A6;
+}
+  
+    
+.snk-back{
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:13px;
+  padding:8px 16px; border-radius:999px;
+  margin-bottom:16px; cursor:pointer;
+}
+.snk-item{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:14px; margin-bottom:12px;
+}
+.snk-item h3{font-size:14px; margin-bottom:6px;}
+.snk-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
+
+   .faq-preview{
+  padding:0 20px;
+}
+.faq-item{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:14px; margin-bottom:12px;
+  cursor:pointer;
+}
+.faq-q{
+  font-size:14px; font-weight:700; color:var(--ink);
+  display:flex; justify-content:space-between; align-items:center; gap:8px;
+}
+.faq-arrow{
+  display:inline-block;
+  width:10px; height:10px;
+  border-right:3px solid #FF3B30;
+  border-bottom:3px solid #FF3B30;
+  border-radius:2px;
+  transform:rotate(45deg);
+  transition:transform .25s ease;
+  flex-shrink:0;
+  animation:chevronBounce 1.4s ease-in-out infinite;
+}
+.faq-item.open .faq-arrow{
+  transform:rotate(225deg);
+}
+@keyframes chevronBounce{
+  0%, 100%{ margin-top:0; }
+  50%{ margin-top:4px; }
+}
+    .faq-arrow-side{
+  display:inline-block;
+  width:8px; height:8px;
+  border-right:3px solid #FF3B30;
+  border-bottom:3px solid #FF3B30;
+  border-radius:2px;
+  transform:rotate(-45deg);
+  animation:chevronSideBounce 1.4s ease-in-out infinite;
+}
+@keyframes chevronSideBounce{
+  0%, 100%{ margin-left:0; }
+  50%{ margin-left:4px; }
+}
+.faq-a{
+  font-size:12.5px; color:var(--muted); line-height:1.5;
+  max-height:0; overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-item.open .faq-a{
+  max-height:300px; margin-top:10px;
+}
+.faq-showmore-btn{
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  margin:6px auto 0; width:100%;
+  background:var(--card); border:1px solid var(--line);
+  color:#FF3B30; font-weight:700; font-size:13px;
+  padding:12px; border-radius:999px;
+  font-family:'Quicksand', sans-serif; cursor:pointer;
+}
+.faq-static-item{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:14px; margin-bottom:12px;
+}
+.faq-static-item h3{font-size:14px; margin-bottom:6px;}
+.faq-static-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
+  
+  /* ============ EDIT AREA (warna & nomor WA) ============ */
+    /* ---------- TOMBOL PANAH KE ATAS (khusus panel FAQ & SNK) ---------- */
+.panel-top-btn{
+  display:none;
+  position:fixed;
+  bottom:24px; right:20px;
+  width:42px; height:42px;
+  border-radius:50%;
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 4px 14px rgba(38,36,59,0.12);
+  z-index:1001;
+  align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.panel-top-btn.show{display:flex;}
+.panel-top-btn span{
+  display:inline-block; width:9px; height:9px;
+  border-right:3px solid #FF3B30; border-bottom:3px solid #FF3B30;
+  border-radius:2px; transform:rotate(-135deg); margin-top:3px;
+}
+
+/* ---------- TOMBOL KEMBALI (search) ---------- */
+.search-back-btn{
+  display:flex; align-items:center; gap:6px;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:13px;
+  padding:8px 16px; border-radius:999px;
+  margin-bottom:10px; cursor:pointer;
+  font-family:'Quicksand', sans-serif;
+}
+ :root{
+    --pink:#FF6FA5;
+    --purple:#6C5CE7;
+    --yellow:#FFC145;
+    --green:#2ECC71;
+    --blue:#4A90E2;
+    --red:#FF5C5C;
+    --ink:#26243B;
+    --muted:#726F8C;
+    --bg:#FAF8FF;
+    --card:#FFFFFF;
+    --line:#ECE9F7;
+  }
+  /* Ganti nomor WA kamu di sini (format 62xxxxxxxxxx, tanpa + atau spasi) */
+  /* dipakai otomatis di semua tombol "Order via WhatsApp" */
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Quicksand', sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.logo{font-family:'Fredoka', sans-serif;}
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 20px;
+  }
+  .brand{display:flex; align-items:center; gap:8px;}
+  .brand .cat{font-size:22px;}
+  .brand span{font-weight:800; font-size:18px;}
+  .header-cta{
+    background:var(--green); color:#fff; font-weight:700;
+    padding:9px 16px; border-radius:999px; font-size:13px;
+    white-space:nowrap;
+  }
+
+  /* ---------- HERO / SEARCH ---------- */
+  .hero{
+    padding:28px 20px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .sparkle{
+    position:absolute; font-size:18px; opacity:.7;
+    animation:float 3s ease-in-out infinite;
+  }
+.sparkle.s1{top:10px; left:12%; animation-delay:0s;}
+.sparkle.s2{top:120px; right:6%; animation-delay:.6s; font-size:14px;}
+.sparkle.s3{top:4px; left:30%; animation-delay:1.2s; font-size:13px;}
+.sparkle.s4{top:70px; left:6%; animation-delay:.3s; font-size:15px;}
+.sparkle.s5{top:140px; right:28%; animation-delay:.9s; font-size:12px;}
+.sparkle.s6{top:8px; right:38%; animation-delay:1.5s; font-size:16px;}
+  
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-8px) rotate(12deg);}
+  }
+  @keyframes pulseMusic{
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+  #musicBtn{
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+#musicBtn:active{
+  transform: scale(0.92) translateY(2px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+  @keyframes ringPhone{
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+}
+  .mascot-wrap{
+    display:flex; align-items:flex-end; gap:8px;
+    justify-content:flex-start; margin:18px 0 0 4px;
+  }
+  .mascot{
+    font-size:34px;
+    filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
+  }
+.bubble{
+  background:#fff; border:1px solid var(--line);
+  border-radius:16px;
+  padding:8px 12px; font-size:11px; font-weight:700;
+  color:var(--muted); line-height:1.5; text-align:left;
+  box-shadow:0 6px 18px rgba(38,36,59,0.15);
+  position:relative;
+}
+.bubble::before{
+  content:"";
+  position:absolute;
+  left:-15px;
+  bottom:14px;
+  width:0;
+  height:0;
+  border-top:12px solid transparent;
+  border-bottom:12px solid transparent;
+  border-right:16px solid #fff;
+}
+  .trust-strip{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:16px;
+    background:#E3F7FC; padding:10px 16px;
+    font-size:11px; font-weight:800; color:var(--pink);
+  }
+    @keyframes chevronUpBounce {
+  0%, 100% { margin-top: 5px; }
+  50% { margin-top: 1px; }
+}
+  .wordmark{
+    font-family:'Fredoka', sans-serif;
+    font-size:44px; font-weight:700; letter-spacing:-1px;
+    line-height:1;
+  }
+  .wordmark span:nth-child(1){color:var(--blue);}
+  .wordmark span:nth-child(2){color:var(--red);}
+  .wordmark span:nth-child(3){color:var(--yellow);}
+  .wordmark span:nth-child(4){color:var(--blue);}
+  .wordmark span:nth-child(5){color:var(--green);}
+  .wordmark span:nth-child(6){color:var(--red);}
+  .wordmark .search-word{
+    color:var(--muted); font-weight:600;
+    font-size:15px; letter-spacing:0;
+    margin-left:6px;
+    position:relative;
+    top:-1px;
+  }
+  .tagline{
+    color:var(--muted); margin-top:6px; font-size:15px; font-weight:600;
+  }
+  .searchbar{
+    margin:20px auto 0; max-width:480px;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:999px; padding:14px 18px;
+    display:flex; align-items:center; gap:10px;
+    box-shadow:0 6px 20px rgba(108,92,231,0.08);
+  }
+  .searchbar input{
+    border:none; outline:none; flex:1; font-size:14px;
+    font-family:inherit; background:transparent; color:var(--ink);
+  }
+  .searchbar .icon{color:var(--muted); font-size:16px;}
+
+  .pills{
+    display:flex; gap:8px; flex-wrap:nowrap;
+    justify-content:flex-start;
+    margin-top:16px; padding:0 20px 4px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .pills::-webkit-scrollbar{display:none;}
+  .pill{
+    flex:0 0 auto;
+    padding:8px 16px; border-radius:999px; font-size:13px; font-weight:700;
+    background:var(--card); border:1px solid var(--line); color:var(--muted);
+    cursor:pointer; white-space:nowrap;
+  }
+  .pill.active{background:var(--ink); color:#fff; border-color:var(--ink);}
+
+  /* ---------- SEARCH RESULTS (muncul saat ngetik) ---------- */
+  #searchResults{
+    max-width:480px; margin:14px auto 0; padding:0 16px;
+    display:none;
+  }
+  #searchResults.show{display:block;}
+  .result-item{
+    display:flex; gap:12px; align-items:center;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:14px; padding:10px 12px; margin-bottom:8px;
+  }
+  .result-item .r-icon{
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; flex-shrink:0;
+  }
+  .result-item .r-info{flex:1; min-width:0; overflow:hidden;}
+.result-item .r-info b{
+  font-size:14px; display:block;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.result-item .r-info small{
+  color:var(--muted); font-size:12px;
+  display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.result-item .r-go{
+  font-size:12px; font-weight:700; color:var(--purple); flex-shrink:0;
+  white-space:nowrap;
+}
+  .no-result{
+    text-align:center; color:var(--muted); font-size:13px; padding:14px 0;
+  }
+
+  /* ---------- CATEGORY ROWS ---------- */
+  .cat-section{padding:22px 0 4px;}
+  .cat-title{
+  display:flex; align-items:center; gap:6px;
+  padding:0 20px;
+  margin-bottom:10px;
+}
+.cat-title h2{font-size:18px; font-weight:700; line-height:1;}
+.cat-title .emoji{font-size:20px; line-height:1; display:inline-flex; align-items:center;}
+
+    .scroll-row{
+  display:flex; align-items:flex-start; gap:14px; overflow-x:auto;
+  padding:2px 20px 14px;
+  -webkit-overflow-scrolling:touch;
+    }
+.scroll-row::-webkit-scrollbar{display:none;}
+
+.product-card{
+  scroll-snap-align:start;
+  flex:0 0 220px;
+  display:flex;
+  flex-direction:column;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  box-shadow:0 4px 14px rgba(38,36,59,0.05);
+}
+  .product-card .top{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .p-icon{
+    width:38px; height:38px; border-radius:10px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:18px; color:#fff;
+  }
+  .p-icon img{
+  width:100%; height:100%; object-fit:cover; border-radius:10px;
+}
+  .product-card h3{font-size:15px;}
+  .badges{display:flex; gap:5px; flex-wrap:wrap; margin:8px 0;}
+  .badge{
+    font-size:10px; font-weight:700; padding:3px 8px; border-radius:999px;
+    background:#F3F1FF; color:var(--purple);
+  }
+  .product-card p.desc{font-size:12.5px; color:var(--muted); margin-bottom:10px; line-height:1.4;}
+  .price-row{
+    display:block;
+    flex:1;
+    margin-bottom:10px;
+}
+  .price-row .price{display:block; text-align:left;}
+  .price-group{
+  position:relative;
+  margin-bottom:0;
+  background:#FFF9E0;
+  border-radius:12px;
+  padding:16px 6px 8px;
+  text-align:center;
+}
+    .price-group:has(.plabel br){
+  padding-top:28px;
+    }
+  .price-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:22px 12px;
+  margin-top:16px;
+}  
+  .price-grid.single-plan{
+  display:flex;
+  justify-content:center;
+}
+  .price-group:last-child{margin-bottom:0;}
+  .plabel{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:block; font-size:10px; font-weight:800; color:var(--ink);
+  background:#D6ECFB; padding:4px 12px; border-radius:8px;
+  width:max-content;
+  box-shadow:0 2px 4px rgba(0,0,0,0.15);
+  border:2px solid #fff;
+}
+  .pval{display:block; font-size:11.5px; font-weight:700; color:var(--pink); margin-top:2px; text-align:center;}
+  .price-row .from{font-size:10px; color:var(--muted); display:block;}
+  .order-btn{
+  display:block; text-align:center; background:#FFF0A1; color:#000000;
+  font-weight:700; font-size:13px; padding:9px 0; border-radius:999px;
+}
+.steps-section{
+  padding:20px 20px 10px;
+}
+.steps-title{
+  text-align:center; margin-bottom:14px;
+}
+.steps-title h2{font-size:18px; font-weight:700;}
+.steps-title p{font-size:12px; color:var(--muted); margin-top:4px;}
+.steps-toggle{
+  margin:12px auto 0;
+  display:flex; align-items:center; gap:5px;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--purple); font-weight:700; font-size:12.5px;
+  padding:8px 18px; border-radius:999px;
+  font-family:'Quicksand', sans-serif;
+  cursor:pointer;
+}
+#stepsArrow{transition:transform .25s ease; display:inline-block;}
+.steps-toggle.open #stepsArrow{transform:rotate(180deg);}
+
+.steps-grid-wrap{
+  max-height:0;
+  overflow:hidden;
+  padding-left:14px;
+  transition:max-height .35s ease;
+}
+.steps-grid-wrap.open{
+  max-height:700px;
+}
+
+.steps-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  padding-top:16px;
+}
+.step-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 12px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 4px 14px rgba(38,36,59,0.05);
+}
+.step-num{
+  position:absolute;
+  top:-10px;
+  left:-10px;
+  width:26px; height:26px;
+  background:var(--purple);
+  color:#fff;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:13px;
+  box-shadow:0 2px 4px rgba(0,0,0,0.15);
+  border:2px solid #fff;
+}
+.step-icon{font-size:26px; margin-bottom:6px;}
+.step-card h3{font-size:14px; margin-bottom:4px;}
+.step-card p{font-size:11.5px; color:var(--muted); line-height:1.4; text-align:left;}
+  
+  /* ---------- FOOTER BAR ---------- */
+  footer{
+    margin-top:20px; background:#FF0000; color:#FFFFFF;
+    padding:18px 20px 22px; text-align:center;
+  }
+  footer .foot-brand{font-weight:800; font-size:17px; margin-bottom:2px;}
+  footer .foot-sub{font-size:12px; opacity:.9; margin-bottom:14px;}
+  .pay-strip{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px;
+    margin-bottom:14px; font-size:11px; font-weight:700;
+    color:#fff; opacity:.9;
+  }
+  .foot-info{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
+    font-size:12px; font-weight:700;
+  }
+  .foot-info div{display:flex; align-items:center; gap:5px;}
+  
+/* ---------- TESTIMONI ---------- */
+.testi-section{
+  padding:28px 20px 10px;
+}
+.testi-title{
+  text-align:center; margin-bottom:6px;
+}
+.testi-title h2{font-size:19px; font-weight:700;}
+.testi-title p{font-size:12.5px; color:var(--muted); margin-top:4px;}
+
+.testi-stats{
+  display:flex; justify-content:center; gap:22px;
+  margin:16px 0 20px;
+}
+.testi-stat{text-align:center;}
+.testi-stat b{display:block; font-size:20px; font-weight:800; color:var(--purple);}
+.testi-stat span{font-size:11px; color:var(--muted); font-weight:700;}
+
+.testi-scroll{
+  display:flex; gap:12px; overflow-x:auto;
+  padding:4px 20px 14px;
+  -webkit-overflow-scrolling:touch;
+  align-items:flex-start;
+}
+.testi-scroll::-webkit-scrollbar{display:none;}
+
+.testi-bubble{
+  flex:0 0 240px;
+  background:#DCF8C6;
+  border-radius:14px 14px 14px 2px;
+  padding:12px 14px;
+  position:relative;
+  box-shadow:0 3px 10px rgba(38,36,59,0.08);
+}
+.testi-bubble .testi-head{
+  display:flex; align-items:center; gap:8px; margin-bottom:6px;
+}
+.testi-avatar{
+  width:30px; height:30px; border-radius:50%;
+  background:var(--purple); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:13px; flex-shrink:0;
+}
+.testi-name{font-size:13px; font-weight:700; color:var(--ink);}
+.testi-stars{font-size:11px; color:#FFB800; margin-left:auto;}
+.testi-text{font-size:12.5px; color:#3A3A3A; line-height:1.5;}
+.testi-time{font-size:10px; color:#6B8F6B; text-align:right; margin-top:6px;}
+
+/* varian khusus testimoni berupa foto, ukuran ikut foto aslinya */
+.testi-bubble-photo{
+  flex:0 0 auto;
+  background:#DCF8C6;
+  border-radius:14px 14px 14px 2px;
+  padding:8px;
+  box-shadow:0 3px 10px rgba(38,36,59,0.08);
+}
+.testi-bubble-photo img{
+  display:block;
+  width:auto;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.testi-ss{
+  width:100%;
+  border-radius:10px;
+  margin-top:8px;
+  border:1px solid rgba(0,0,0,0.08);
+  cursor:pointer;
+}
+    .testi-ss-wrap{
+  position:relative;
+  display:inline-block;
+}
+.testi-ss-wrap::after{
+  content:"Llowye_$hop";
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%, -50%) rotate(-25deg);
+  font-size:28px;
+  font-weight:800;
+  color:rgba(255,255,255,0.3);
+  letter-spacing:3px;
+  white-space:nowrap;
+  pointer-events:none;
+}
+  
+  @media(min-width:640px){
+    .wordmark{font-size:56px;}
+  }
+.btn-3d {
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 8px 14px rgba(0,0,0,0.12);
+  transform: translateY(0) scale(1);
+  transition: transform 0.12s cubic-bezier(.25,.8,.25,1), box-shadow 0.12s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+}
+.btn-3d:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 7px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 10px 16px rgba(0,0,0,0.14);
+}
+.btn-3d:active {
+  transform: translateY(6px) scale(0.98);
+  box-shadow: 0 0px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 1px 3px rgba(0,0,0,0.12);
+}
+.btn-3d.tapped {
+  transform: translateY(6px) scale(0.98);
+  box-shadow: 0 0px 0 var(--shadow-color, rgba(0,0,0,0.18)), 0 1px 3px rgba(0,0,0,0.12);
+}
+    .toast{
+  position:fixed; bottom:24px; left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ink); color:#fff;
+  padding:10px 18px; border-radius:999px;
+  font-size:13px; font-weight:700;
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease;
+  z-index:2000;
+  display:flex; align-items:center; gap:6px;
+}
+.toast.show{
+  opacity:1; transform:translateX(-50%) translateY(0);
+}
+    .preview-watermark{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:9999;
+  overflow:hidden;
+  display:flex;
+  flex-wrap:wrap;
+  align-content:space-around;
+  justify-content:space-around;
+  opacity:.12;
+}
+.preview-watermark span{
+  display:block;
+  font-family:'Fredoka', sans-serif;
+  font-size:20px;
+  font-weight:700;
+  color:#000;
+  transform:rotate(-30deg);
+  white-space:nowrap;
+  margin:24px 32px;
+}
+</style>
 </head>
 <body>
 
-<!-- MODAL S&K -->
+ <div class="faq-panel" id="faqPanel">
+  <div class="faq-panel-inner">
+    <button class="snk-back" onclick="toggleFaqPanel()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+      <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
+    </button>
+    <h2>❓ FAQ</h2>
+    <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Pertanyaan para pelanggan Llowye_Shop</p>
+
+    <div class="faq-static-item">
+      <h3>Akun sharing aman ga?</h3>
+      <p>Aman, tapi dipakai bareng user lain jadi harga lebih murah.( •̯́ ₃ •̯̀)</p>
+    </div>
+    <div class="faq-static-item">
+      <h3>Kalau akun error gimana?</h3>
+      <p>Selama masih masa garansi, langsung diganti gratis.( ˶˘ ³˘)♡</p>
+    </div>
+    <div class="faq-static-item">
+      <h3>Bagaimana cara ajukan refund/pengembalian dana?</h3>
+      <p>Pertama-tama, refund berlaku jika memang kendala pada akun tidak dapat diperbaiki.💕<br><br>Cara Menghitung Refund/Pengajuan dana
+• Harga beli = harga awal pembelian
+• Sisa masa aktif = total berapa hari tersisa dari durasi awal
+• Total durasi pembelian = durasi awal pembelian 
+• Aturan Perhitungan 1 bulan = 25 hari (bukan 30 hari)
+
+[Hitung disini: https://direfund.com]
+• Rate reffund: 
+0.70 = Pemakaian kurang dari seminggu 
+0.60 = Belum pernah claim garansi tapi udah lebih dari seminggu 
+0.55 = Sudah pernah claim garansi 1x-3x
+0.50 = Sudah pernah claim garansi lebih dari 3x</p>
+    </div>
+    <div class="faq-static-item">
+      <h3>Akun ini resmi bukan?</h3>
+      <p>Akun yang dijual adalah non-official (sharing/modified), bukan langganan resmi pribadi. Harga murah karena sistem ini.</p>
+    </div>
+    <div class="faq-static-item">
+      <h3>Bisa ganti paket setelah order?</h3>
+      <p>Mohon maaf, paket yang sudah dipesan dan dibayar tidak bisa diganti. (╥﹏╥) Jadi pastikan paket yang dipilih sudah sesuai kebutuhan sebelum melakukan pembayaran ya.. (づ￣ ³￣)づ</p>
+    </div>
+    <!-- tambahin FAQ lain di sini, formatnya sama kayak faq-static-item di atas -->
+  </div>
+  <button class="panel-top-btn" id="faqPanelTopBtn" onclick="scrollPanelToTop('faqPanel')" title="Kembali ke atas">
+    <span></span>
+  </button>
+</div>
+
+  <!-- POPUP S&K -->
 <div id="snkModal" class="modalOverlay">
   <div class="modalBox">
+    
     <img src="kucing.gif" alt="kucing" class="catSleeping">
-    <h3>⚠️ WARNING ⚠️</h3>
-    <p>Hai Kak! ✨ Demi kenyamanan transaksi bersama, <b>harap baca S&K toko kami dulu yaa..</b> Dengan terus melanjutkan, Kakak dianggap sudah menyetujui aturan di Llowye_Shop.</p>
+
+    <h3>⚠️  WARNING  ⚠️</h3>
+    <p>
+      Hai Kak! ✨ Demi kenyamanan transaksi bersama, 
+      <b>harap baca S&K toko kami dulu yaa..</b> 
+      Dengan terus melanjutkan, Kakak dianggap sudah menyetujui aturan di Llowye_Shop.
+    </p>
+
     <div class="modalButtons">
-      <button class="btnAccept" onclick="acceptSnk()">Oke! nanti aku baca 🌱</button>
-      <button class="btnRefuse" onclick="closeSnk()">Nanti aja</button>
+  <button class="btnAccept" onclick="closeSnk()">Nanti aja</button>
+  <button class="btnRefuse" onclick="acceptSnk()">Oke! aku baca 🌱</button>
     </div>
+    
+
   </div>
 </div>
-
-<!-- PANEL CARA ORDER & S&K -->
-<div class="cara-panel" id="caraPanel">
-  <button class="snk-back" onclick="toggleCaraOrder()">← Kembali</button>
-  <h2>🛒 Cara Order</h2>
-  <!-- (Isi panel Cara Order kamu di sini, tidak berubah) -->
+  
+  <div class="snk-panel" id="snkPanel">
+  <div class="snk-panel-inner">
+    <button class="snk-back" onclick="toggleSnk()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
+</button>
+    <h2>📜 Syarat & Ketentuan</h2>
+     <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Wajib baca sebelum order ya!</p>
+     <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Dengan membeli, atau menggunakan layanan Premium, Anda dianggap telah membaca, memahami, dan menyetujui seluruh isi S&K ini.<br>Jika Anda tidak setuju, mohon untuk tidak melanjutkan pembelian atau penggunaan layanan Premium.</p>
+    
+    <div class="snk-item">
+      <h3>Garansi aktif untuk langganan mingguan, bulanan, tahunan, dan lifetime.</h3>
+      <p>Paket mingguan= garansi aktif 5 hari (5 hari - 7 hari = terhitung 1 minggu.)</p>
+      <p>Paket bulanan= garansi aktif 25 hari (25 hari - 30 hari = terhitung 1 bulan.)</p>
+      <p>Paket tahunan= garansi aktif 8 bulan.</p>
+      <p>Paket lifetime= garansi aktif 12 bulan.</p>
+      <p>Contoh= Kamu beli paket bulanan lalu akun backfree pada hari ke-28 pemakaian, itu sudah bukan tanggung jawab kami. Karena garansi aktif 25 hari.</p>
+      <p>Jika terdapat kendala pada akun selama masa garansi masih aktif, bisa klaim garansi dengan ss yg jelas.</p>
+      <p>Akun akan di replace dengan yang baru, proses 1 × 24 jam.</p>
+    </div>
+     <div class="snk-item">
+     <h3>Wajib ikuti tips login!</h3>
+      <p>5 hari - 7 hari = terhitung 1 minggu. Jika terdapat kendala pada akun selama masa garansi aktif, bisa klaim garansi dengan ss yg jelas.</p>
+    </div>
+    <div class="snk-item">
+      <h3>Dilarang gonta-ganti akun</h3>
+      <p>Sekali beli, login 1 device. Gabisa pindah-pindah device bikin akun cepat rusak.</p>
+    </div>
+  <div class="snk-item">
+  <h3>Sekali beli= 1 device</h3>
+  <p>Login hanya di 1 device kecuali kamu beli paket private. Tidak boleh dibagi ke teman/keluarga/siapapun.</p>
+  <p>Melanggar? akun dan device pasti ke detect + garansi hangus total!!!</p>
+  <p>Tidak perlu merugikan diri sendiri.</p>
+    </div>
+    <div class="snk-item">
+      <h3>Rumus refund/pengajuan pengembalian dana</h3>
+      <p>Akun (log-out, banned,backfree, akun ke-lock) di luar ketentuan ini tetap ditangani melalui mekanisme garansi kami.</p>
+      <p>Namun jika akun tidak dapat diperbaiki maka silahkan ajukan refund dengan link berikut. https://refund.llowyeshop.my.id</p>
+    </div>
+  </div>
+  <button class="panel-top-btn" id="snkPanelTopBtn" onclick="scrollPanelToTop('snkPanel')" title="Kembali ke atas">
+    <span></span>
+  </button>
 </div>
+  
+<header>
+  <div></div>
+</header>
 
-<div class="snk-panel" id="snkPanel">
-  <button class="snk-back" onclick="toggleSnk()">← Kembali</button>
-  <h2>📜 Syarat & Ketentuan</h2>
-  <!-- (Isi panel S&K kamu di sini, tidak berubah) -->
-</div>
-
-<!-- HERO SECTION -->
 <section class="hero">
+  <span class="sparkle s1">⭐</span>
+  <span class="sparkle s2">✨</span>
+  <span class="sparkle s3">⭐</span>
+  <span class="sparkle s4">✨</span>
+  <span class="sparkle s5">⭐</span>
+  <span class="sparkle s6">✨</span>
   <div class="wordmark">
     <span>L</span><span>l</span><span>o</span><span>w</span><span>y</span><span>e</span><span class="search-word">Search</span>
   </div>
-  <div class="searchbar">
-    <span class="icon">🔍</span>
-    <input id="searchInput" type="text" placeholder="Cari aplikasi atau kata kunci disini..." oninput="handleSearch()">
+
+  <!-- KODE BARU (Ada tombol silang 'clearInput') -->
+<div class="searchbar">
+  <span class="icon">🔍</span>
+  <input id="searchInput" type="text" placeholder="Cari aplikasi atau kata kunci disini..." oninput="handleSearch()" onfocus="showSuggestions()">
+  <span id="clearSearch" onclick="clearSearchInput()" style="display:none; cursor:pointer; color:var(--muted); font-weight:bold; font-size:16px; padding:0 4px;">✕</span>
+</div>
+
+  <div class="pills" id="pillsRow">
+    <div class="pill active" data-cat="all" onclick="filterCat('all', this)">Semua</div>
+    <div class="pill" data-cat="streaming" onclick="filterCat('streaming', this)">🎬 Streaming</div>
+    <div class="pill" data-cat="editing" onclick="filterCat('editing', this)">🎨 Editing</div>
+    <div class="pill" data-cat="music" onclick="filterCat('music', this)">🎵 Music</div>
+    <div class="pill" data-cat="education" onclick="filterCat('education', this)">✍️ Education</div>
+     <div class="pill" data-cat="reading" onclick="filterCat('reading', this)">📖 Reading</div>
+    <div class="pill" data-cat="ai" onclick="filterCat('ai', this)">🤖 AI Apps</div>
   </div>
 
-  <!-- TOMBOL KIRI (MERAH) & KANAN (HIJAU) DIPASANG LAGI -->
-  <div style="display:flex; gap:10px; width:100%; margin-top:20px;">
-    <a class="btn-3d" href="javascript:void(0)" onclick="toggleSnk()" style="--shadow-color:#FF8585; display:flex; align-items:center; justify-content:center; gap:6px; background:#FFE5E5; border:2px solid #FF8585; color:#D61F1F; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
-      📜 Baca S&K Toko
-    </a>
-    <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder()" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
-      🛒 Cara Order
-    </a>
+  <div id="searchResults"></div>
+
+<div class="mascot-wrap" style="align-items:center; margin-top:3px;">
+  <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; z-index:2;"></div>
+  <div class="bubble" style="margin-top:-20px;">Klik <span style="background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;">info selengkapnya</span><br>supaya tau perbedaan<br>paket tiap akun ya...</div>
+</div>
+  
+<div style="display:flex; gap:10px; width:100%; margin-top:10px;">
+  <a class="btn-3d" href="javascript:void(0)" onclick="toggleSnk()" style="--shadow-color:#8B0000; display:flex; align-items:center; justify-content:center; gap:6px; background:#fff; border:2px solid #FFB3B3; color:#8B0000; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
+    Baca S&K Toko
+  </a>
+  <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder()" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:10px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; flex:1;">
+    Cara Order
+  </a>
+</div>
+  
+</section>
+
+    <div class="trust-strip">
+  <span>⚡ Fast Response</span>
+  <span>🛡️ Garansi Aktif</span>
+  <span>💯 Trusted Seller</span>
+  <span>❌ Akun <span style="color:#000000;">Non official</span> (sharing/modified) ❌ </span>
+
+  </div>
+  <main id="catSections"></main>
+  
+  <div class="cara-panel" id="caraPanel">
+  <!-- KODE BARU (Panah Merah Chevron) -->
+<button class="snk-back" onclick="toggleCaraOrder()" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;">
+  <span style="display:inline-block; width:8px; height:8px; border-left:3px solid #FF3B30; border-bottom:3px solid #FF3B30; border-radius:2px; transform:rotate(45deg);"></span>
+</button>
+  <h2>🛒 Cara Order</h2>
+  <p style="font-size:12px; color:var(--muted); margin:6px 0 14px;">Gampang banget, cuma 4 langkah !</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-icon">🔍</div>
+      <h3>Pilih & baca ketentuan produk</h3>
+      <p>1) Klik info selengkapnya untuk baca informasi terkait produk.</p>
+    </div>
+    <div class="step-card">
+  <div class="step-num">2</div>
+  <div class="step-icon"><img src="logowa.png" style="width:26px; height:26px; animation: ringPhone 0.8s ease-in-out infinite;"></div>
+  <h3>Chat via WhatsApp</h3>
+      <p>1) Klik tombol order<br>2) Lalu sebutkan produk yang kamu inginkan<br>3) Tunggu konfirmasi dari admin ya!</p>
+      <a class="btn-3d" href="https://wa.me/628991740111?text=Halo%20Nek%20Llowye!%20Aku%20mau%20order%20dong%20^‿^%20" target="_blank" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
+        Order via WhatsApp
+      </a>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-icon">💳</div>
+      <h3>Lakukan pembayaran</h3>
+      <p>1) Setelah admin konfirm<br>2) Tf sesuai harga ke salah satu metode pembayaran yang ada<br>3) Send bukti payment ke admin.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-icon">✅</div>
+      <h3>Akun akan dikirim</h3>
+      <p>1) Setelah pembayaran, akun atau link akan langsung dikirim<br>3) Proses 5-20 menit ya! Harap bersabar ^^</p>
+    </div>
+  </div>
+
+  <div class="steps-title" style="margin-top:24px;">
+    <h2>📜 Syarat & Ketentuan</h2>
+    <p>Dengan membeli, atau menggunakan layanan Premium, Anda dianggap telah membaca, memahami, dan menyetujui seluruh isi S&K ini.<br>Jika Anda tidak setuju, mohon untuk tidak melanjutkan pembelian atau penggunaan layanan Premium.</p>
+    <button class="steps-toggle" onclick="toggleSnk()">
+      Lihat SNK <span class="faq-arrow-side"></span>
+    </button>
+  </div>
+</div>
+
+ <section class="steps-section">
+    <div class="steps-title">
+      <h2>📜 Syarat & Ketentuan</h2>
+      <p>Wajib baca sebelum order ya!</p>
+      <button class="steps-toggle" onclick="toggleSnk()">
+        Lihat SNK <span class="faq-arrow-side"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <div class="steps-title">
+      <h2>❓ FAQ ❓</h2>
+      <p>Pertanyaan para pelanggan Llowye_Shop</p>
+    </div>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Apa itu 1p1u/1p2u? <span class="faq-arrow"></span></div>
+        <div class="faq-a">1p1u – 1 profil 1 user/1 pengguna, jarang kena limit screen (akun sharing).<br><br>1p2u – 1 profil 2 user/2 pengguna, lebih rentan kena limit screen (akun sharing).</div>
+      </div>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Apa itu semiprivate/private? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Semiprivate – Bisa login di 2 device sekaligus (akun sharing).<br><br>Private – Anti kena limit screen & bisa login di 2-3 device, kecuali Netflix private: cuma ready di tiap awal bulan (tgl 01-03) + login di 1 device.</div>
+      </div>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Apa itu shar 6u/shar 3u? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Shar 6U – Sharing 6 user, 1 akun isinya 6 orang jadi paling murah.<br><br>Shar 3U – Sharing 3 user, 1 akun isinya 3 orang jadi harga di tengah-tengah.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Apa itu indplan/famplan? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Indplan – Kamu dapat akun pribadi/individual, login pakai email+pw dari admin.<br><br>Famplan – Kamu di invite di family plan/paket keluarga, bisa pakai akunmu sendiri.</div>
+      </div>
+    <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Akun sharing aman ga? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Aman, cuma dipakai bareng user lain makanya jadi lebih murah. Kalau ada kendala, masih ditanggung garansi.</div>
+    </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Kalau akun error gimana? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Selama masih masa garansi, akan diganti gratis (max. 24jam).</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Boleh refund kalau salah order? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Mohon maaf, refund tidak berlaku setelah order dikonfirmasi dan pembayaran masuk.(,,>﹏<,,) Jadi pastikan produk yang dipilih sudah sesuai sebelum bayar. Kalau ada kendala pada akun setelah pengiriman, tetap kami bantu sesuai ketentuan garansi. ( ˘ ³˘) 💕</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaqItem(this)">
+        <div class="faq-q">Apa itu garansi? <span class="faq-arrow"></span></div>
+        <div class="faq-a">Kalau akun logout/error/banned selama masa garansi aktif, langsung diganti akun baru gratis</div>
+      </div>
+      <button class="faq-showmore-btn" onclick="toggleFaqPanel()">
+        Lihat FAQ selengkapnya <span class="faq-arrow-side"></span>
+      </button>
+  </section>
+  
+  <section class="testi-section">
+  <div class="testi-title">
+    <h2>💬 Kata Mereka yang Udah Order</h2>
+    <p>Testimoni asli dari pelanggan Llowye_Shop</p>
+  </div>
+
+  <div class="testi-stats">
+    <div class="testi-stat"><b>500+</b><span>Transaksi Selesai</span></div>
+    <div class="testi-stat"><b>4.9★</b><span>Rating Pelanggan</span></div>
+    <div class="testi-stat"><b>&lt;5 mnt</b><span>Respon Chat</span></div>
+  </div>
+
+  <div class="testi-scroll">
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">P</div>
+        <span class="testi-name">Perisa Z.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Order Netflix Sharing, jarang kena limit. Recommended!</div>
+      <img src="testiN.jpeg" alt="Bukti chat testimoni Perisa Z." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+      <div class="testi-time" data-date="2026-08-01"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">L</div>
+        <span class="testi-name">Laylathiviana</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Udah langganan CapCut Pro 1 bulan disini, garansi diganti pas ada masalah. Puas!</div>
+      <img src="testiCP.jpeg" alt="Bukti chat testimoni Laylathiviana." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+      <div class="testi-time" data-date="2026-05-31"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">H</div>
+        <span class="testi-name">Haikal S.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Harga Spotify Family paling murah yang aku temuin, premium oke nggak putus-putus.</div>
+      <img src="testiS.jpeg" alt="Bukti chat testimoni Haikal S." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+      <div class="testi-time" data-date="2026-03-31"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">K</div>
+        <span class="testi-name">Kayla K.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Admin fast respon banget, ditanya jam 10 malam masih dibales cepet. Recommended seller.</div>
+      <img src="testiK.jpeg" alt="Bukti chat testimoni Kayla K." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+    <div class="testi-time" data-date="2026-07-31"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">A</div>
+        <span class="testi-name">Afiqa N.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Canva Pro lifetime beneran lifetime, udah 6 bulan masih aktif normal. Worth it banget!</div>
+      <img src="testiC.jpeg" alt="Bukti chat testimoni Afiqa N." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+      <div class="testi-time" data-date="2024-01-31"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">N</div>
+        <span class="testi-name">Nio N.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Viu premium murah yang beneran lifetime! udah 3 tahun masih premium.</div>
+      <img src="testiV.jpeg" alt="Bukti chat testimoni Nio N." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+      <div class="testi-time" data-date="2025-07-31"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">J</div>
+        <span class="testi-name">Jennie K.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Disney+ buat nonton bola, kualitas gambar jernih. Bakal langganan lagi bulan depan.</div>
+       <img src="testiD.jpeg" alt="Bukti chat testimoni Jennie K." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+      <div class="testi-time" data-date="2026-02-31"></div>
+    </div>
+
+    <div class="testi-bubble">
+      <div class="testi-head">
+        <div class="testi-avatar">F</div>
+        <span class="testi-name">Firyal Z.</span>
+        <span class="testi-stars">★★★★★</span>
+      </div>
+      <div class="testi-text">Scribd buat baca ebook kuliah murah meriah, akses lancar di HP maupun laptop.</div>
+      <img src="testiSC.jpeg" alt="Bukti chat testimoni Fadhila Z." class="testi-ss" loading="lazy" onclick="window.open(this.src)">
+  <div class="testi-time" data-date="2026-07-31"></div>
+    </div>
   </div>
 </section>
 
-<!-- (SISANYA KODE PRODUK & FOOTER KAMU TETAP SAMA) -->
-<!-- ... Paste sisa kodenya di sini ... -->
+<footer>
+  <div class="pay-strip" style="align-items:center;">
+  <span style="display:flex; align-items:center; gap:4px;"><img src="sea.jpeg" style="width:16px; height:16px; border-radius:6px;"> Seabank</span>
+  <span style="display:flex; align-items:center; gap:4px;"><img src="dana.jpeg" style="width:16px; height:16px; border-radius:6px;"> DANA</span>
+  <span style="display:flex; align-items:center; gap:4px;"><img src="gopay.jpeg" style="width:16px; height:16px; border-radius:6px;"> GoPay</span>
+  <span style="display:flex; align-items:center; gap:4px;"><img src="shop.jpeg" style="width:16px; height:16px; border-radius:6px;"> ShopeePay</span>
+</div>
+  <div class="foot-brand">Llowye_Shop</div>
+  <div class="foot-sub">Streaming, Editing, Music, Education, Reading, Ai Apps</div>
+  <div class="foot-info">
+    <div>🕒 Setiap hari 05.00–21.00</div>
+    <div>⚡ Respon &lt; 5 menit</div>
+    <div>✅ Trusted Seller</div>
+    <div>😎 Owner kece: Anis</div>
+     </div>
+    <div style="margin-top:14px; font-size:10.5px; opacity:.75;">
+    © <span id="copyYear"></span> Llowye_Shop. All rights reserved.
+  </div>
+</footer>
 
 <script>
-  // Fungsi Penting:
-  function showSnkModal() { document.getElementById("snkModal").classList.add("show"); }
-  function closeSnk() { document.getElementById("snkModal").classList.add("hideRight"); setTimeout(() => document.getElementById("snkModal").classList.remove("show", "hideRight"), 500); }
-  function acceptSnk() { closeSnk(); }
-  setTimeout(showSnkModal, 3000);
+/* ======================================================
+   EDIT PRODUK DI SINI SAJA
+   category: "streaming" | "editing" | "music" | "education" | "reading" | "ai"
+====================================================== */
+const WA_NUMBER = "628991740111"; // nomor WA asli Llowye Shop
+const badgeColors = {
+  streaming: {bg:"#FFE5E5", text:"#FF5C5C"},
+  editing:   {bg:"#FFE9CC", text:"#B25E00"},
+  music:     {bg:"#F3F1FF", text:"#6C5CE7"},
+  education: {bg:"#E4FBEC", text:"#387A4F"},
+  reading:   {bg:"#FFE5E5", text:"#FF5C5C"},
+  ai:        {bg:"#EDEDED", text:"#595859"},
+};
 
-  function toggleSnk() { document.getElementById('snkPanel').classList.toggle('open'); }
-  function toggleCaraOrder() { document.getElementById('caraPanel').classList.toggle('open'); }
-  // (Sisa script fungsi lainnya tetap sama)
+  function showSnkModal() {
+  document.getElementById("snkModal").classList.add("show");
+}
+
+function closeSnk() {
+  const modal = document.getElementById("snkModal");
+  modal.classList.add("hideRight");
+  
+  setTimeout(() => {
+    modal.classList.remove("show");
+    modal.classList.remove("hideRight");
+  }, 500);
+}
+
+function acceptSnk() {
+  closeSnk();
+  playClickSound(); // Hapus baris ini kalau di web baru tidak pakai sound efek klik
+}
+
+// Popup otomatis muncul setelah 3 detik
+setTimeout(() => {
+  showSnkModal();
+}, 3000);
+  
+const products = [
+  // ---- STREAMING ----
+  {name:"NETFLIX", cat:"streaming", icon:"<img src='netflix.jpg' alt='Netflix'>", color:"#B2EBF7",
+   aliases:["netflik","netflex","netlix","nfx","nfx","ntflx","film","drakor","netplik","film barat","suzanna","nonton","hiburan","horor","dokumenter","series"],
+   badges:["Garansi 25 hari","Garansi 5 hari","Sharing","Private"], desc:"Nonton semua film & series tanpa batas.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">25k/minggu</span><span class="pval">50k/bulan</span></div>
+  </div>`,
+   link:"https://netflix.llowyeshop.my.id"},
+  
+  {name:"DISNEY+", cat:"streaming", icon:"<img src='disney.jpg' alt='Disney+'>", color:"#B2EBF7",
+   aliases:["disniy","marvel","pixar","kartun","dsney","disny","dsny","starwars","star wars","drakor","film barat","toy story","nonton","princess","moana","korea","series"],
+   badges:["Garansi 25 hari","Garansi 5 hari","Sharing","Private"], desc:"Marvel, Star Wars, sampai bola lokal & internasional.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">15k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+  </div>`,
+   link:"https://disney.llowyeshop.my.id"},
+  
+   {name:"HBO MAX", cat:"streaming", icon:"<img src='hbo.jpg' alt='Hbo Max'>", color:"#B2EBF7",
+    aliases:["hbo mx","hb max","streaming","action","dokumenter","streaming","film","drakor","series","film barat","nonton"],
+   badges:["Garansi 25 hari","Garansi 5 hari","Private","Sharing"], desc:"Film blockbuster, serial HBO dan dokumenter berkualitas.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">standar<br>sharing</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">premium<br>sharing</span><span class="pval">15k/bulan</span></div>
+  <div class="price-group"><span class="plabel">standar<br>private</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">premium<br>private</span><span class="pval">70k/bulan</span></div>
+</div>`,
+   link:"https://hbomax.llowyeshop.my.id"},
+  
+    {name:"PRIME VIDIO", cat:"streaming", icon:"<img src='prime.jpg' alt='Prime Vidio'>", color:"#B2EBF7",
+     aliases:["prm","amazon","dokumenter","action","series","rental","film","drakor","india","film barat","nonton","blockbuster","hollywood"],
+   badges:["Garansi 25 hari","Garansi 5 hari","Private","Sharing"], desc:"Streaming Amazon dari film dan konten berbagai genre.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">15k/bulan</span></div>
+</div>`,
+   link:"https://primevid.llowyeshop.my.id"},
+  
+  {name:"VIU", cat:"streaming", icon:"<img src='viu.jpeg' alt='Viu'>", color:"#B2EBF7",
+   aliases:["vu","vi","asia","drama asia","drama jepang","romance","film","drakor","streaming","taxi driver","nonton","komedi"],
+   badges:["Garansi aktif 6 bulan","Lifetime","Plan Premium","Private"], desc:"Drama Korea & variety show subtitle Indo, update tercepat.",
+   price:`<div class="price-grid single-plan">
+  <div class="price-group"><span class="plabel">Lifetime</span><span class="pval">5k/seumur hidup</span></div>
+</div>`,
+   link:"https://viu.llowyeshop.my.id"},
+  
+  {name:"VIDIO", cat:"streaming", icon:"<img src='vidio.jpg' alt='Vidio'>", color:"#B2EBF7",
+   aliases:["vdo","video","liga inggris","sepak bola","live tv","live streaming","film","series","hiburan","nonton","tv lokal","voli","badminton"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Liga Inggris & series lokal favorit kamu.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">shar mobile</span><span class="pval">15k/bulan</span></div>
+  <div class="price-group"><span class="plabel">priv mobile</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">shar laptop</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">priv laptop</span><span class="pval">30k/bulan</span></div>
+</div>`,
+   link:"https://vidio.llowyeshop.my.id"},
+  
+  {name:"WETV", cat:"streaming", icon:"<img src='wetv.jpeg' alt='Wetv'>", color:"#B2EBF7",
+   aliases:["wtv","c-drama","drama cina","drama china","melodrama","streaming","anime","series","nonton","drakor","drama thailand","film"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama China & Asia Tenggara, update tiap hari.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Shar 6u</span><span class="pval">10k/bulan</span><span class="pval">100k/tahun</span></div>
+  <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">15k/bulan</span><span class="pval">150k/tahun</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">30k/bulan</span><span class="pval">200k/tahun</span></div>
+   </div>`,
+   link:"https://wetv.llowyeshop.my.id"},
+  
+    {name:"IQIYI", cat:"streaming", icon:"<img src='iqiyi.jpeg' alt='Iqiyi'>", color:"#B2EBF7",
+     aliases:["iqyi","anime","c-drama","drama cina","drama china","film","drakor","series","romance","nonton"],
+   badges:["Garansi 25 hari","Garansi 6 bulan","Private","Sharing"], desc:"Drama China & Korea eksklusif, kualitas 4K.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">standar<br>sharing</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">premium<br>sharing</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">standar<br>private</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">premium<br>private</span><span class="pval">30k/bulan</span></div>
+</div>`,
+   link:"https://iqiyi.llowyeshop.my.id"},
+  
+  {name:"YOUKU", cat:"streaming", icon:"<img src='youku.jpeg' alt='Youku'>", color:"#B2EBF7",
+   aliases:["yoku","c-drama","drama cina","drama china","wuxia","historical","film cina","streaming","fantasy","film china","series","nonton"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama & variety show China, subtitle lengkap.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://youku.llowyeshop.my.id"},
+  
+    {name:"MELOLO", cat:"streaming", icon:"<img src='melolo.jpg' alt='Melolo'>", color:"#B2EBF7",
+     aliases:["mlolo","romance","anime","drama thailand","c-drama","drama china","drakor","streaming","film","series","nonton"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Serial mini & drama pendek viral, nonton tanpa iklan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://melolo.llowyeshop.my.id"},
+  
+    {name:"LOKLOK", cat:"streaming", icon:"<img src='loklok.jpg' alt='Loklok'>", color:"#B2EBF7",
+     aliases:["lklk","j-drama","drama jepang","c-drama","drama cina","anime","film","drakor","series","series barat","nonton","watch"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Film & drama Asia gratis nonton, koleksi lengkap.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,    
+   link:"https://loklok.llowyeshop.my.id"},
+  
+    {name:"DRAMABOX", cat:"streaming", icon:"<img src='dramabox.jpg' alt='Dramabox'>", color:"#B2EBF7",
+     aliases:["drmbox","drama pendek","short drama","c-drama","ceo","balas dendam","pernikahan kontrak","drakor","fantasi","streaming","nonton"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama pendek viral episode-episode seru.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://dramabox.llowyeshop.my.id"},
+  
+    {name:"BSTATION", cat:"streaming", icon:"<img src='bstation.jpeg' alt='Bstation'>", color:"#B2EBF7",
+     aliases:["bsttion","anime","jepang","gaming","komunitas anime","c-drama","film","drakor","donghua","film india","series","nonton"],
+   badges:["Garansi 25 hari","Garansi 6 bulan","Private","Sharing"], desc:"Anime subtitle Indonesia, update simulcast musim ini.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">25k/bulan</span></div>
+</div>`,
+   link:"https://bstation.llowyeshop.my.id"},
+
+    {name:"WIBUKU", cat:"streaming", icon:"<img src='wibuku.jpeg' alt='Wibuku'>", color:"#B2EBF7",
+     aliases:["wbuku","wbku","anime","otaku","series","movie","film","streaming"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Streaming anime & manga, koleksi lengkap subtitle Indo.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://wibuku.llowyeshop.my.id"},
+  
+    {name:"CRUNCHYROLL", cat:"streaming", icon:"<img src='crunchy.jpg' alt='Crunchyroll'>", color:"#B2EBF7",
+     aliases:["crnch","wbu","anime","manga","streaming","otaku","simulcast","movie anime"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Anime simulcast Jepang, subtitle Indo tercepat.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://crunchyroll.llowyeshop.my.id"},
+  
+    {name:"VIKI RAKUTEN", cat:"streaming", icon:"<img src='viki.jpg' alt='Viki Rakuten'>", color:"#B2EBF7",
+     aliases:["vki","c-drama","j-drama","drama cina","drama jepang","drama asia","film","drakor","asia","film asia","streaming","nonton","watch","drama thailand"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Drama Asia & K-pop content, subtitle multi bahasa.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">5k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">10k/bulan</span></div>
+</div>`,
+   link:"https://viki.llowyeshop.my.id"},
+  
+    {name:"MANGO TV", cat:"streaming", icon:"<img src='mango.jpg' alt='Mango TV'>", color:"#B2EBF7",
+     aliases:["mangga","c-drama","drama cina","series","reality show","variety show","nonton","watch"],
+    badges:["Garansi 25 hari","Private","Sharing"], desc:"Variety show & drama China populer.",
+    price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://iqiyi.llowyeshop.my.id"},
+  
+    {name:"APPLE TV", cat:"streaming", icon:"<img src='apple.jpg' alt='Apple TV'>", color:"#B2EBF7",
+     aliases:["series","barat","series barat","dokumenter","streaming","nonton","film","watch","movie"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Original series Apple, kualitas gambar premium.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://appletv.llowyeshop.my.id"},
+  
+  {name:"CATCHPLAY+", cat:"streaming", icon:"<img src='catch.jpeg' alt='Catchplay+'>", color:"#B2EBF7",
+   aliases:["cachp","box office","series","streaming","action","kartun","film","drakor","netplik","hollywood","nonton","watch"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Film box office & series Asia, tanpa iklan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`, 
+   link:"https://catchplay.llowyeshop.my.id"},
+  
+  {name:"VISION+", cat:"streaming", icon:"<img src='vision.jpeg' alt='Vision'>", color:"#B2EBF7",
+   aliases:["tv lokal","live tv","series","indonesia","berita","streaming","film","sepak bola"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Sinetron & FTV lokal, siaran TV nasional.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
+</div>`,
+   link:"https://vision.llowyeshop.my.id"},
+
+  // ---- EDITING ----
+  {name:"CAPCUT", cat:"editing", icon:"<img src='cc.jpg' alt='Capcut'>", color:"#B2EBF7",
+   aliases:["capkut","kapcut","cap cut","edit","video","edit video","cc","cp","efek","template","konten","transisi"],
+   badges:["Plan Pro","Plan Standar","Garansi 25 hari","Garansi 5 hari","Private"], desc:"Efek & template premium buat edit video.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Pro</span><span class="pval">7k/3hari</span><span class="pval">10k/minggu</span><span class="pval">30k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Standar</span><span class="pval">7k/minggu</span><span class="pval">25k/bulan</span></div>
+</div>`,
+   link:"https://capcut.llowyeshop.my.id"},
+  
+  {name:"CANVA", cat:"editing", icon:"<img src='canva.jpeg' alt='Canva'>", color:"#B2EBF7",
+   aliases:["edit","ppt","design","cnva","grafis","poster","logo","template","presentasi"],
+   badges:["Garansi 25hari","Plan Pro","Lifetime"], desc:"Desain grafis, poster, & template premium siap pakai.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Pro</span><span class="pval">1k/hari</span><span class="pval">2k/minggu</span><span class="pval">5k/bulan</span><span class="pval">20k/tahun</span></div>
+  <div class="price-group"><span class="plabel">Education</span><span class="pval">1k/hari</span><span class="pval">25k/lifetime</span></div>
+</div>`,
+   link:"https://canva.llowyeshop.my.id"},
+  
+  {name:"IBISPAINT", cat:"editing", icon:"<img src='ibis.jpeg' alt='Ibispaint'>", color:"#7B2FF7",
+   aliases:["gambar","melukis","menggambar","paint","digital art","art","brush","ilustrasi"],
+   badges:["Garansi 25 hari"], desc:"Kuas & tools digital painting premium, tanpa watermark.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://ibispaint.llowyeshop.my.id"},
+   
+    {name:"ALIGHT MOTION", cat:"editing", icon:"<img src='am.jpg' alt='Alight Motion'>", color:"#B2EBF7",
+     aliases:["edit","am","edit video","motion graphics","animasi","efek","konten"],
+   badges:["Garansi  25 hari","Plan Premium"], desc:"Edit video & motion graphic level profesional.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://alightmotion.llowyeshop.my.id"},
+  
+  {name:"PICSART", cat:"editing", icon:"<img src='picsart.jpeg' alt='Picsart'>", color:"#B2EBF7",
+   aliases:["edit","edit foto","filter","design","efek","hapus objek"],
+   badges:["Garansi  25 hari"], desc:"Edit foto dengan tools & stiker premium.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://picsart.llowyeshop.my.id"},
+  
+    {name:"DAZZCAM", cat:"editing", icon:"<img src='dazzcam.jpeg' alt='Dazzcam'>", color:"#7B2FF7",
+     aliases:["edit","ios","vintage","kamera vintage","estetik","filter","efek","efek retro","kamera analog","dzzcm","vhs","y2k"],
+   badges:["Garansi 6 bulan","Lifetime"], desc:"Filter kamera aesthetic ala kamera digital jadul.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://dazzcam.llowyeshop.my.id"},
+  
+    {name:"WINK", cat:"editing", icon:"<img src='wink.jpeg' alt='Wink'>", color:"#7B2FF7",
+     aliases:["edit","retouch","perhalus wajah","wnk","hd quality"],
+   badges:["Garansi 5 hari","Garansi  25 hari","plan vip","plan vip+"], desc:"Retouch wajah otomatis, filter kulit halus natural.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">VIP</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">VIP+</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://wink.llowyeshop.my.id"},
+  
+  {name:"MEITU", cat:"editing", icon:"<img src='meitu.jpeg' alt='Meitu'>", color:"#B2EBF7",
+   aliases:["edit","foto","edit foto","kolase"],
+   badges:["Garansi 5 hari","Garansi 25 hari","plan vip","plan vip+"], desc:"Edit & retouch foto selfie dengan filter kecantikan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">VIP</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">VIP+</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://meitu.llowyeshop.my.id"},
+  
+    {name:"BEAUTYPLUS", cat:"editing", icon:"<img src='beauty.jpeg' alt='Beautyplus'>", color:"#7B2FF7",
+     aliases:["butypl","foto","retouch","kolase","photobox","fotobox"],
+   badges:["Garansi  25 hari"], desc:"Filter kamera real-time & retouch wajah instan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://beautyplus.llowyeshop.my.id"},
+  
+  {name:"REMINI", cat:"editing", icon:"<img src='remini.jpeg' alt='Remini'>", color:"#7B2FF7",
+   aliases:["hd quality","foto","enhance"],
+   badges:["Garansi  25 hari"], desc:"Perbaiki kualitas foto blur jadi HD, AI enhance.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://remini.llowyeshop.my.id"},
+  
+    {name:"LIGHTROOM", cat:"editing", icon:"<img src='light.jpeg' alt='Lightroom'>", color:"#7B2FF7",
+     aliases:["edit foto","fotografi","pencahayaan","hdr","hd"],
+   badges:["Garansi  25 hari"], desc:"Preset & tools color grading foto profesional.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://lightroom.llowyeshop.my.id"},
+  
+    {name:"VSCO+", cat:"editing", icon:"<img src='vsco.jpeg' alt='VSCO+'>", color:"#7B2FF7",
+     aliases:["edit foto","edit video","vintage"],
+   badges:["Garansi  25 hari","Private","Sharing"], desc:"Preset filter aesthetic & tools edit foto premium.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">private</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://vsco.llowyeshop.my.id"},
+  
+  {name:"INSHOT", cat:"editing", icon:"<img src='inshot.jpeg' alt='Inshot'>", color:"#7B2FF7",
+   aliases:["nshot","shot","edit","edit video","konten"],
+   badges:["Garansi  25 hari","Private","Sharing"], desc:"Edit video, potong, & tambah musik tanpa watermark.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">Private</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">Sharing</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://inshot.llowyeshop.my.id"},
+
+  // ---- MUSIC ----
+  {name:"YOUTUBE", cat:"music", icon:"<img src='yt.jpeg' alt='Youtube'>", color:"#FF0000",
+   aliases:["yt","lagu","musik","video","hiburan","podcast","tutorial"],
+   badges:["Garansi 25 hari","include yt music","Paket indplan","Paket family"], desc:"Streaming musik + YouTube Premium tanpa iklan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">indplan</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">family</span><span class="pval">10k/bulan</span></div>
+</div>`,
+   link:"https://youtube.llowyeshop.my.id"},
+  
+  {name:"APPLE MUSIC", cat:"music", icon:"<img src='appmus.jpeg' alt='Apple Music'>", color:"#2FCC71",
+   aliases:["appmus","lagu","musik","album","dolby atmos","playlist"],
+   badges:["Garansi  25 hari","Paket indplan","Paket family"], desc:"Lagu Indo & internasional, download sepuasnya.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">indplan</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">family</span><span class="pval">10k/bulan</span></div>
+</div>`,
+   link:"https://applemusic.llowyeshop.my.id"},
+  
+  {name:"SPOTIFY", cat:"music", icon:"<img src='spoti.jpeg' alt='Spotify'>", color:"#1DB954",
+   aliases:["spoti","sptfy","lagu","musik","podcast","album","dj"],
+   badges:["Garansi  25 hari","Paket Indplan","Paket Family"], desc:"Jutaan lagu tanpa iklan, bisa offline.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">indplan</span><span class="pval">20k/bulan</span></div>
+  <div class="price-group"><span class="plabel">family</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://spotify.llowyeshop.my.id"},
+
+  // ---- EDUCATION ----
+  {name:"DUOLINGO", cat:"education", icon:"<img src='duo.jpg' alt='Duolingo'>", color:"#00A868",
+   aliases:["bahasa","belajar","ijo","burung","kossakata","speaking","listening","streak"],
+   badges:["Garansi  25 hari","Paket indplan","Paket family"], desc:"Belajar bahasa asing, latihan harian bikin lancar.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">indplan</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">family</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://iqiyi.llowyeshop.my.id"},
+  
+  {name:"SCRIBD", cat:"education", icon:"<img src='scribd.jpeg' alt='Scribd'>", color:"#4257B2",
+   aliases:["file","dokumen","pdf","ebook","audiobook"],
+   badges:["Garansi 25 hari","Private","plan premium"], desc:"Baca ebook, jurnal, & dokumen premium tanpa batas.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">5k/bulan</span></div>
+</div>`,
+   link:"https://scribd.llowyeshop.my.id"},
+     
+  {name:"CAMSCANNER", cat:"education", icon:"<img src='cs.jpeg' alt='Camscanner'>", color:"#4257B2",
+   aliases:["scan","cmsnnr","cmscnner","ocr","arsip","pdf","tanda tangan digital","dokumen","scanner"],
+   badges:["Garansi 25 hari","Private","Sharing","plan premium"], desc:"Scan dokumen jadi PDF, tanpa watermark & iklan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://camscanner.llowyeshop.my.id"},
+  
+  {name:"KILONOTES", cat:"education", icon:"<img src='kilonotes.jpeg' alt='Kilonotes'>", color:"#F58021",
+   aliases:["note","catatan","planner","catatan digital","stylus"],
+   badges:["Garansi 25 hari","Lifetime"], desc:"Catatan digital & anotasi PDF, cocok buat kuliah.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://kilonotes.llowyeshop.my.id"},
+   
+   {name:"ZOOM", cat:"education", icon:"<img src='zom.jpeg' alt='Zoom'>", color:"#F58021",
+    aliases:["zum","meeting","rapat online","webinar","konferensi","kelas online","video call"],
+   badges:["Garansi 25 hari"], desc:"Meeting online tanpa batas waktu 40 menit.",
+   price:`<div class="price-grid single-plan">
+  <div class="price-group"><span class="plabel">pro</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+</div>`,
+   link:"https://zoom.llowyeshop.my.id"},
+    
+  {name:"GRAMMARLY", cat:"education", icon:"<img src='grammarly.jpeg' alt='Grammarly'>", color:"#F58021",
+   aliases:["grmmrl","bahasa inggris","english","languange","proofreading","cek grammar","penulisan","grammar checker"],
+   badges:["Garansi 25 hari"], desc:"Cek grammar & perbaiki tulisan otomatis pakai AI.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://grammarly.llowyeshop.my.id"},
+    
+  {name:"QUILLBOT", cat:"education", icon:"<img src='quill.jpeg' alt='Quilllbot'>", color:"#F58021",
+   aliases:["qllbt","parafrase","menulis","grammar checker","cek plagiarisme","terjemahan"],
+   badges:["Garansi 25 hari"], desc:"Parafrase & cek plagiarisme tulisan otomatis.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+link:"https://quillbot.llowyeshop.my.id"},
+  
+  {name:"MICROSOFT 365 COPILOT", cat:"education", icon:"<img src='copilot.jpeg' alt='Microsoft 365 Copilot'>", color:"#F58021",
+   aliases:["ms","mcrosft","excel","power point","office","outlook","onedrive"],
+   badges:["Garansi 25 hari"], desc:"AI asisten buat Word, Excel, & PowerPoint.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://microsot365copilot.llowyeshop.my.id"},
+   
+  {name:"TURNITIN", cat:"education", icon:"<img src='turnitin.jpeg' alt='Cek Turnitin'>", color:"#F58021",
+   aliases:["cek","cek plagiarisme","similarity checker"],
+   badges:["Cek turnitin"], desc:"Cek similarity/plagiarisme tugas & skripsi.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/cek</span><span class="pval">15k/cek</span><span class="pval">25k/cek</span></div>
+  <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/cek</span><span class="pval">10k/cek</span><span class="pval">20k/cek</span></div>
+</div>`,
+   link:"https://turnitin.llowyeshop.my.id"},
+   
+  {name:"GET CONTACT", cat:"education", icon:"<img src='gtc.jpeg' alt='GetContact'>", color:"#F58021",
+   aliases:["gtc","cek","nomor","tag nama","kontak","identitas nomor","blokir nomor","cek penipu","penipu"],
+   badges:["Garansi 25 hari","indplan","Cek nomor","1k/1 nomor"], desc:"Cek identitas nomor HP tak dikenal.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">indplan</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">cek nomor</span><span class="pval">1k/nomor</span></div>
+</div>`,
+    link:"https://getcontact.llowyeshop.my.id"},
+  
+    // ---- READING APPS ----
+  {name:"WATTPAD", cat:"reading", icon:"<img src='wattpad.jpeg' alt='Wattpad'>", color:"#10A37F",
+   aliases:["wttpd","novel","baca","membaca","bacaan","cerita","komunitas baca","penulis"],
+   badges:["Garansi  25 hari","Private","Sharing"], desc:"Baca & tulis cerita fiksi, koleksi lengkap tanpa iklan.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://wattpad.llowyeshop.my.id"},
+   
+  {name:"NOVELTOON", cat:"reading", icon:"<img src='novel.jpeg' alt='Noveltoon'>", color:"#4A90E2",
+   aliases:["nvl","cerita","membaca","bacaan","baca","komik"],
+   badges:["Garansi  25 hari","Private","Sharing"], desc:"Baca novel & webtoon romance, drama, update rutin.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://noveltoon.llowyeshop.my.id"},
+   
+  {name:"FIZZO NOVEL", cat:"reading", icon:"<img src='fizzo.jpeg' alt='Fizzo novel'>", color:"#6C5CE7",
+   aliases:["fzzo","cerita","pernikahan kontrak","ceo","penulis","baca","membaca","bacaan"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Baca novel online, genre lengkap tanpa batas baca.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://fizzonovel.llowyeshop.my.id"},
+  
+  // ---- AI APPS ----
+  {name:"CHATGPT", cat:"ai", icon:"<img src='gpt.jpeg' alt='ChatGPT'>", color:"#10A37F",
+   aliases:["gpt","cgpt","robot","ai","chatbot","bot","tanya jawab"],
+   badges:["Garansi 25 hari","Plan Go","Plan Plus","Sharing","Private"], desc:"Akses ChatGPT dengan limit lebih tinggi dari versi gratis.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">plan go</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">plan plus</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://chatgpt.llowyeshop.my.id"},
+   
+  {name:"GEMINI", cat:"ai", icon:"<img src='gemini.jpeg' alt='Gemini'>", color:"#4A90E2",
+   aliases:["gmini","ai","tanya jawab","robot","bot"],
+   badges:["Garansi 25 hari","famplan","plan pro","via invite"], desc:"Asisten AI Google, terintegrasi Workspace & lebih pintar.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">famplan</span><span class="pval">2k/hari</span><span class="pval">5k/3hari</span><span class="pval">7k/minggu</span></span></div>
+  <div class="price-group"><span class="plabel">famplan</span><span class="pval">10k/bulan</span><span class="pval">15k/3 bulan</span><span class="pval">20k/6 bulan</span><span class="pval">30k/tahun</span></div>
+</div>`,
+      link:"https://gemini.llowyeshop.my.id"},
+  
+  {name:"LEONARDO", cat:"ai", icon:"<img src='leo.jpeg' alt='Leonardo'>", color:"#6C5CE7",
+   aliases:["leonrd","ai","robot","generate gambar","bikin gambar"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"Generate gambar & artwork AI kualitas tinggi.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">10k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">7k/bulan</span></div>
+</div>`,
+      link:"https://leonardo.llowyeshop.my.id"},
+  
+  {name:"GROK Ai", cat:"ai", icon:"<img src='grok.jpeg' alt='Grok ai'>", color:"#111111",
+   aliases:["grk","ai","robot","bot","tanya jawab"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"AI dari xAI, jawaban to the point & real-time.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">25k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">20k/bulan</span></div>
+</div>`,
+   link:"https://grok.llowyeshop.my.id"},
+   
+  {name:"PERPLEXITY", cat:"ai", icon:"<img src='perplexity.jpeg' alt='Perplexity'>", color:"#111111",
+   aliases:["prplxty","referensi","research","riset","tanya jawab"],
+   badges:["Garansi 25 hari","Private","Sharing"], desc:"AI search engine, jawaban akurat dengan sumber jelas.",
+   price:`<div class="price-grid">
+  <div class="price-group"><span class="plabel">private</span><span class="pval">50k/bulan</span></div>
+  <div class="price-group"><span class="plabel">sharing</span><span class="pval">30k/bulan</span></div>
+</div>`,
+      link:"https://perplexity.llowyeshop.my.id"},
+];  
+
+const categoryLabels = {
+  streaming: {emoji:"🎬", title:"Streaming Apps"},
+  editing:   {emoji:"🎨", title:"Editing Apps"},
+  music:     {emoji:"🎵", title:"Music Apps"},
+  education: {emoji:"✍️", title:"Education Apps"},
+  reading:   {emoji:"📖", title:"Reading Apps"},
+  ai:        {emoji:"🤖", title:"AI Apps"},
+};
+
+// fallback kalau gambar produk gagal load
+function handleImgError(img){
+  img.style.display = 'none';
+  const fallback = document.createElement('span');
+  fallback.textContent = '📦';
+  fallback.style.fontSize = '18px';
+  img.parentElement.appendChild(fallback);
+}
+
+function waLink(productName){
+  const msg = encodeURIComponent(`Halo Llowye Shop, aku mau order ${productName}`);
+  return `https://wa.me/${WA_NUMBER}?text=${msg}`;
+}
+
+function renderSections(activeCat){
+  const container = document.getElementById('catSections');
+  container.innerHTML = "";
+  const cats = activeCat === 'all' ? Object.keys(categoryLabels) : [activeCat];
+
+  cats.forEach(cat => {
+    const items = products.filter(p => p.cat === cat);
+    if(items.length === 0) return;
+    const info = categoryLabels[cat];
+
+    const section = document.createElement('div');
+    section.className = 'cat-section';
+    section.innerHTML = `
+      <div class="cat-title"><span class="emoji">${info.emoji}</span><h2>${info.title}</h2></div>
+      <div class="scroll-row">
+        ${[...items, ...items, ...items].map(p => `
+          <div class="product-card">
+            <div class="top">
+              <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
+              <h3>${p.name}</h3>
+            </div>
+            <div class="badges">${p.badges.map(b=>`<span class="badge" style="background:${badgeColors[p.cat]?.bg || '#B2EBF7'}; color:${badgeColors[p.cat]?.text || '#0891A8'}">${b}</span>`).join('')}</div>
+            <p class="desc">${p.desc}</p>
+            <div class="price-row">
+              <div><span class="price">${p.price}</span></div>
+            </div>
+            <a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(section);
+  });
+}
+
+/* ======================================================
+   SISTEM PENCARIAN PINTAR
+====================================================== */
+
+function clearSearchInput() {
+  const input = document.getElementById('searchInput');
+  input.value = "";
+  document.getElementById('clearSearch').style.display = "none";
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('catSections').style.display = "block";
+}
+
+/* ======================================================
+   PENCARIAN PRESISI & TERURUT (AWALAN NAMA DIPRIORITASKAN)
+====================================================== */
+
+function renderResultItem(p) {
+  const badgeInfo = p.badges ? p.badges.slice(0, 2).join(' • ') : '';
+  return `
+    <div class="result-item" style="cursor:pointer;" onclick="scrollToProduct('${p.name}')">
+      <div class="r-icon" style="background:${p.color}20">${p.icon}</div>
+      <div class="r-info">
+        <b>${p.name}</b>
+        <small>${badgeInfo} — ${p.desc}</small>
+      </div>
+      <div class="r-go">Lihat Detail →</div>
+    </div>`;
+}
+
+function showSuggestions() {
+  const q = document.getElementById('searchInput').value.trim();
+  if(q !== "") return;
+
+  const resultsBox = document.getElementById('searchResults');
+  const sections = document.getElementById('catSections');
+  sections.style.display = "none";
+  resultsBox.classList.add('show');
+
+  const suggestedNames = ["NETFLIX", "DISNEY+", "CAPCUT", "CANVA", "VIU", "YOUTUBE"];
+  const suggested = suggestedNames.map(name => products.find(p => p.name === name)).filter(Boolean);
+  
+ resultsBox.innerHTML =
+  `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
+  `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi Aplikasi Populer</div>` +
+  suggested.map(renderResultItem).join('');
+}
+
+  /* ======================================================
+   FUZZY MATCH — toleransi typo/salah ketik
+====================================================== */
+function levenshteinDistance(a, b) {
+  const matrix = [];
+  for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1, // substitusi
+          matrix[i][j - 1] + 1,     // insert
+          matrix[i - 1][j] + 1      // delete
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+// hitung similarity score 0-1 (1 = identik persis)
+function similarity(a, b) {
+  a = a.toLowerCase(); b = b.toLowerCase();
+  const longer = a.length > b.length ? a : b;
+  const shorter = a.length > b.length ? b : a;
+  if (longer.length === 0) return 1;
+  const dist = levenshteinDistance(longer, shorter);
+  return (longer.length - dist) / longer.length;
+}
+
+// cek apakah query "cukup mirip" sama salah satu kata di target
+function fuzzyIncludes(query, target, threshold = 0.6) {
+  query = query.toLowerCase();
+  target = target.toLowerCase();
+
+  // exact substring match tetep prioritas paling tinggi
+  if (target.includes(query)) return 1;
+
+  // pecah target jadi kata per kata, cek tiap kata
+  const words = target.split(/\s+/);
+  let bestScore = 0;
+  for (const word of words) {
+    // bandingin ke full word, dan ke potongan sepanjang query (buat kata panjang)
+    const sliceLen = query.length;
+    const wordSlice = word.slice(0, Math.max(sliceLen, 3));
+    const score = Math.max(similarity(query, word), similarity(query, wordSlice));
+    if (score > bestScore) bestScore = score;
+  }
+  return bestScore >= threshold ? bestScore : 0;
+}
+  
+function handleSearch() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const resultsBox = document.getElementById('searchResults');
+  const sections = document.getElementById('catSections');
+  const clearBtn = document.getElementById('clearSearch');
+
+  if (q.length === 0) {
+    if (clearBtn) clearBtn.style.display = "none";
+    showSuggestions();
+    return;
+  }
+
+  if (clearBtn) clearBtn.style.display = "block";
+  sections.style.display = "none";
+  resultsBox.classList.add('show');
+
+  // Kasih score fuzzy ke tiap produk berdasarkan nama, desc, kategori, badge
+  const scored = products.map(p => {
+    const nameScore  = fuzzyIncludes(q, p.name, 0.55) * 3; // nama paling dibobotin
+    const descScore  = p.desc.toLowerCase().includes(q) ? 1.5 : 0;
+    const catScore   = fuzzyIncludes(q, p.cat, 0.6);
+    const badgeScore = p.badges && p.badges.some(b => b.toLowerCase().includes(q)) ? 1 : 0;
+    const totalScore = nameScore + descScore + catScore + badgeScore;
+    return { p, score: totalScore };
+  }).filter(x => x.score > 0);
+
+  if (scored.length === 0) {
+    resultsBox.innerHTML =
+      `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
+      `<div class="no-result">Aplikasi atau kata kunci "${q}" belum ada nih, coba kata kunci lain ya 🌱</div>`;
+    return;
+  }
+
+  // urutin dari yang paling mirip/relevan
+  scored.sort((a, b) => {
+    const aExact = a.p.name.toLowerCase().startsWith(q);
+    const bExact = b.p.name.toLowerCase().startsWith(q);
+    if (aExact && !bExact) return -1;
+    if (!aExact && bExact) return 1;
+    return b.score - a.score;
+  });
+
+  resultsBox.innerHTML =
+    `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
+    scored.map(x => renderResultItem(x.p)).join('');
+}
+
+function scrollToProduct(productName) {
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('catSections').style.display = "block";
+
+  renderSections('all');
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  const allPill = document.querySelector('.pill[data-cat="all"]');
+  if (allPill) allPill.classList.add('active');
+
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.product-card');
+    for (let card of cards) {
+      if (card.querySelector('h3').textContent.trim() === productName) {
+        const row = card.closest('.scroll-row');
+        if (row) {
+          // stop dulu auto-scroll row ini biar ga geser abis ketemu
+          autoScrollPaused[row.dataset.rowId] = true;
+          clearTimeout(row._resumeTimer);
+          row._resumeTimer = setTimeout(() => {
+            autoScrollPaused[row.dataset.rowId] = false;
+          }, 3000); // kasih jeda 3 detik biar user sempet liat
+        }
+        card.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        card.style.outline = "3px solid var(--purple)";
+        setTimeout(() => card.style.outline = "none", 2000);
+        break;
+      }
+    }
+  }, 150); // dinaikin dikit dari 100ms biar DOM+dataset.rowId udah kepasang
+}
+
+function filterCat(cat, el){
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('searchInput').value = "";
+  document.getElementById('clearSearch').style.display = "none";
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('catSections').style.display = "block";
+  renderSections(cat);
+}
+
+renderSections('all');
+
+/* ===== AUTO-SCROLL PELAN KE KANAN ===== */
+let autoScrollPaused = {};
+let pillsPaused = false;
+
+function startAutoScroll(){
+  function tick(){
+    document.querySelectorAll('.scroll-row').forEach(row => {
+      if(autoScrollPaused[row.dataset.rowId]) return;
+      row.scrollLeft += 1;
+      if(row.scrollLeft + row.clientWidth >= row.scrollWidth - 1){
+        row.scrollLeft = 0;
+      }
+    });
+    const pillsRow = document.getElementById('pillsRow');
+    if(pillsRow && !pillsPaused){
+      pillsRow.scrollLeft += 0.3;
+      if(pillsRow.scrollLeft + pillsRow.clientWidth >= pillsRow.scrollWidth - 1){
+        pillsRow.scrollLeft = 0;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function attachRowInteraction(){
+  document.querySelectorAll('.scroll-row').forEach((row, i) => {
+    if(!row.dataset.rowId) row.dataset.rowId = 'row-' + i;
+    let resumeTimer;
+    const pause = () => {
+      autoScrollPaused[row.dataset.rowId] = true;
+      clearTimeout(resumeTimer);
+    };
+    const resume = () => {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { autoScrollPaused[row.dataset.rowId] = false; }, 1800);
+    };
+    row.addEventListener('touchstart', pause, {passive:true});
+    row.addEventListener('touchend', resume);
+    row.addEventListener('mousedown', pause);
+    row.addEventListener('mouseup', resume);
+  });
+}
+
+const _originalRenderSections = renderSections;
+renderSections = function(activeCat){
+  _originalRenderSections(activeCat);
+  attachRowInteraction();
+};
+
+function attachPillsInteraction(){
+  const pillsRow = document.getElementById('pillsRow');
+  if(!pillsRow) return;
+  let resumeTimer;
+  const pause = () => {
+    pillsPaused = true;
+    clearTimeout(resumeTimer);
+  };
+  const resume = () => {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => { pillsPaused = false; }, 1800);
+  };
+  pillsRow.addEventListener('touchstart', pause, {passive:true});
+  pillsRow.addEventListener('touchend', resume);
+  pillsRow.addEventListener('mousedown', pause);
+  pillsRow.addEventListener('mouseup', resume);
+}
+
+attachRowInteraction();
+attachPillsInteraction();
+startAutoScroll();
 </script>
 
+  <audio id="bgMusic" src="seven.mpeg.mp3"></audio>
+
+  <button  id="musicBtn" onclick="toggleMusic()" style="position:fixed; top:14px; right:14px; background:#FFF0A1; border: 3px solid #B2EBF7; border-radius:999px; padding:10px 10px; font-size:9px; font-weight:400; font-family:'Quicksand', sans-serif; color:#0B0B0B; box-shadow:0 4px 10px rgba(0,0,0,0.15); z-index:999; animation: pulseMusic 1.5s ease-in-out infinite; display:flex; flex-direction:column; align-items:center; gap:1px;">
+  <span id="musicIcon" style="font-size:18px; display:inline-block; margin-bottom:2px; animation: ringPhone 0.8s ease-in-out infinite;">🎵</span>
+  <span id="musicLabel">music</span>
+</button>
+
+<script>
+let player;
+let isPlaying = false;
+const musicTracks = ['seven.mpeg.mp3', 'lagu2.mpeg.mp3', 'lagu3.mpeg.mp3']; // ganti sesuai nama file lagu ketigamu
+let currentTrack = 0;
+
+function toggleMusic(){
+  playClickSound();
+  const btn = document.getElementById('musicBtn');
+  const icon = document.getElementById('musicIcon');
+  const label = document.getElementById('musicLabel');
+  const audio = document.getElementById('bgMusic');
+  if(!isPlaying){
+    audio.volume = trackVolumes[currentTrack];
+    audio.play();
+    isPlaying = true;
+    btn.style.animation = 'none';
+    icon.style.animation = 'none';
+    icon.textContent = '🟠';
+    label.textContent = 'stop';
+  } else {
+    audio.pause();
+    isPlaying = false;
+    btn.style.animation = 'pulseMusic 1.5s ease-in-out infinite';
+    icon.style.animation = 'ringPhone 0.8s ease-in-out infinite';
+    icon.textContent = '🎵';
+    label.textContent = 'music';
+  }
+}
+  
+
+// Pas lagu yang diputar selesai, otomatis gantian ke lagu berikutnya
+const trackVolumes = [1, 1, 0.5]; // lagu ke-3 (index 2) diset volumenya jadi 50%
+
+document.getElementById('bgMusic').addEventListener('ended', () => {
+  currentTrack = (currentTrack + 1) % musicTracks.length;
+  const audio = document.getElementById('bgMusic');
+  audio.src = musicTracks[currentTrack];
+  audio.volume = trackVolumes[currentTrack];
+  audio.play();
+});
+  
+  function playClickSound(){
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = "square";
+  osc.frequency.value = 800;
+  gain.gain.setValueAtTime(0.4, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + 0.08);
+}
+  function showToast(msg, ms = 1200){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
+}
+
+// pasang di semua link WhatsApp/order
+document.addEventListener('click', (e) => {
+  const waBtn = e.target.closest('a[href*="wa.me"]');
+  if (waBtn) showToast('💬 Membuka WhatsApp...');
+});
+// KODE BARU (Mencakup SELURUH tombol, link, kartu, dan elemen interaktif)
+document.addEventListener('click', (e) => {
+  const clickable = e.target.closest(
+    'button, a, .btn-3d, .pill, .faq-item, .snk-back, .menu-btn, ' +
+    '.result-item, .faq-showmore-btn, .steps-toggle, .order-btn, .product-card, [onclick]'
+  );
+  if (clickable) playClickSound();
+});
+  function toggleSnk(){
+  const panel = document.getElementById('snkPanel');
+  panel.classList.toggle('open');
+  document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
+}
+  function toggleCaraOrder(){
+  const panel = document.getElementById('caraPanel');
+  panel.classList.toggle('open');
+  document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
+}
+
+function toggleFaqPanel(){
+  const panel = document.getElementById('faqPanel');
+  panel.classList.toggle('open');
+  document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
+}
+  function toggleFaqItem(el){
+  el.classList.toggle('open');
+}
+  /* ======================================================
+   LOGIKA TOMBOL KEMBALI KE ATAS
+====================================================== */
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Efek scroll halus
+  });
+}
+
+// Tampilkan tombol HANYA saat layar sudah di-scroll ke bawah lebih dari 300px
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTopBtn');
+  if (btn) {
+    if (window.scrollY > 300) {
+      btn.style.display = 'flex';
+    } else {
+      btn.style.display = 'none';
+    }
+  }
+});
+function scrollPanelToTop(panelId){
+  const panel = document.getElementById(panelId);
+  if(panel) panel.scrollTo({ top: 0, behavior: 'smooth' });
+}
+['faqPanel','snkPanel'].forEach(id => {
+  const panel = document.getElementById(id);
+  const btn = document.getElementById(id + 'TopBtn');
+  if(panel && btn){
+    panel.addEventListener('scroll', () => {
+      btn.classList.toggle('show', panel.scrollTop > 300);
+    });
+  }
+});
+
+document.getElementById('copyYear').textContent = new Date().getFullYear();
+  console.log(
+  '%c⚠️ STOP!',
+  'color:red; font-size:40px; font-weight:bold;'
+);
+console.log(
+  '%cWebsite ini milik Llowye_Shop. Source code dilindungi hak cipta. Dilarang menyalin tanpa izin.',
+  'color:#6C5CE7; font-size:14px;'
+);
+</script>
+  
+  <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
+  <script>
+function timeAgo(dateStr){
+  const now = new Date();
+  const past = new Date(dateStr);
+  const diffDay = Math.floor((now - past) / 86400000);
+  const diffWeek = Math.floor(diffDay / 7);
+  const diffMonth = Math.floor(diffDay / 30);
+  const diffYear = Math.floor(diffDay / 365);
+
+  if(diffDay < 1) return "Hari ini";
+  if(diffDay === 1) return "1 hari lalu";
+  if(diffDay < 7) return `${diffDay} hari lalu`;
+  if(diffWeek < 5) return `${diffWeek} minggu lalu`;
+  if(diffMonth < 12) return `${diffMonth} bulan lalu`;
+  return `${diffYear} tahun lalu`;
+}
+document.querySelectorAll('.testi-time[data-date]').forEach(el => {
+  el.textContent = timeAgo(el.dataset.date);
+});
+
+  
+  // Original source by Llowye_Shop | Do not redistribute
+
+document.querySelectorAll('img.testi-ss').forEach(img => {
+  const wrap = document.createElement('div');
+  wrap.className = 'testi-ss-wrap';
+  img.parentNode.insertBefore(wrap, img);
+  wrap.appendChild(img);
+});
+  </script>
+
+     <button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke atas" style="
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 14px rgba(38,36,59,0.12);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+">
+  <span style="
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-right: 3px solid #FF3B30;
+    border-bottom: 3px solid #FF3B30;
+    border-radius: 2px;
+    transform: rotate(-135deg);
+    margin-top: 3px;
+    animation: chevronUpBounce 1.4s ease-in-out infinite;
+  "></span>
+</button>
 </body>
 </html>
