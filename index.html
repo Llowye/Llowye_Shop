@@ -47,7 +47,24 @@
 .steps-title{
   text-align:center; margin-bottom:14px;
 }
-    
+   .catWalkWrap{
+  position:relative;
+  width:100%;
+  height:60px;
+  overflow:hidden;
+}
+.catWalking{
+  position:absolute;
+  bottom:0;
+  left:-120px;
+  width:100px;
+  height:auto;
+  animation:catWalk 8s linear infinite;
+}
+@keyframes catWalk{
+  0%{ left:-120px; }
+  100%{ left:100%; }
+} 
     .cara-panel{
   position:fixed;
   top:0; left:0;
@@ -1223,6 +1240,10 @@
     </div>
   </div>
 </section>
+
+  <div class="catWalkWrap">
+  <img src="kucingjalan.gif" alt="kucing jalan" class="catWalking">
+</div>
 
 <footer>
   <div class="pay-strip" style="align-items:center;">
