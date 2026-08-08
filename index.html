@@ -96,6 +96,95 @@
 .faq-panel.open{
   transform:translateX(0);
 }
+
+    /* OVERLAY BACKGROUND PEREDUP */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 999999;
+  padding-top: 25vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  overflow: hidden !important;
+}
+
+.modalOverlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalBox {
+  position: relative;
+  background: #ffffff;
+  border: 5px solid #C8F7F2;
+  border-radius: 25px 0px 25px 25px;
+  padding: 20px;
+  width: 310px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateX(100vw);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalOverlay.show .modalBox {
+  transform: translateX(0);
+}
+
+.modalOverlay.hideRight .modalBox {
+  transform: translateX(100vw) !important;
+  transition: transform 0.5s ease-in;
+}
+
+.catSleeping {
+  position: absolute;
+  top: -97px;
+  right: -18px;
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.modalBox h3 {
+  font-family: 'Baloo', cursive, sans-serif;
+  color: #ff0000;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.modalButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+
+.btnAccept {
+  font-family: 'Baloo', cursive, sans-serif;
+  border: none;
+  padding: 10px 32px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #bbf7d0;
+  color: #166534;
+  font-weight: normal;
+  box-shadow: 0 4px 0 #86efac;
+  margin-top: 20px;
+}
+
+.btnAccept:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #86efac;
+}
+    
 .snk-back{
   background:var(--card); border:1px solid var(--line);
   color:var(--purple); font-weight:700; font-size:13px;
@@ -768,6 +857,26 @@
     <span></span>
   </button>
 </div>
+
+  <!-- POPUP S&K -->
+<div id="snkModal" class="modalOverlay">
+  <div class="modalBox">
+    
+    <img src="kucing.gif" alt="kucing" class="catSleeping">
+
+    <h3>⚠️  WARNING  ⚠️</h3>
+    <p>
+      Hai Kak! ✨ Demi kenyamanan transaksi bersama, 
+      <b>harap baca S&K toko kami dulu yaa..</b> 
+      Dengan terus melanjutkan, Kakak dianggap sudah menyetujui aturan di Llowye_Shop.
+    </p>
+
+    <div class="modalButtons">
+      <button class="btnAccept" onclick="acceptSnk()">Oke! nanti aku baca 🌱</button>
+    </div>
+
+  </div>
+</div>
   
   <div class="snk-panel" id="snkPanel">
   <div class="snk-panel-inner">
@@ -1100,6 +1209,29 @@ const badgeColors = {
   ai:        {bg:"#EDEDED", text:"#595859"},
 };
 
+  function showSnkModal() {
+  document.getElementById("snkModal").classList.add("show");
+}
+
+function closeSnk() {
+  const modal = document.getElementById("snkModal");
+  modal.classList.add("hideRight");
+  
+  setTimeout(() => {
+    modal.classList.remove("show");
+    modal.classList.remove("hideRight");
+  }, 500);
+}
+
+function acceptSnk() {
+  closeSnk();
+  playClickSound(); // Hapus baris ini kalau di web baru tidak pakai sound efek klik
+}
+
+// Popup otomatis muncul setelah 3 detik
+setTimeout(() => {
+  showSnkModal();
+}, 3000);
   
 const products = [
   // ---- STREAMING ----
