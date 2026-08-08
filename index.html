@@ -1000,7 +1000,7 @@
 
 <div class="mascot-wrap" style="align-items:center; margin-top:3px;">
   <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; top:8px; z-index:2;"></div>
- <div class="bubble" style="margin-top:-20px;"><span id="typewriterText"></span></div>
+  <div class="bubble" id="introBubble" style="margin-top:-20px;"></div>
 </div>
   
 <div style="display:flex; gap:10px; width:100%; margin-top:10px;">
@@ -2150,7 +2150,23 @@ function toggleMusic(){
     label.textContent = 'music';
   }
 }
-  
+  <script>
+const introWords = [
+  "Klik", "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">info</span>",
+  "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">selengkapnya</span>",
+  "supaya", "tau", "perbedaan", "paket", "tiap", "akun", "ya..."
+];
+const introBubble = document.getElementById('introBubble');
+let wordIndex = 0;
+function typeWord(){
+  if (wordIndex < introWords.length){
+    introBubble.innerHTML += (wordIndex > 0 ? " " : "") + introWords[wordIndex];
+    wordIndex++;
+    setTimeout(typeWord, 180);
+  }
+}
+typeWord();
+</script>
 
 // Pas lagu yang diputar selesai, otomatis gantian ke lagu berikutnya
 const trackVolumes = [1, 1, 0.5]; // lagu ke-3 (index 2) diset volumenya jadi 50%
