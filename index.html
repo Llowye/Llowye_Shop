@@ -1345,9 +1345,11 @@ const badgeColors = {
   ai:        {bg:"#EDEDED", text:"#595859"},
 };
 
-  function showSnkModal() {
-  document.getElementById("snkModal").classList.add("show");
-}
+ function showSnkModal() {
+  if (!localStorage.getItem("snkClosed")) {
+    document.getElementById("snkModal").classList.add("show");
+  }
+ }
 
   function highlightSearchBar(){
   const bar = document.getElementById('searchBarSection');
@@ -1371,25 +1373,27 @@ function closeSnk() {
   function showSadModal(){
   document.getElementById("sadModal").classList.add("show");
 }
-function closeSadModal() {
+
+  function closeSadModal() {
   const modal = document.getElementById("sadModal");
   modal.classList.add("hideRight");
   setTimeout(() => {
     modal.classList.remove("show");
     modal.classList.remove("hideRight");
   }, 500);
-}
-  
+  localStorage.setItem("snkClosed", "true");
+  }
+   
 function acceptSnk() {
   closeSnk();
   toggleSnk();
-  playClickSound(); // Hapus baris ini kalau di web baru tidak pakai sound efek klik
+  playClickSound();
+  localStorage.setItem("snkClosed", "true");
 }
 
-// Popup otomatis muncul setelah 3 detik
-setTimeout(() => {
-  showSnkModal();
-}, 3000);
+  window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(showSnkModal, 2000);
+});
   
 const products = [
   // ---- STREAMING ----
