@@ -1,5 +1,3 @@
-
-
 <!--
   ================================================================================================================================================================================
   Llowye_Shop Landing Page Template
@@ -392,6 +390,7 @@
     background:var(--bg);
     color:var(--ink);
     -webkit-font-smoothing:antialiased;
+    overflow-anchor:none; /* safety net biar browser gak "koreksi" scroll sendiri pas ada gambar lazy-load */
   }
   h1,h2,h3,.logo{font-family:'Fredoka', sans-serif;}
   a{text-decoration:none; color:inherit;}
@@ -824,6 +823,8 @@
 
 .testi-ss{
   width:100%;
+  aspect-ratio: 4 / 3; /* reserve ruang duluan biar gak ada layout shift pas lazy-load, ini yg bikin layar "lompat sendiri" */
+  object-fit: cover;
   border-radius:10px;
   margin-top:8px;
   border:1px solid rgba(0,0,0,0.08);
@@ -909,6 +910,13 @@
 </style>
 </head>
 <body>
+
+  <!-- Dipindah ke paling atas biar langsung muncul, ga nunggu semua produk selesai di-render -->
+  <audio id="bgMusic" src="seven.mpeg.mp3"></audio>
+  <button id="musicBtn" onclick="toggleMusic()" style="position:fixed; top:14px; right:14px; background:#FFF0A1; border: 2px solid #B2EBF7; border-radius:999px; padding:7px 7px; font-size:7px; font-weight:400; font-family:'Quicksand', sans-serif; color:#0B0B0B; box-shadow:0 4px 10px rgba(0,0,0,0.15); z-index:999; animation: pulseMusic 1.5s ease-in-out infinite; display:flex; flex-direction:column; align-items:center; gap:1px;">
+    <span id="musicIcon" style="font-size:15px; display:inline-block; margin-bottom:2px; animation: ringPhone 0.8s ease-in-out infinite;">🎵</span>
+    <span id="musicLabel">music</span>
+  </button>
 
  <div class="faq-panel" id="faqPanel">
   <div class="faq-panel-inner">
@@ -1348,7 +1356,7 @@ const badgeColors = {
 
  function showSnkModal() {
   // Hanya muncul jika user BELUM PERNAH merespons (klik Nanti aja / Ok)
-  if (!localStorage.getItem("snkClosed")) {
+  if (!sessionStorage.getItem("snkClosed")) {
     document.getElementById("snkModal").classList.add("show");
   }
 }
@@ -1357,7 +1365,7 @@ function handleNantiAja() {
   closeSnk();
   showSadModal();
   // Langsung kunci biar gak popup ulang-ulang lagi pas ditutup
-  localStorage.setItem("snkClosed", "true");
+  sessionStorage.setItem("snkClosed", "true");
 }
 
 function closeSnk() {
@@ -1381,14 +1389,14 @@ function closeSadModal() {
     modal.classList.remove("show");
     modal.classList.remove("hideRight");
   }, 500);
-  localStorage.setItem("snkClosed", "true");
+  sessionStorage.setItem("snkClosed", "true");
 }
 
 function acceptSnk() {
   closeSnk();
   toggleSnk();
   playClickSound();
-  localStorage.setItem("snkClosed", "true");
+  sessionStorage.setItem("snkClosed", "true");
 }
 
 // Jalankan otomatis 2 detik setelah web dimuat
@@ -2244,13 +2252,6 @@ attachPillsInteraction();
 setupRowObserver();
 startAutoScroll();
 </script>
-
-  <audio id="bgMusic" src="seven.mpeg.mp3"></audio>
-
-  <button  id="musicBtn" onclick="toggleMusic()" style="position:fixed; top:14px; right:14px; background:#FFF0A1; border: 2px solid #B2EBF7; border-radius:999px; padding:7px 7px; font-size:7px; font-weight:400; font-family:'Quicksand', sans-serif; color:#0B0B0B; box-shadow:0 4px 10px rgba(0,0,0,0.15); z-index:999; animation: pulseMusic 1.5s ease-in-out infinite; display:flex; flex-direction:column; align-items:center; gap:1px;">
-  <span id="musicIcon" style="font-size:15px; display:inline-block; margin-bottom:2px; animation: ringPhone 0.8s ease-in-out infinite;">🎵</span>
-  <span id="musicLabel">music</span>
-</button>
 
 <script>
 let player;
