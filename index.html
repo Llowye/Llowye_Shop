@@ -50,19 +50,20 @@
    .duckWalkWrap{
   position:relative;
   width:100%;
-  height:200px;
+  height:180px;
+  margin-top:-10px;
   overflow:hidden;
 }
 .duckWalking{
   position:absolute;
-  bottom:0;
-  right:-260px;
-  width:250px;
+  bottom:-15;
+  right:-220px;
+  width:200px;
   height:auto;
   animation:duckWalk 8s linear infinite;
 }
 @keyframes duckWalk{
-  0%{ right:-260px; }
+  0%{ right:-220px; }
   100%{ right:100%; }
 }
     .cara-panel{
@@ -152,6 +153,17 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   transform: translateX(100vw);
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+    .modalCloseX{
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:18px;
+  font-weight:800;
+  color:#8B0000;
+  cursor:pointer;
+  z-index:10;
 }
 
 .modalOverlay.show .modalBox {
@@ -447,8 +459,8 @@
   color:var(--muted); line-height:1.5; text-align:left;
   box-shadow:0 6px 18px rgba(38,36,59,0.15);
   position:relative;
-  min-width:170px;
-  min-height:90px;
+  min-width:150px;
+  min-height:92px;
 }
 .bubble::before{
   content:"";
@@ -721,7 +733,7 @@
   
 /* ---------- TESTIMONI ---------- */
 .testi-section{
-  padding:28px 20px 10px;
+  padding:28px 20px 5px;
 }
 .testi-title{
   text-align:center; margin-bottom:6px;
@@ -924,17 +936,27 @@
 
     <h3>⚠️  WARNING  ⚠️</h3>
     <p>
-    Hai Kak! ✨<br>demi kenyamanan transaksi bersama, 
-      <b>harap baca dulu SNK toko kami (╥﹏╥)..</b> 
-      <br>Dengan terus melanjutkan = menyetujui aturan di Llowye_Shop.
+    Hai Baddie!✨<br>
+    Demi kenyamanan transaksi bersama,<br> 
+    <b>Harap baca dulu SNK toko kami (╥﹏╥)</b><br>
+      <br>dengan terus melanjutkan, kamu dianggap menyetujui aturan di Llowye_Shop.
     </p>
 
     <div class="modalButtons">
-  <button class="btnAccept" onclick="closeSnk()">nanti aja ya</button>
+  <button class="btnAccept" onclick="closeSnk(); showSadModal();">Nanti aja</button>
   <button class="btnRefuse" onclick="acceptSnk()">Ok, aku baca!</button>
     </div>
     
 
+  </div>
+</div>
+
+  <!-- POPUP SEDIH (Nanti aja) -->
+<div id="sadModal" class="modalOverlay">
+  <div class="modalBox">
+    <span class="modalCloseX" onclick="closeSadModal()">✕</span>
+    <img src="sad.gif" alt="admin sedih" style="width:110px; height:auto; margin:0 auto 10px; display:block;">
+    <p>Admin sedih kamu nanti-nanti (╥﹏╥)</p>
   </div>
 </div>
   
@@ -1302,6 +1324,18 @@ function closeSnk() {
   }, 500);
 }
 
+  function showSadModal(){
+  document.getElementById("sadModal").classList.add("show");
+}
+function closeSadModal() {
+  const modal = document.getElementById("sadModal");
+  modal.classList.add("hideRight");
+  setTimeout(() => {
+    modal.classList.remove("show");
+    modal.classList.remove("hideRight");
+  }, 500);
+}
+  
 function acceptSnk() {
   closeSnk();
   toggleSnk();
