@@ -516,6 +516,11 @@
     display:flex; align-items:center; gap:10px;
     box-shadow:0 6px 20px rgba(108,92,231,0.08);
   }
+    .searchbar-highlight{
+  outline:3px solid #FF3B30 !important;
+  box-shadow:0 0 0 4px rgba(255,59,48,0.2) !important;
+  transition:outline .2s ease, box-shadow .2s ease;
+}
   .searchbar input{
     border:none; outline:none; flex:1; font-size:14px;
     font-family:inherit; background:transparent; color:var(--ink);
@@ -1080,17 +1085,17 @@
     <div class="step-card">
       <div class="step-num">1</div>
       <div class="step-icon">🔍</div>
-      <h3>Cari & baca ketentuan produk</h3>
+      <h3>Cari & pilih produk</h3>
       <p>1) Klik info selengkapnya untuk baca informasi terkait produk.</p>
-      <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder(); document.getElementById('searchBarSection').scrollIntoView({behavior:'smooth'});" style="--shadow-color:#D6ECFB; display:flex; align-items:center; justify-content:center; gap:6px; background:#EAF6FF; color:#1a5a8a; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
-        🛒 Pricelist
+      <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder(); highlightSearchBar();" ...>
+       🛒 Pricelist
       </a>
     </div>
     <div class="step-card">
   <div class="step-num">2</div>
   <div class="step-icon">💬</div>
   <h3>Order via whatsApp</h3>
-      <p>1) Klik tombol order<br>2) Lalu sebutkan produk yang kamu inginkan<br>3) Tunggu konfirmasi dari admin ya!</p>
+      <p>1) Klik tombol hijau ini<br>2) Lalu sebutkan produk yang kamu inginkan<br>3) Tunggu konfirmasi dari admin ya!</p>
       <a class="btn-3d" href="https://wa.me/628991740111?text=Halo%20Nek%20Llowye!%20Aku%20mau%20order%20dong%20^‿^%20" target="_blank" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
         <img src="logowa.png" style="width:18px; height:18px; animation: ringPhone 0.8s ease-in-out infinite;">
         WhatsApp
@@ -1109,7 +1114,7 @@
       <div class="step-num">4</div>
       <div class="step-icon">✅</div>
       <h3>Akun akan dikirim</h3>
-      <p>1) Setelah pembayaran, akun atau link akan langsung dikirim<br>3) Proses 5-20 menit ya! Harap bersabar ^^</p>
+      <p>1) Setelah pembayaran, akun atau link akan langsung dikirim<br>2) Proses 5-20 menit ya! Harap bersabar ^^<br>3) Wajib ss login ya!</p>
       <img src="cinta.gif" alt="nenek llowye" style="width:80px; height:auto; margin:12px auto 0; display:block;">
       </a>
     </div>
@@ -1321,6 +1326,15 @@ const badgeColors = {
   document.getElementById("snkModal").classList.add("show");
 }
 
+  function highlightSearchBar(){
+  const bar = document.getElementById('searchBarSection');
+  bar.scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(() => {
+    bar.classList.add('searchbar-highlight');
+    setTimeout(() => bar.classList.remove('searchbar-highlight'), 2000);
+  }, 400); // delay dikit biar nunggu scroll animasinya jalan dulu
+}
+  
 function closeSnk() {
   const modal = document.getElementById("snkModal");
   modal.classList.add("hideRight");
@@ -2090,7 +2104,7 @@ function scrollToProduct(productName) {
           }, 3000); // kasih jeda 3 detik biar user sempet liat
         }
         card.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-        card.style.outline = "3px solid var(--purple)";
+        card.style.outline = "3px solid #FF3B30";
         setTimeout(() => card.style.outline = "none", 2000);
         break;
       }
