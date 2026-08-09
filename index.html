@@ -51,14 +51,14 @@
   position:relative;
   width:100%;
   height:100px;
-  overflow:hidden;
+  overflow:visible;
   overflow-anchor:none;
   z-index:5;
 }
 .duckWalking{
   position:absolute;
   bottom:10px;
-  left:-220px;
+  left:100%;
   width:200px;
   height:auto;
   animation:duckWalk 8s linear infinite;
@@ -66,7 +66,7 @@
 }
 @keyframes duckWalk{
   0%{ transform:translateX(0); }
-  100%{ transform:translateX(calc(100vw + 220px)); }
+  100%{ transform:translateX(calc(-100vw - 220px)); }
 }
     .cara-panel{
   position:fixed;
@@ -468,8 +468,6 @@
   margin-top:-10px;
   min-width:170px;
   min-height:80px;
-  display:flex;
-  align-items:center;
 }
 .bubble::before{
   content:"";
@@ -771,6 +769,17 @@
 }
 .testi-scroll::-webkit-scrollbar{display:none;}
 
+    .testi-showmore-wrap{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+}
+.testi-showmore-wrap .faq-showmore-btn{
+  width:max-content;
+  white-space:nowrap;
+  padding:12px 18px;
+}
+    
 .testi-bubble{
   flex:0 0 240px;
   background:#DCF8C6;
@@ -1284,6 +1293,12 @@
   <div class="testi-time" data-date="2026-07-31"></div>
     </div>
   </div>
+
+     <div class="testi-showmore-wrap">
+  <a class="faq-showmore-btn" href="https://padlet.com/Llowye/testi-llowye_shop-6sk7sbby23ool2kg" target="_blank" style="text-decoration:none;">
+    Lihat testimoni lainnya <span class="faq-arrow-side"></span>
+  </a>
+</div>
 </section>
 
   <div class="duckWalkWrap">
