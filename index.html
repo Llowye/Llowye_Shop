@@ -971,9 +971,10 @@
     </p>
 
     <div class="modalButtons">
-  <button class="btnAccept" onclick="closeSnk(); showSadModal();">Nanti aja</button>
+  <button class="btnAccept" onclick="handleNantiAja()">Nanti aja</button>
   <button class="btnRefuse" onclick="acceptSnk()">Ok, aku baca!</button>
     </div>
+    
     
 
   </div>
@@ -1346,20 +1347,19 @@ const badgeColors = {
 };
 
  function showSnkModal() {
+  // Hanya muncul jika user BELUM PERNAH merespons (klik Nanti aja / Ok)
   if (!localStorage.getItem("snkClosed")) {
     document.getElementById("snkModal").classList.add("show");
   }
- }
-
-  function highlightSearchBar(){
-  const bar = document.getElementById('searchBarSection');
-  bar.scrollIntoView({behavior:'smooth', block:'center'});
-  setTimeout(() => {
-    bar.classList.add('searchbar-highlight');
-    setTimeout(() => bar.classList.remove('searchbar-highlight'), 2000);
-  }, 400); // delay dikit biar nunggu scroll animasinya jalan dulu
 }
-  
+
+function handleNantiAja() {
+  closeSnk();
+  showSadModal();
+  // Langsung kunci biar gak popup ulang-ulang lagi pas ditutup
+  localStorage.setItem("snkClosed", "true");
+}
+
 function closeSnk() {
   const modal = document.getElementById("snkModal");
   modal.classList.add("hideRight");
@@ -1370,11 +1370,11 @@ function closeSnk() {
   }, 500);
 }
 
-  function showSadModal(){
+function showSadModal(){
   document.getElementById("sadModal").classList.add("show");
 }
 
-  function closeSadModal() {
+function closeSadModal() {
   const modal = document.getElementById("sadModal");
   modal.classList.add("hideRight");
   setTimeout(() => {
@@ -1382,8 +1382,8 @@ function closeSnk() {
     modal.classList.remove("hideRight");
   }, 500);
   localStorage.setItem("snkClosed", "true");
-  }
-   
+}
+
 function acceptSnk() {
   closeSnk();
   toggleSnk();
@@ -1391,9 +1391,11 @@ function acceptSnk() {
   localStorage.setItem("snkClosed", "true");
 }
 
-  window.addEventListener("DOMContentLoaded", () => {
+// Jalankan otomatis 2 detik setelah web dimuat
+window.addEventListener("DOMContentLoaded", () => {
   setTimeout(showSnkModal, 2000);
 });
+  
   
 const products = [
   // ---- STREAMING ----
