@@ -289,17 +289,18 @@
   border-right:3px solid #FF3B30;
   border-bottom:3px solid #FF3B30;
   border-radius:2px;
-  transform:rotate(45deg);
+  --faqRot:45deg;
+  transform:rotate(var(--faqRot));
   transition:transform .25s ease;
   flex-shrink:0;
   animation:chevronBounce 1.4s ease-in-out infinite;
 }
 .faq-item.open .faq-arrow{
-  transform:rotate(225deg);
+  --faqRot:225deg;
 }
 @keyframes chevronBounce{
-  0%, 100%{ margin-top:0; }
-  50%{ margin-top:4px; }
+  0%, 100%{ transform:rotate(var(--faqRot)) translateY(0); }
+  50%{ transform:rotate(var(--faqRot)) translateY(4px); }
 }
     .faq-arrow-side{
   display:inline-block;
@@ -311,8 +312,8 @@
   animation:chevronSideBounce 1.4s ease-in-out infinite;
 }
 @keyframes chevronSideBounce{
-  0%, 100%{ margin-left:0; }
-  50%{ margin-left:4px; }
+  0%, 100%{ transform:rotate(-45deg) translateX(0); }
+  50%{ transform:rotate(-45deg) translateX(4px); }
 }
 .faq-a{
   font-size:12.5px; color:var(--muted); line-height:1.5;
@@ -486,8 +487,8 @@
     font-size:11px; font-weight:800; color:var(--pink);
   }
     @keyframes chevronUpBounce {
-  0%, 100% { margin-top: 5px; }
-  50% { margin-top: 1px; }
+  0%, 100% { transform: rotate(-135deg) translateY(0); }
+  50% { transform: rotate(-135deg) translateY(-4px); }
 }
   .wordmark{
     font-family:'Fredoka', sans-serif;
