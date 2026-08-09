@@ -57,7 +57,7 @@
 }
 .duckWalking{
   position:absolute;
-  bottom:-30px;
+  bottom:10px;
   right:-220px;
   width:200px;
   height:auto;
@@ -1087,7 +1087,7 @@
       <div class="step-num">1</div>
       <div class="step-icon">🔍</div>
       <h3>Cari & pilih produk</h3>
-      <p>1) Klik info selengkapnya untuk baca informasi terkait produk.</p>
+      <p>1) Klik info selengkapnya untuk baca informasi terkait produk.<br>2) Baca juga snk toko kami<br></p>
       <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder(); highlightSearchBar();" style="--shadow-color:#D6ECFB; display:flex; align-items:center; justify-content:center; gap:6px; background:#EAF6FF; color:#1a5a8a; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
    🛒 Pricelist
 </a>
@@ -1364,13 +1364,10 @@ function acceptSnk() {
   playClickSound(); // Hapus baris ini kalau di web baru tidak pakai sound efek klik
 }
 
-// Popup otomatis muncul setelah 3 detik (dijaga biar cuma sekali)
-if (!window.__snkModalShown) {
-  window.__snkModalShown = true;
-  setTimeout(() => {
-    showSnkModal();
-  }, 3000);
-}
+// Popup otomatis muncul setelah 3 detik
+setTimeout(() => {
+  showSnkModal();
+}, 3000);
   
 const products = [
   // ---- STREAMING ----
@@ -2241,7 +2238,7 @@ function toggleMusic(){
 const introWords = [
   "Klik",
   "<span style=\"background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800;\">info selengkapnya</span>",
-  "supaya", "tau", "perbedaan", "paket", "dan", "snk", "tiap", "akun", "ya..."
+  "supaya", "tau", "perbedaan", "<br>paket", "dan", "snk", "tiap", "akun", "ya..."
 ];
 const introBubble = document.getElementById('introBubble');
 let wordIndex = 0;
