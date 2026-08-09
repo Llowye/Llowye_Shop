@@ -2413,45 +2413,6 @@ console.log(
 </script>
   
   <div class="toast" id="toast">💬 Membuka WhatsApp...</div>
-
-  <script>
-const typewriterTokens = [
-  "Klik ",
-  <span style="background:#FFF0A1; color:#0B0B0B; padding:2px 8px; border-radius:999px; font-weight:800; position:relative; top:-2px;">info selengkapnya</span>
-  "<br>",
-  "supaya ",
-  "tau ",
-  "perbedaan ",
-  "<br>",
-  "paket ",
-  "dan ",
-  "snk ",
-  "tiap ",
-  "akun ",
-  "ya..."
-];
-
-function startTypewriter(){
-  const el = document.getElementById('typewriterText');
-  if(!el) return;
-  let i = 0;
-  function step(){
-    if(i < typewriterTokens.length){
-      el.innerHTML += typewriterTokens[i];
-      i++;
-      setTimeout(step, 350);
-    } else {
-      setTimeout(() => {
-        el.innerHTML = "";
-        i = 0;
-        step();
-      }, 1800);
-    }
-  }
-  step();
-}
-startTypewriter();
-</script>
   
   <script>
 function timeAgo(dateStr){
