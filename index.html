@@ -52,7 +52,7 @@
 }
 .social-follow-title{
   font-family:'Fredoka', sans-serif;
-  font-size:16px;
+  font-size:19px;
   font-weight:700;
   color:var(--ink);
   margin-bottom:14px;
@@ -88,7 +88,7 @@
 }
 .duckWalking{
   position:absolute;
-  bottom:-30px;
+  bottom:-50px;
   left:100%;
   width:200px;
   height:auto;
@@ -862,8 +862,6 @@
 
 .testi-ss{
   width:100%;
-  aspect-ratio: 4 / 3; /* reserve ruang duluan biar gak ada layout shift pas lazy-load, ini yg bikin layar "lompat sendiri" */
-  object-fit: cover;
   border-radius:10px;
   margin-top:8px;
   border:1px solid rgba(0,0,0,0.08);
@@ -1116,7 +1114,7 @@
 
 <div class="mascot-wrap" style="align-items:center; margin-top:3px;">
   <div class="mascot"><img src="Llowye.png" style="width:110px; height:auto; display:block; position:relative; top:8px; z-index:2;"></div>
-  <div class="bubble" id="introBubble" style="margin-top:-10px;"></div>
+  <div class="bubble" id="introBubble" style="margin-top:2px;"></div>
 </div>
   
 <div style="display:flex; gap:10px; width:100%; margin-top:10px;">
@@ -1409,17 +1407,13 @@ const badgeColors = {
 };
 
  function showSnkModal() {
-  // Hanya muncul jika user BELUM PERNAH merespons (klik Nanti aja / Ok)
-  if (!sessionStorage.getItem("snkClosed")) {
-    document.getElementById("snkModal").classList.add("show");
-  }
+  // Selalu muncul tiap web dibuka/direfresh (gak disimpen ke storage lagi)
+  document.getElementById("snkModal").classList.add("show");
 }
 
 function handleNantiAja() {
   closeSnk();
   showSadModal();
-  // Langsung kunci biar gak popup ulang-ulang lagi pas ditutup
-  sessionStorage.setItem("snkClosed", "true");
 }
 
 function closeSnk() {
@@ -1443,14 +1437,12 @@ function closeSadModal() {
     modal.classList.remove("show");
     modal.classList.remove("hideRight");
   }, 500);
-  sessionStorage.setItem("snkClosed", "true");
 }
 
 function acceptSnk() {
   closeSnk();
   toggleSnk();
   playClickSound();
-  sessionStorage.setItem("snkClosed", "true");
 }
 
 // Jalankan otomatis 2 detik setelah web dimuat
