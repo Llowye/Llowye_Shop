@@ -50,13 +50,13 @@
    .duckWalkWrap{
   position:relative;
   width:100%;
-  height:180px;
+  height:100px;
   margin-top:-45px;
   overflow:hidden;
 }
 .duckWalking{
   position:absolute;
-  bottom:-80px;
+  bottom:0;
   right:-220px;
   width:200px;
   height:auto;
@@ -464,8 +464,7 @@
   box-shadow:0 6px 18px rgba(38,36,59,0.15);
   position:relative;
   margin-top:-10px;
-  max-width:110px;
-  min-width:148px;
+  min-width:185px;
   min-height:80px;
 }
 .bubble::before{
@@ -1087,9 +1086,9 @@
       <div class="step-icon">🔍</div>
       <h3>Cari & pilih produk</h3>
       <p>1) Klik info selengkapnya untuk baca informasi terkait produk.</p>
-      <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder(); highlightSearchBar();" ...>
-       🛒 Pricelist
-      </a>
+      <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder(); highlightSearchBar();" style="--shadow-color:#D6ECFB; display:flex; align-items:center; justify-content:center; gap:6px; background:#EAF6FF; color:#1a5a8a; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
+   🛒 Pricelist
+</a>
     </div>
     <div class="step-card">
   <div class="step-num">2</div>
