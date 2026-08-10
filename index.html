@@ -51,34 +51,57 @@
   text-align:center;
 }
 .social-follow-title{
-  font-family:'Quicksand', sans-serif;
-  font-size:19px;
+  font-family:'Fredoka', sans-serif;
+  font-size:22px;
   font-weight:700;
-  color:var(--ink);
-  margin-bottom:14px;
+  color:#fff;
+  text-shadow:0 2px 6px rgba(0,0,0,0.45);
+  margin-bottom:4px;
+}
+.social-follow-subtitle{
+  font-family:'Quicksand', sans-serif;
+  font-size:14px;
+  font-weight:600;
+  color:#fff;
+  text-shadow:0 1px 4px rgba(0,0,0,0.4);
+  margin-bottom:18px;
 }
 .social-follow-row{
   display:flex;
-  flex-direction:column;   /* baris baru */
+  flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:18px;
+  gap:14px;
 }
 .social-follow-item{
-  width:56px; height:56px;
-  border-radius:50%;
-  overflow:hidden;
-  border:2px solid var(--line);
-  box-shadow:0 4px 10px rgba(38,36,59,0.1);
-  flex-shrink:0;
+  width:min(320px,90vw);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:12px 18px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.35);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 4px 14px rgba(0,0,0,0.12);
   transition:transform .15s ease;
 }
 .social-follow-item:active{
-  transform:scale(0.92);
+  transform:scale(0.96);
 }
 .social-follow-item img{
-  width:100%; height:100%;
+  width:32px; height:32px;
+  border-radius:50%;
   object-fit:cover;
+  flex-shrink:0;
+}
+.social-follow-item span{
+  font-family:'Quicksand', sans-serif;
+  font-size:15px;
+  font-weight:600;
+  color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,0.3);
 }
   .duckWalkWrap{
   position:relative;
@@ -1355,18 +1378,22 @@
 </section>
 
   <section class="social-follow-section">
-    <p class="social-follow-title">You Can Find Me On</p>
-    <div class="social-follow-row">
-      <a href="#" target="_blank" class="social-follow-item" title="TikTok Llowye_Shop">
-        <img src="tt.jpeg" alt="TikTok Llowye_Shop">
-      </a>
-      <a href="#" target="_blank" class="social-follow-item" title="Instagram Llowye_Shop">
-        <img src="insta.jpeg" alt="Instagram Llowye_Shop">
-      </a>
-      <a href="#" target="_blank" class="social-follow-item" title="Shopee Llowye_Shop">
-        <img src="shopeee.jpeg" alt="Shopee Llowye_Shop">
-      </a>
-    </div>
+  <p class="social-follow-title">You Can Find Me On</p>
+  <p class="social-follow-subtitle">I'll follow u back! ♡</p>
+  <div class="social-follow-row">
+    <a href="#" target="_blank" class="social-follow-item" title="TikTok Llowye_Shop">
+      <img src="tt.jpeg" alt="TikTok Llowye_Shop">
+      <span>TikTok</span>
+    </a>
+    <a href="#" target="_blank" class="social-follow-item" title="Instagram Llowye_Shop">
+      <img src="insta.jpeg" alt="Instagram Llowye_Shop">
+      <span>Instagram</span>
+    </a>
+    <a href="#" target="_blank" class="social-follow-item" title="Shopee Llowye_Shop">
+      <img src="shopeee.jpeg" alt="Shopee Llowye_Shop">
+      <span>Shopee</span>
+    </a>
+  </div>
   </section>
 
   <div class="duckWalkWrap">
