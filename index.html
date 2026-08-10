@@ -103,16 +103,21 @@
   color:#fff;
   text-shadow:0 1px 3px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.4);
 }
-  .duckWalking{
+.duck-wrap{
+  position:relative;
+  height:70px;
+  overflow:visible;
+}
+.duckWalking{
   position:absolute;
-  bottom:calc(100% - 14px);
+  bottom:10px;
   left:100%;
-  width:170px;
+  width:200px;
   height:auto;
   z-index:10;
   animation:duckWalk 8s linear infinite;
   will-change:transform;
-  }
+}
 @keyframes duckWalk{
   0%{ transform:translateX(0); }
   100%{ transform:translateX(calc(-100vw - 220px)); }
@@ -1377,39 +1382,40 @@
   <p class="social-follow-subtitle">I'll follow u back! ♡</p>
   <div class="social-follow-row">
     <a href="https://id.shp.ee/d7yJMj8x" target="_blank" class="social-follow-item" title="Shopee Llowye_Shop">
-      <img src="253999_transparent.gif" alt="Shopee Llowye_Shop">
+      <img src="253999_transparent.gif" alt="Shopee Llowye_Shop" style="width:47px;height:44px;">
       <span>Shopee</span>
     </a>
     <a href="https://www.instagram.com/llowye_shop?igsh=cGlrNnVzajB3cHE5" target="_blank" class="social-follow-item" title="Instagram Llowye_Shop">
-      <img src="insta.gif" alt="Instagram Llowye_Shop">
+      <img src="insta.gif" alt="Instagram Llowye_Shop" style="width:44px;height:44px;">
       <span>Instagram</span>
     </a>
     <a href="https://www.tiktok.com/@nenekllowye?_r=1&_t=ZS-98l3dMYQPae" target="_blank" class="social-follow-item" title="TikTok Llowye_Shop">
-      <img src="tt.gif" alt="TikTok Llowye_Shop">
+      <img src="tt.gif" alt="TikTok Llowye_Shop" style="width:44px;height:44px;">
       <span>TikTok</span>
     </a>
      <a href="https://wa.me/628991740111?text=Halo%20Nek%20Llowye%21%20Aku%20mau%20order%20dong%20%5E%E2%80%BF%5E" target="_blank" class="social-follow-item" title="WhatsApp Llowye_Shop">
-      <img src="wa.gif" alt="WhatsApp Llowye_Shop">
+      <img src="logowa.png" alt="WhatsApp Llowye_Shop" style="width:44px;height:44px;">
       <span>WhatsApp+</span>
     </a>
     <a href="https://msha.ke/llowyeshop" target="_blank" class="social-follow-item" title="Instagram Llowye_Shop">
-      <img src="pro.gif" alt="Instagram Llowye_Shop">
+      <img src="pro.gif" alt="Instagram Llowye_Shop" style="width:47px;height:44px;">
       <span>Promo Bulanan</span>
     </a>
     <a href="https://kritik.llowyeshop.my.id" target="_blank" class="social-follow-item" title="Kritik & Saran">
-      <img src="kritik.gif" alt="Kritik & Saran">
+      <img src="kritik.gif" alt="Kritik & Saran" style="width:47px;height:44px;">
       <span>Kritik & Saran</span>
     </a>
     <a href="https://refund.llowyeshop.my.id" target="_blank" class="social-follow-item" title="Instagram Llowye_Shop">
-      <img src="ref.gif" alt="Instagram Llowye_Shop">
+      <img src="ref.gif" alt="Instagram Llowye_Shop" style="width:44px;height:44px;">
       <span>Rumus Refund</span>
     </a>
     </a>
   </div>
 </section>
 
-<footer>
+<div class="duck-wrap">
   <img src="bebek.gif" alt="bebek" class="duckWalking">
+</div>
 
 <footer>
   <div class="pay-strip" style="align-items:center;">
