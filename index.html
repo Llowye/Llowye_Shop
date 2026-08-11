@@ -660,6 +660,7 @@
 .scroll-row::-webkit-scrollbar{display:none;}
 
 .product-card{
+  position:relative;
   scroll-snap-align:start;
   flex:0 0 220px;
   display:flex;
@@ -722,12 +723,31 @@
   box-shadow:0 2px 4px rgba(0,0,0,0.15);
   border:2px solid #fff;
 }
-  .pval{display:block; font-size:11.5px; font-weight:700; color:var(--pink); margin-top:2px; text-align:center;}
+     .pval{display:block; font-size:11.5px; font-weight:700; color:var(--pink); margin-top:2px; text-align:center;}
   .price-row .from{font-size:10px; color:var(--muted); display:block;}
   .order-btn{
   display:block; text-align:center; background:#FFF0A1; color:#000000;
   font-weight:700; font-size:13px; padding:9px 0; border-radius:999px;
 }
+    .price-group.habis{
+  opacity:0.5;
+}
+.price-group.habis .pval{
+  text-decoration:line-through;
+}
+.price-group.habis::after{
+  content:"Habis";
+  display:block;
+  color:#FF5252;
+  font-weight:800;
+  font-size:11px;
+  margin-top:4px;
+}
+.pval.habis{
+  text-decoration:line-through;
+  opacity:0.5;
+}
+ 
 .steps-section{
   padding:20px 20px 10px;
 }
@@ -2033,20 +2053,23 @@ function renderSections(activeCat){
     section.innerHTML = `
       <div class="cat-title"><span class="emoji">${info.emoji}</span><h2>${info.title}</h2></div>
       <div class="scroll-row">
-        ${[...items, ...items, ...items].map(p => `
-          <div class="product-card">
-            <div class="top">
-              <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
-              <h3>${p.name}</h3>
-            </div>
-            <div class="badges">${p.badges.map(b=>`<span class="badge" style="background:${badgeColors[p.cat]?.bg || '#B2EBF7'}; color:${badgeColors[p.cat]?.text || '#0891A8'}">${b}</span>`).join('')}</div>
-            <p class="desc">${p.desc}</p>
-            <div class="price-row">
-              <div><span class="price">${p.price}</span></div>
-            </div>
-            <a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>
-          </div>
-        `).join('')}
+      ${[...items, ...items, ...items].map(p => `
+  <div class="product-card" style="${p.soldOut ? 'opacity:0.55; filter:grayscale(60%);' : ''}">
+    ${p.soldOut ? '<div style="position:absolute; top:10px; right:10px; background:#FF5252; color:#fff; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">HABIS</div>' : ''}
+    <div class="top">
+      <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
+      <h3>${p.name}</h3>
+    </div>
+    <div class="badges">${p.badges.map(b=>`<span class="badge" style="background:${badgeColors[p.cat]?.bg || '#B2EBF7'}; color:${badgeColors[p.cat]?.text || '#0891A8'}">${b}</span>`).join('')}</div>
+    <p class="desc">${p.desc}</p>
+    <div class="price-row">
+      <div><span class="price">${p.price}</span></div>
+    </div>
+    ${p.soldOut
+      ? `<span class="order-btn btn-3d" style="--shadow-color:#ccc; background:#ddd; color:#777; pointer-events:none; cursor:not-allowed;">Stok Habis</span>`
+      : `<a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>`}
+  </div>
+`).join('')}
       </div>
     `;
     container.appendChild(section);
