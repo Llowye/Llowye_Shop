@@ -1099,21 +1099,22 @@
     
     <div class="snk-item">
       <h3>Garansi aktif untuk langganan mingguan, bulanan, tahunan, dan lifetime.</h3>
-      <p style="margin-top:6px;">Paket mingguan= garansi aktif 5 hari<br>(5 hari - 7 hari = terhitung 1 minggu.)</p>
-      <p>Paket bulanan= garansi aktif 25 hari<br>(25 hari - 30 hari = terhitung 1 bulan.)</p>
-      <p>Paket tahunan= garansi aktif 8 bulan.</p>
-      <p>Paket lifetime= garansi aktif 12 bulan.</p>
+      <p style="margin-top:6px;">Paket harian = full garansi/garansi aktif full/p>
+      <p>Paket mingguan = garansi aktif 5 hari<br>(5 hari - 7 hari = terhitung 1 minggu)</p>
+      <p>Paket bulanan = garansi aktif 25 hari<br>(25 hari - 30 hari = terhitung 1 bulan)</p>
+      <p>Paket tahunan = garansi aktif 8 bulan</p>
+      <p>Paket lifetime = garansi aktif 12 bulan</p>
       
       <p style="margin-top:10px;">Contoh= Kamu beli paket bulanan lalu akun backfree pada hari ke-28 pemakaian, itu sudah bukan tanggung jawab kami. Karena garansi aktif 25 hari.</p>
       <p>Jadi jika terdapat kendala pada akun selama masa garansi masih aktif, bisa klaim garansi dengan ss yg jelas. Akun akan di replace dengan yang baru, proses 1 × 24 jam.</p>
     </div>
      <div class="snk-item">
      <h3>Wajib ikuti tips login!</h3>
-      <p>5 hari - 7 hari = terhitung 1 minggu. Jika terdapat kendala pada akun selama masa garansi aktif, bisa klaim garansi dengan ss yg jelas.</p>
+      <p>Kalo di device buyer lain bisa tapi di kamu gabisa, wajib mengikuti semua tips login yang dikasih admin di wa (biasanya paling sensitif itu device ios)</p>
     </div>
     <div class="snk-item">
       <h3>Dilarang gonta-ganti akun</h3>
-      <p>Sekali beli, login 1 device. Gabisa pindah-pindah device bikin akun cepat rusak.</p>
+      <p>Sekali beli, login 1 device. Gabisa pindah-pindah device bikin akun cepat rusak dan nge-bug</p>
     </div>
   <div class="snk-item">
   <h3>Sekali beli = 1 device</h3>
@@ -1136,7 +1137,7 @@
   <div></div>
 </header>
 
-<p style="position:absolute; top:15; left:0; margin:0; padding:-6px 10px; font-size:10px; font-weight:400; color:var(--muted);">Open: 07.00 - 20.00</p>
+<p style="position:absolute; top:7; left:0; margin:0; padding:-6px 10px; font-size:10px; font-weight:400; color:var(--muted);">Open: 07.00 - 20.00</p>
 <section class="hero">
   <span class="sparkle s1">⭐</span>
   <span class="sparkle s2">✨</span>
@@ -1465,12 +1466,12 @@
 ====================================================== */
 const WA_NUMBER = "628991740111"; // nomor WA asli Llowye Shop
 const badgeColors = {
-  streaming: {bg:"#FFE5E5", text:"#FF5C5C"},
-  editing:   {bg:"#FFE9CC", text:"#B25E00"},
+  streaming: {bg:"#F3F1FF", text:"#6C5CE7"},
+  editing:   {bg:"#F3F1FF", text:"#6C5CE7"},
   music:     {bg:"#F3F1FF", text:"#6C5CE7"},
-  education: {bg:"#E4FBEC", text:"#387A4F"},
-  reading:   {bg:"#FFE5E5", text:"#FF5C5C"},
-  ai:        {bg:"#EDEDED", text:"#595859"},
+  education: {bg:"#F3F1FF", text:"#6C5CE7"},
+  reading:   {bg:"#F3F1FF", text:"#6C5CE7"},
+  ai:        {bg:"#F3F1FF", text:"#6C5CE7"},
 };
 
  function showSnkModal() {
@@ -1522,7 +1523,7 @@ const products = [
   // ---- STREAMING ----
   {name:"NETFLIX", cat:"streaming", icon:"<img src='netflix.jpg' alt='Netflix'>", color:"#B2EBF7", bestseller:true,
    aliases:["netflik","netflex","netlix","nfx","nfx","ntflx","film","drakor","netplik","film barat","suzanna","nonton","hiburan","horor","dokumenter","series"],
-   badges:["Garansi aktif sesuai snk","Sharing","Private"], desc:"Nonton semua film & series tanpa batas.",
+   badges:["Garansi aktif","Sharing","Private"], desc:"Nonton semua film & series tanpa batas.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
@@ -1533,7 +1534,7 @@ const products = [
   
   {name:"DISNEY+", cat:"streaming", icon:"<img src='disney.jpg' alt='Disney+'>", color:"#B2EBF7", bestseller:true,
    aliases:["disniy","marvel","pixar","kartun","dsney","disny","dsny","starwars","star wars","drakor","film barat","toy story","nonton","princess","moana","korea","series"],
-   badges:["Garansi aktif sesuai snk","Sharing","Private"], desc:"Marvel, Star Wars, sampai bola lokal & internasional.",
+   badges:["Garansi aktif","Sharing","Private"], desc:"Marvel, Star Wars, sampai bola lokal & internasional.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">1P1U</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">1P2U</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
@@ -1544,7 +1545,7 @@ const products = [
   
    {name:"HBO MAX", cat:"streaming", icon:"<img src='hbo.jpg' alt='Hbo Max'>", color:"#B2EBF7", bestseller:true,
     aliases:["hbo mx","hb max","streaming","action","dokumenter","streaming","film","drakor","series","film barat","nonton"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Film blockbuster, serial HBO dan dokumenter berkualitas.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Film blockbuster, serial HBO dan dokumenter berkualitas.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">standar<br>sharing</span><span class="pval">10k/bulan</span></div>
   <div class="price-group"><span class="plabel">premium<br>sharing</span><span class="pval">15k/bulan</span></div>
@@ -1555,7 +1556,7 @@ const products = [
   
     {name:"PRIME VIDIO", cat:"streaming", icon:"<img src='prime.jpg' alt='Prime Vidio'>", color:"#B2EBF7",
      aliases:["prm","amazon","dokumenter","action","series","rental","film","drakor","india","film barat","nonton","blockbuster","hollywood"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Streaming Amazon dari film dan konten berbagai genre.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Streaming Amazon dari film dan konten berbagai genre.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">10k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">15k/bulan</span></div>
@@ -1564,7 +1565,7 @@ const products = [
   
   {name:"VIU", cat:"streaming", icon:"<img src='viu.jpeg' alt='Viu'>", color:"#B2EBF7", bestseller:true,
    aliases:["vu","vi","asia","drama asia","drama jepang","romance","film","drakor","streaming","taxi driver","nonton","komedi"],
-   badges:["Garansi aktif sesuai snk","Plan Premium","Private"], desc:"Drama Korea & variety show subtitle Indo, update tercepat.",
+   badges:["Garansi aktif","Plan Premium","Private"], desc:"Drama Korea & variety show subtitle Indo, update tercepat.",
    price:`<div class="price-grid single-plan">
   <div class="price-group"><span class="plabel">premium</span><span class="pval">5k/lifetime</span></div>
 </div>`,
@@ -1572,7 +1573,7 @@ const products = [
   
   {name:"VIDIO", cat:"streaming", icon:"<img src='vidio.jpg' alt='Vidio'>", color:"#B2EBF7",
    aliases:["vdo","video","liga inggris","sepak bola","live tv","live streaming","film","series","hiburan","nonton","tv lokal","voli","badminton"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Liga Inggris & series lokal favorit kamu.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Liga Inggris & series lokal favorit kamu.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">shar mobile</span><span class="pval">15k/bulan</span></div>
   <div class="price-group"><span class="plabel">priv mobile</span><span class="pval">20k/bulan</span></div>
@@ -1583,7 +1584,7 @@ const products = [
   
   {name:"WETV", cat:"streaming", icon:"<img src='wetv.jpeg' alt='Wetv'>", color:"#B2EBF7", bestseller:true,
    aliases:["wtv","c-drama","drama cina","drama china","melodrama","streaming","anime","series","nonton","drakor","drama thailand","film"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Drama China & Asia Tenggara, update tiap hari.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Drama China & Asia Tenggara, update tiap hari.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Shar 6u</span><span class="pval">10k/bulan</span><span class="pval">100k/tahun</span></div>
   <div class="price-group"><span class="plabel">Shar 3u</span><span class="pval">15k/bulan</span><span class="pval">150k/tahun</span></div>
@@ -1593,7 +1594,7 @@ const products = [
   
     {name:"IQIYI", cat:"streaming", icon:"<img src='iqiyi.jpeg' alt='Iqiyi'>", color:"#B2EBF7",
      aliases:["iqyi","anime","c-drama","drama cina","drama china","film","drakor","series","romance","nonton"],
-   badges:["Garansi aktif sesuai snk","Garansi 6 bulan","Private","Sharing"], desc:"Drama China & Korea eksklusif, kualitas 4K.",
+   badges:["Garansi aktif","Garansi 6 bulan","Private","Sharing"], desc:"Drama China & Korea eksklusif, kualitas 4K.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">standar<br>sharing</span><span class="pval">10k/bulan</span></div>
   <div class="price-group"><span class="plabel">premium<br>sharing</span><span class="pval">10k/bulan</span></div>
@@ -1604,7 +1605,7 @@ const products = [
   
   {name:"YOUKU", cat:"streaming", icon:"<img src='youku.jpeg' alt='Youku'>", color:"#B2EBF7",
    aliases:["yoku","c-drama","drama cina","drama china","wuxia","historical","film cina","streaming","fantasy","film china","series","nonton"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Drama & variety show China, subtitle lengkap.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Drama & variety show China, subtitle lengkap.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1613,7 +1614,7 @@ const products = [
   
     {name:"MELOLO", cat:"streaming", icon:"<img src='melolo.jpg' alt='Melolo'>", color:"#B2EBF7",
      aliases:["mlolo","romance","anime","drama thailand","c-drama","drama china","drakor","streaming","film","series","nonton"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Serial mini & drama pendek viral, nonton tanpa iklan.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Serial mini & drama pendek viral, nonton tanpa iklan.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">sharing</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">private</span><span class="pval">20k/bulan</span></div>
@@ -1623,7 +1624,7 @@ const products = [
   
     {name:"LOKLOK", cat:"streaming", icon:"<img src='loklok.jpg' alt='Loklok'>", color:"#B2EBF7",
      aliases:["lklk","j-drama","drama jepang","c-drama","drama cina","anime","film","drakor","series","series barat","nonton","watch"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Film & drama Asia gratis nonton, koleksi lengkap.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Film & drama Asia gratis nonton, koleksi lengkap.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">5k/hari</span><span class="pval">10k/3hari</span><span class="pval">15k/minggu</span><span class="pval">25k/bulan</span></div>
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">3k/hari</span><span class="pval">5k/3hari</span><span class="pval">10k/minggu</span><span class="pval">20k/bulan</span></div>
@@ -1634,7 +1635,7 @@ const products = [
   
     {name:"DRAMABOX", cat:"streaming", icon:"<img src='dramabox.jpg' alt='Dramabox'>", color:"#B2EBF7",
      aliases:["drmbox","drama pendek","short drama","c-drama","ceo","balas dendam","pernikahan kontrak","drakor","fantasi","streaming","nonton"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Drama pendek viral episode-episode seru.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Drama pendek viral episode-episode seru.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Semiprivate</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1643,7 +1644,7 @@ const products = [
   
     {name:"BSTATION", cat:"streaming", icon:"<img src='bstation.jpeg' alt='Bstation'>", color:"#B2EBF7",
      aliases:["bsttion","anime","jepang","gaming","komunitas anime","c-drama","film","drakor","donghua","film india","series","nonton"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Anime subtitle Indonesia, update simulcast musim ini.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Anime subtitle Indonesia, update simulcast musim ini.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">10k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">25k/bulan</span></div>
@@ -1652,7 +1653,7 @@ const products = [
 
     {name:"WIBUKU", cat:"streaming", icon:"<img src='wibuku.jpeg' alt='Wibuku'>", color:"#B2EBF7",
      aliases:["wbuku","wbku","anime","otaku","series","movie","film","streaming"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Streaming anime & manga, koleksi lengkap subtitle Indo.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Streaming anime & manga, koleksi lengkap subtitle Indo.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1661,7 +1662,7 @@ const products = [
   
     {name:"CRUNCHYROLL", cat:"streaming", icon:"<img src='crunchy.jpg' alt='Crunchyroll'>", color:"#B2EBF7",
      aliases:["crnch","wbu","anime","manga","streaming","otaku","simulcast","movie anime"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Anime simulcast Jepang, subtitle Indo tercepat.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Anime simulcast Jepang, subtitle Indo tercepat.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1670,7 +1671,7 @@ const products = [
   
     {name:"VIKI RAKUTEN", cat:"streaming", icon:"<img src='viki.jpg' alt='Viki Rakuten'>", color:"#B2EBF7",
      aliases:["vki","c-drama","j-drama","drama cina","drama jepang","drama asia","film","drakor","asia","film asia","streaming","nonton","watch","drama thailand"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Drama Asia & K-pop content, subtitle multi bahasa.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Drama Asia & K-pop content, subtitle multi bahasa.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">5k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">10k/bulan</span></div>
@@ -1679,7 +1680,7 @@ const products = [
   
     {name:"MANGO TV", cat:"streaming", icon:"<img src='mango.jpg' alt='Mango TV'>", color:"#B2EBF7",
      aliases:["mangga","c-drama","drama cina","series","reality show","variety show","nonton","watch"],
-    badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Variety show & drama China populer.",
+    badges:["Garansi aktif","Private","Sharing"], desc:"Variety show & drama China populer.",
     price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1688,7 +1689,7 @@ const products = [
   
     {name:"APPLE TV", cat:"streaming", icon:"<img src='apple.jpg' alt='Apple TV'>", color:"#B2EBF7",
      aliases:["series","barat","series barat","dokumenter","streaming","nonton","film","watch","movie"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Original series Apple, kualitas gambar premium.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Original series Apple, kualitas gambar premium.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1697,7 +1698,7 @@ const products = [
   
   {name:"CATCHPLAY+", cat:"streaming", icon:"<img src='catch.jpeg' alt='Catchplay+'>", color:"#B2EBF7",
    aliases:["cachp","box office","series","streaming","action","kartun","film","drakor","netplik","hollywood","nonton","watch"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Film box office & series Asia, tanpa iklan.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Film box office & series Asia, tanpa iklan.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1706,7 +1707,7 @@ const products = [
   
   {name:"VISION+", cat:"streaming", icon:"<img src='vision.jpeg' alt='Vision'>", color:"#B2EBF7",
    aliases:["tv lokal","live tv","series","indonesia","berita","streaming","film","sepak bola"],
-   badges:["Garansi aktif sesuai snk","Private","Sharing"], desc:"Sinetron & FTV lokal, siaran TV nasional.",
+   badges:["Garansi aktif","Private","Sharing"], desc:"Sinetron & FTV lokal, siaran TV nasional.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Sharing</span><span class="pval">20k/minggu</span><span class="pval">35k/bulan</span></div>
   <div class="price-group"><span class="plabel">Private</span><span class="pval">20k/minggu</span><span class="pval">50k/bulan</span></div>
@@ -1716,7 +1717,7 @@ const products = [
   // ---- EDITING ----
   {name:"CAPCUT", cat:"editing", icon:"<img src='cc.jpg' alt='Capcut'>", color:"#B2EBF7", bestseller:true,
    aliases:["capkut","kapcut","cap cut","edit","video","edit video","cc","cp","efek","template","konten","transisi"],
-   badges:["Garansi aktif sesuai snk","Plan pro","Plan standar","Private"], desc:"Efek & template premium buat edit video.",
+   badges:["Garansi aktif","Plan pro","Plan standar","Private"], desc:"Efek & template premium buat edit video.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Pro</span><span class="pval">7k/3hari</span><span class="pval">10k/minggu</span><span class="pval">30k/bulan</span></div>
   <div class="price-group habis"><span class="plabel">Standar</span><span class="pval">7k/minggu</span><span class="pval">25k/bulan</span></div>
@@ -1725,7 +1726,7 @@ const products = [
   
   {name:"CANVA", cat:"editing", icon:"<img src='canva.jpeg' alt='Canva'>", color:"#B2EBF7", bestseller:true,
    aliases:["edit","ppt","design","cnva","grafis","poster","logo","template","presentasi"],
-   badges:["Garansi aktif sesuai snk","Plan Bussines","Plan EDU"], desc:"Desain grafis, poster, & template premium siap pakai.",
+   badges:["Garansi aktif","Plan Bussines","Plan EDU"], desc:"Desain grafis, poster, & template premium siap pakai.",
    price:`<div class="price-grid">
   <div class="price-group"><span class="plabel">Pro</span><span class="pval">1k/hari</span><span class="pval">2k/minggu</span><span class="pval">5k/bulan</span><span class="pval">20k/tahun</span></div>
   <div class="price-group"><span class="plabel">Education</span><span class="pval">1k/hari</span><span class="pval">2k/minggu</span><span class="pval">5k/bulan</span><span class="pval">20k/tahun</span></div>
