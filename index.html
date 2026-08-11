@@ -2051,30 +2051,36 @@ function renderSections(activeCat){
     section.className = 'cat-section';
     section.innerHTML = `
       <div class="cat-title"><span class="emoji">${info.emoji}</span><h2>${info.title}</h2></div>
-      <div class="scroll-row">
+      <div class="scroll-row" data-row-id="row-${cat}">
       ${[...items, ...items, ...items].map(p => `
-  <div class="product-card" style="${p.soldOut ? 'opacity:0.55; filter:grayscale(60%);' : ''}">
-    ${p.soldOut ? '<div style="position:absolute; top:10px; right:10px; background:#FF5252; color:#fff; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">HABIS</div>' : ''}
-    ${p.bestseller ? '<div style="position:absolute; top:10px; left:10px; background:#FFD700; color:#0B0B0B; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">Terlaris 🔥</div>' : ''}
-  
-      <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
-      <h3>${p.name}</h3>
-    </div>
-    <div class="badges">${p.badges.map(b=>`<span class="badge" style="background:${badgeColors[p.cat]?.bg || '#B2EBF7'}; color:${badgeColors[p.cat]?.text || '#0891A8'}">${b}</span>`).join('')}</div>
-    <p class="desc">${p.desc}</p>
-    <div class="price-row">
-      <div><span class="price">${p.price}</span></div>
-    </div>
-    ${p.soldOut
-      ? `<span class="order-btn btn-3d" style="--shadow-color:#ccc; background:#ddd; color:#777; pointer-events:none; cursor:not-allowed;">Stok Habis</span>`
-      : `<a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>`}
-  </div>
-`).join('')}
+        <div class="product-card" style="${p.soldOut ? 'opacity:0.55; filter:grayscale(60%);' : ''}">
+          ${p.soldOut ? '<div style="position:absolute; top:10px; right:10px; background:#FF5252; color:#fff; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">HABIS</div>' : ''}
+          ${p.bestseller ? '<div style="position:absolute; top:10px; left:10px; background:#FFD700; color:#0B0B0B; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">🔥 Terlaris</div>' : ''}
+          
+          <div class="top" style="margin-top: ${p.soldOut || p.bestseller ? '16px' : '0'}">
+            <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
+            <h3>${p.name}</h3>
+          </div>
+
+          <div class="badges">${p.badges.map(b=>`<span class="badge" style="background:${badgeColors[p.cat]?.bg || '#B2EBF7'}; color:${badgeColors[p.cat]?.text || '#0891A8'}">${b}</span>`).join('')}</div>
+          
+          <p class="desc">${p.desc}</p>
+          
+          <div class="price-row">
+            <div><span class="price">${p.price}</span></div>
+          </div>
+
+          ${p.soldOut
+            ? `<span class="order-btn btn-3d" style="--shadow-color:#ccc; background:#ddd; color:#777; pointer-events:none; cursor:not-allowed;">Stok Habis</span>`
+            : `<a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>`}
+        </div>
+      `).join('')}
       </div>
     `;
     container.appendChild(section);
   });
 }
+  
 
 /* ======================================================
    SISTEM PENCARIAN PINTAR
