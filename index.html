@@ -1136,7 +1136,7 @@
   <div></div>
 </header>
 
-<p style="position:absolute; top:0; left:0; margin:0; padding:-6px 10px; font-size:10px; font-weight:400; color:var(--muted);">Open: 07.00 - 20.00</p>
+<p style="position:absolute; top:15; left:0; margin:0; padding:-6px 10px; font-size:10px; font-weight:400; color:var(--muted);">Open: 07.00 - 20.00</p>
 <section class="hero">
   <span class="sparkle s1">⭐</span>
   <span class="sparkle s2">✨</span>
@@ -2061,7 +2061,7 @@ function renderSections(activeCat){
       ${[...items, ...items, ...items].map(p => `
         <div class="product-card" style="${p.soldOut ? 'opacity:0.55; filter:grayscale(60%);' : ''}">
           ${p.soldOut ? '<div style="position:absolute; top:10px; right:10px; background:#FF5252; color:#fff; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">HABIS</div>' : ''}
-          ${p.bestseller ? '<div style="position:absolute; top:-10px; right:14px; background:#FFF9E0; color:#7A5C00; font-weight:800; font-size:10px; padding:4px 10px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.15); border:2px solid #fff; z-index:5;">🔥 Terlaris</div>' : ''}
+          ${p.bestseller ? '<div style="position:absolute; top:-10px; right:14px; background:#F0F0F0; color:#FF0000; font-weight:800; font-size:10px; padding:4px 10px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.15); border:2px solid #fff; z-index:5;">🔥 Terlaris</div>' : ''}
 
 <div class="top" style="margin-top: ${p.soldOut ? '16px' : '0'}">
             <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
