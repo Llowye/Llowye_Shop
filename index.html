@@ -1558,9 +1558,9 @@ const products = [
   
   {name:"VIU", cat:"streaming", icon:"<img src='viu.jpeg' alt='Viu'>", color:"#B2EBF7", bestseller:true,
    aliases:["vu","vi","asia","drama asia","drama jepang","romance","film","drakor","streaming","taxi driver","nonton","komedi"],
-   badges:["Garansi aktif sesuai snk","Lifetime/Seumur hidup","Plan Premium","Private"], desc:"Drama Korea & variety show subtitle Indo, update tercepat.",
+   badges:["Garansi aktif sesuai snk","Plan Premium","Private"], desc:"Drama Korea & variety show subtitle Indo, update tercepat.",
    price:`<div class="price-grid single-plan">
-  <div class="price-group"><span class="plabel">Lifetime</span><span class="pval">5k/lifetime</span></div>
+  <div class="price-group"><span class="plabel">premium</span><span class="pval">5k/lifetime</span></div>
 </div>`,
    link:"https://viu.llowyeshop.my.id"},
   
@@ -2055,9 +2055,9 @@ function renderSections(activeCat){
       ${[...items, ...items, ...items].map(p => `
         <div class="product-card" style="${p.soldOut ? 'opacity:0.55; filter:grayscale(60%);' : ''}">
           ${p.soldOut ? '<div style="position:absolute; top:10px; right:10px; background:#FF5252; color:#fff; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">HABIS</div>' : ''}
-          ${p.bestseller ? '<div style="position:absolute; top:10px; left:10px; background:#FFD700; color:#0B0B0B; font-weight:800; font-size:11px; padding:4px 10px; border-radius:999px; z-index:5;">🔥 Terlaris</div>' : ''}
-          
-          <div class="top" style="margin-top: ${p.soldOut || p.bestseller ? '16px' : '0'}">
+          ${p.bestseller ? '<div style="position:absolute; top:-10px; right:14px; background:#FFF9E0; color:#7A5C00; font-weight:800; font-size:10px; padding:4px 10px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.15); border:2px solid #fff; z-index:5;">🔥 Terlaris</div>' : ''}
+
+<div class="top" style="margin-top: ${p.soldOut ? '16px' : '0'}">
             <div class="p-icon" style="background:${p.color}">${p.icon.replace('<img ', '<img onerror="handleImgError(this)" loading="lazy" ')}</div>
             <h3>${p.name}</h3>
           </div>
