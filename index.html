@@ -1478,8 +1478,9 @@ const badgeColors = {
 };
 
  function showSnkModal() {
-  // Selalu muncul tiap web dibuka/direfresh (gak disimpen ke storage lagi)
+  if (sessionStorage.getItem('snkShown')) return;
   document.getElementById("snkModal").classList.add("show");
+  sessionStorage.setItem('snkShown', '1');
 }
 
 function handleNantiAja() {
@@ -2249,7 +2250,6 @@ function scrollToProduct(productName) {
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   const allPill = document.querySelector('.pill[data-cat="all"]');
   if (allPill) allPill.classList.add('active');
-  
 
   setTimeout(() => {
     const cards = document.querySelectorAll('.product-card');
@@ -2272,7 +2272,6 @@ function scrollToProduct(productName) {
     }
   }, 150); // dinaikin dikit dari 100ms biar DOM+dataset.rowId udah kepasang
 }
-
 function filterCat(cat, el){
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
@@ -2321,12 +2320,19 @@ function startAutoScroll(){
         pillsRow.scrollLeft = 0;
       }
     }
-
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 }
+startAutoScroll();
 
+window.addEventListener('load', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const produkDariURL = urlParams.get('produk');
+  if (produkDariURL) {
+    setTimeout(() => scrollToProduct(produkDariURL), 500);
+  }
+});
   window.addEventListener('load', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const produkDariURL = urlParams.get('produk');
