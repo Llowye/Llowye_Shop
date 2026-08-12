@@ -2249,11 +2249,7 @@ function scrollToProduct(productName) {
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   const allPill = document.querySelector('.pill[data-cat="all"]');
   if (allPill) allPill.classList.add('active');
-  const urlParams = new URLSearchParams(window.location.search);
-const produkDariURL = urlParams.get('produk');
-if (produkDariURL) {
-  setTimeout(() => scrollToProduct(produkDariURL), 300);
-}
+  
 
   setTimeout(() => {
     const cards = document.querySelectorAll('.product-card');
@@ -2331,6 +2327,14 @@ function startAutoScroll(){
   requestAnimationFrame(tick);
 }
 
+  window.addEventListener('load', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const produkDariURL = urlParams.get('produk');
+  if (produkDariURL) {
+    setTimeout(() => scrollToProduct(produkDariURL), 500);
+  }
+});
+  
 function attachRowInteraction(){
   document.querySelectorAll('.scroll-row').forEach((row, i) => {
     if(!row.dataset.rowId) row.dataset.rowId = 'row-' + i;
