@@ -2333,13 +2333,6 @@ window.addEventListener('load', () => {
     setTimeout(() => scrollToProduct(produkDariURL), 500);
   }
 });
-  window.addEventListener('load', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const produkDariURL = urlParams.get('produk');
-  if (produkDariURL) {
-    setTimeout(() => scrollToProduct(produkDariURL), 500);
-  }
-});
   
 function attachRowInteraction(){
   document.querySelectorAll('.scroll-row').forEach((row, i) => {
