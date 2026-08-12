@@ -1517,9 +1517,13 @@ function acceptSnk() {
   playClickSound();
 }
 
-// Jalankan otomatis 2 detik setelah web dimuat
+// Jalankan otomatis 2 detik setelah web dimuat, KECUALI kalau buyer datang dari link produk Google Sites
 window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(showSnkModal, 2000);
+  const urlParams = new URLSearchParams(window.location.search);
+  const dariLinkProduk = urlParams.get('produk');
+  if (!dariLinkProduk) {
+    setTimeout(showSnkModal, 2000);
+  }
 });
   
   
