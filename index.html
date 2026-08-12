@@ -2331,6 +2331,9 @@ window.addEventListener('load', () => {
   const produkDariURL = urlParams.get('produk');
   if (produkDariURL) {
     setTimeout(() => scrollToProduct(produkDariURL), 500);
+    // bersihin URL biar ?produk= gak nyangkut kalau di-refresh/dibuka lagi dari history
+    const cleanUrl = window.location.origin + window.location.pathname;
+    history.replaceState(null, '', cleanUrl);
   }
 });
   
