@@ -2447,7 +2447,7 @@ typeWord();
 
 
 // Pas lagu yang diputar selesai, otomatis gantian ke lagu berikutnya
-const trackVolumes = [1, 1, 0.5]; // lagu ke-3 (index 2) diset volumenya jadi 50%
+const trackVolumes = [1, 0.7, 1]; // lagu ke-3 (index 2) diset volumenya jadi 50%
 
 document.getElementById('bgMusic').addEventListener('ended', () => {
   currentTrack = (currentTrack + 1) % musicTracks.length;
