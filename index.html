@@ -2388,7 +2388,7 @@ startAutoScroll();
 <script>
 let player;
 let isPlaying = false;
-const musicTracks = ['seven.mpeg.mp3', 'lagu3.mpeg.mp3', 'nusa(1).mp3']; // ganti sesuai nama file lagu ketigamu
+const musicTracks = ['seven.mpeg.mp3', 'aespa.mp3', 'nusa.mp3']; // ganti sesuai nama file lagu ketigamu
 let currentTrack = 0;
 
 function toggleMusic(){
@@ -2500,7 +2500,15 @@ document.addEventListener('click', (e) => {
   panel.classList.toggle('open');
   document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
 }
-
+function highlightSearchBar(){
+  const bar = document.getElementById('searchBarSection');
+  if(!bar) return;
+  setTimeout(() => {
+    bar.scrollIntoView({ behavior:'smooth', block:'center' });
+    bar.classList.add('searchbar-highlight');
+    setTimeout(() => bar.classList.remove('searchbar-highlight'), 3000);
+  }, 400); // delay dikit biar nunggu panel caraPanel selesai animasi nutup dulu
+}
 function toggleFaqPanel(){
   const panel = document.getElementById('faqPanel');
   panel.classList.toggle('open');
