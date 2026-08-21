@@ -2081,8 +2081,8 @@ function renderSections(activeCat){
           </div>
 
           ${p.soldOut
-            ? `<span class="order-btn btn-3d" style="--shadow-color:#ccc; background:#ddd; color:#777; pointer-events:none; cursor:not-allowed;">Stok Habis</span>`
-            : `<a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}">Info Selengkapnya</a>`}
+  ? `<span class="order-btn btn-3d" style="--shadow-color:#ccc; background:#ddd; color:#777; pointer-events:none; cursor:not-allowed;">Stok Habis</span>`
+  : `<a class="order-btn btn-3d" style="--shadow-color:#E3C765;" href="${p.link || 'https://sites.google.com/view/llowyestreaming01/beranda'}" target="_blank" rel="noopener">info selengkapnya</a>`}
         </div>
       `).join('')}
       </div>
