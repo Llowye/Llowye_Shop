@@ -324,7 +324,7 @@
   background:var(--card); border:1px solid var(--line);
   border-radius:14px; padding:14px; margin-bottom:12px;
 }
-.snk-item h3{font-size:14px; margin-bottom:6px; font-weight:600;}
+.snk-item h3{font-size:14px; margin-bottom:6px; font-weight:300;}
 .snk-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
 
    .faq-preview{
@@ -336,7 +336,7 @@
   cursor:pointer;
 }
 .faq-q{
-  font-size:14px; font-weight:700; color:var(--ink);
+  font-size:14px; font-weight:500; color:var(--ink);
   display:flex; justify-content:space-between; align-items:center; gap:8px;
 }
 .faq-arrow{
@@ -391,7 +391,7 @@
   background:var(--card); border:1px solid var(--line);
   border-radius:14px; padding:14px; margin-bottom:12px;
 }
-.faq-static-item h3{font-size:14px; margin-bottom:6px;}
+.faq-static-item h3{font-size:14px; margin-bottom:6px; font-weight:300;}
 .faq-static-item p{font-size:12.5px; color:var(--muted); line-height:1.5;}
   
   /* ============ EDIT AREA (warna & nomor WA) ============ */
@@ -809,8 +809,23 @@
   border:2px solid #fff;
 }
 .step-icon{font-size:26px; margin-bottom:6px;}
-.step-card h3{font-size:14px; margin-bottom:4px;}
+.step-card h3{font-size:14px; margin-bottom:4px; font-weight:300;}
 .step-card p{font-size:11.5px; color:var(--muted); line-height:1.4; text-align:left;}
+
+    .step-card ol{
+  text-align:left;
+  padding-left:18px;
+  margin:0;
+}
+.step-card ol li{
+  font-size:11.5px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-bottom:4px;
+}
+.step-card ol li:last-child{
+  margin-bottom:0;
+}
   
   /* ---------- FOOTER BAR ---------- */
   footer{
@@ -1205,7 +1220,10 @@ Jangan lupa pake Rate reffund ya!</p>
       <div class="step-num">1</div>
       <div class="step-icon">🔍</div>
       <h3>Cari & pilih produk</h3>
-      <p>1) Klik info selengkapnya untuk baca informasi terkait produk.<br>2) Baca juga snk toko kami<br></p>
+      <ol>
+  <li>Search produk yg kamu mau dan klik info selengkapnya untuk baca informasi terkait produk.</li>
+  <li>Baca juga snk toko kami ya!</li>
+</ol>
       <a class="btn-3d" href="javascript:void(0)" onclick="toggleCaraOrder(); highlightSearchBar();" style="--shadow-color:#D6ECFB; display:flex; align-items:center; justify-content:center; gap:6px; background:#EAF6FF; color:#1a5a8a; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
    🛒 Pricelist
 </a>
@@ -1214,7 +1232,11 @@ Jangan lupa pake Rate reffund ya!</p>
   <div class="step-num">2</div>
   <div class="step-icon">💬</div>
   <h3>Order via whatsApp</h3>
-      <p>1) Klik tombol hijau ini<br>2) Lalu sebutkan produk yang kamu inginkan<br>3) Tunggu konfirmasi dari admin ya!</p>
+      <ol>
+  <li>Klik tombol hijau ini.</li>
+  <li>Lalu sebutkan produk yang kamu inginkan</li>
+  <li>Tunggu konfirmasi dari admin ya!</li>
+</ol>
       <a class="btn-3d" href="https://wa.me/628991740111?text=Halo%20Nek%20Llowye!%20Aku%20mau%20order%20dong%20^‿^%20" target="_blank" style="--shadow-color:#8FD6A6; display:flex; align-items:center; justify-content:center; gap:6px; background:#D6F5DD; color:#1B7A3D; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
         <img src="logowa.png" style="width:18px; height:18px; animation: ringPhone 0.8s ease-in-out infinite;">
         WhatsApp
@@ -1224,7 +1246,11 @@ Jangan lupa pake Rate reffund ya!</p>
       <div class="step-num">3</div>
       <div class="step-icon">💳</div>
       <h3>Lakukan pembayaran</h3>
-      <p>1) Setelah admin konfirm<br>2) Tf sesuai harga ke salah satu metode pembayaran yang ada<br>3) Send bukti payment ke admin.</p>
+      <ol>
+  <li>Setelah admin konfirm.</li>
+  <li>Tf sesuai harga ke salah satu metode pembayaran yang ada.</li>
+  <li>Send bukti payment ke admin.</li>
+</ol>
       <a class="btn-3d" href="https://payment.llowyeshop.my.id" target="_blank" style="--shadow-color:#FFE082; display:flex; align-items:center; justify-content:center; gap:6px; background:#FFF0A1; color:#7A5C00; padding:9px 8px; border-radius:999px; font-weight:800; font-size:12px; text-decoration:none; margin-top:10px;">
         💲 Payment
       </a>
@@ -1233,14 +1259,18 @@ Jangan lupa pake Rate reffund ya!</p>
       <div class="step-num">4</div>
       <div class="step-icon">✅</div>
       <h3>Akun akan dikirim</h3>
-      <p>1) Setelah pembayaran, akun atau link akan langsung dikirim<br>2) Proses 5-20 menit ya! Harap bersabar ^^<br>3) Wajib ss login ya!</p>
+      <ol>
+  <li>Setelah pembayaran, akun atau link akan langsung dikirim.</li>
+  <li>Proses 5 - 15 menit ya! Harap bersabar ^^</li>
+  <li>Wajib ss login! max. 24 jam</li>
+</ol>
       <img src="cinta.gif" alt="nenek llowye" style="width:80px; height:auto; margin:12px auto 0; display:block;">
       </a>
     </div>
   </div>
 
   <div class="steps-title" style="margin-top:24px;">
-    <p>Dengan membeli atau menggunakan layanan Premium, Anda dianggap telah membaca, memahami, dan menyetujui seluruh isi S&K ini</p>
+    <p>Dengan membeli atau menggunakan layanan Llowye_Shop, Anda dianggap telah membaca, memahami, dan menyetujui seluruh isi S&K ini</p>
     <button class="steps-toggle" onclick="toggleSnk()">
       Lihat S&K <span class="faq-arrow-side"></span>
     </button>
