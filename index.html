@@ -420,7 +420,7 @@
 .search-back-btn{
   display:flex; align-items:center; gap:6px;
   background:var(--card); border:1px solid var(--line);
-  color:var(--purple); font-weight:700; font-size:13px;
+  color:#FF3B30; font-weight:700; font-size:13px;
   padding:8px 16px; border-radius:999px;
   margin-bottom:10px; cursor:pointer;
   font-family:'Quicksand', sans-serif;
@@ -635,7 +635,7 @@
   display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 .result-item .r-go{
-  font-size:12px; font-weight:700; color:var(--purple); flex-shrink:0;
+  font-size:12px; font-weight:700; color:#FF3B30; flex-shrink:0;
   white-space:nowrap;
 }
   .no-result{
@@ -800,7 +800,7 @@
   top:-10px;
   left:-10px;
   width:26px; height:26px;
-  background:var(--purple);
+  background:#FF3B30;
   color:#fff;
   border-radius:50%;
   display:flex; align-items:center; justify-content:center;
@@ -2165,7 +2165,7 @@ function showSuggestions() {
   
  resultsBox.innerHTML =
   `<button class="search-back-btn" onclick="clearSearchInput()">← Kembali</button>` +
-  `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi Aplikasi Populer</div>` +
+  `<div style="font-size:12px;font-weight:800;color:var(--muted);padding:2px 4px 10px;">🔥 Rekomendasi Aplikasi Populer 🔥</div>` +
   suggested.map(renderResultItem).join('');
 }
 
