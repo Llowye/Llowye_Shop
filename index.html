@@ -336,7 +336,7 @@
   cursor:pointer;
 }
 .faq-q{
-  font-size:14px; font-weight:500; color:var(--ink);
+  font-size:14px; font-weight:650; color:var(--ink);
   display:flex; justify-content:space-between; align-items:center; gap:8px;
 }
 .faq-arrow{
@@ -409,8 +409,10 @@
     /* ---------- TOMBOL PANAH KE ATAS (khusus panel FAQ & SNK) ---------- */
 .panel-top-btn{
   display:none;
-  position:fixed;
-  bottom:24px; right:20px;
+  position:sticky;
+  bottom:24px
+  margin-left:auto;
+  margin-right:20px;
   width:42px; height:42px;
   border-radius:50%;
   background:var(--card);
@@ -1140,7 +1142,7 @@
     <div class="snk-item">
       <h3>Rumus refund/pengajuan pengembalian dana</h3>
       <p>Akun (log-out, banned,backfree, akun ke-lock) di luar ketentuan ini tetap ditangani melalui mekanisme garansi kami.</p>
-      <p>Namun jika akun tidak dapat diperbaiki maka silahkan ajukan refund dengan link berikut.<a href="https://refund.llowyeshop.my.id" target="_blank" style="color:#1a5a8a; font-weight:700; text-decoration:underline;">https://refund.llowyeshop.my.id</a></p>
+      <p>Namun jika akun tidak dapat diperbaiki maka silahkan ajukan refund dengan link berikut ⟶ <a href="https://refund.llowyeshop.my.id" target="_blank" style="color:#1a5a8a; font-weight:700; text-decoration:underline;">https://refund.llowyeshop.my.id</a></p>
     </div>
   </div>
   <button class="panel-top-btn" id="snkPanelTopBtn" onclick="scrollPanelToTop('snkPanel')" title="Kembali ke atas">
